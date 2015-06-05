@@ -1,0 +1,88 @@
+﻿@{
+    var item = ViewBag.Usuario;
+    var itemTel = ViewBag.Usuario.ListaTelefonos;
+    var itemMail = ViewBag.Usuario.ListaMails;
+}
+
+<div id="CargarInfoUsuario">
+    <div class="opciones"> <!-- REVISAR FORMATO ASCO -->
+        <p>Modifique los datos existentes, y luego haga click en 'Confirmar'.</p>
+    </div>
+    
+    <div class="indicaciones">   
+        <span>Información básica:</span>  
+    </div>
+    <form name="formModifUsuario" action="/Abm/ModificarUsuario" method="post" onsubmit="return validarCampos()">
+        <div>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <td>D.N.I. nº</td>
+                        <td>Nombre</td>
+                        <td>Apellido</td>
+                        <td>Fecha de nacimiento</td>
+                        <td>Domicilio</td>
+                        <td>Localidad</td>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td> <input type="text" name="dni" value="@item.Dni"/> </td>
+                            <td> <input type="text" name="nombre" value="@item.Nombre"/> </td>
+                            <td> <input type="text" name="apellido" value="@item.Apellido"/> </td>
+                            <td> <input type="text" name="fecha_nacimiento" value="@item.FechaNacimiento"/> </td>
+                            <td> <input type="text" name="domicilio" value="@item.Domicilio"/> </td>
+                            <td> <input type="text" name="localidad" value="@item.Localidad"/> </td>
+                        </tr>
+                  
+                </tbody>
+            </table>    
+        </div>
+
+        <div class="indicaciones">   
+            <span>Información de contacto (opcional):</span>  
+        </div>
+
+        <div>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <!-- <td></td> -->
+                        <td>Telefonos</td>
+                        <td>Tipo de telefono</td>
+                        <td>Mails</td>
+                        <td>Tipo de mail</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!-- <td> <input type="checkbox" name="check1" id="check1"/> </td> -->
+                        <td> <input type="text" name="telefono1" id="telefono1" value="@itemTel[0].NumeroTel"}/> </td>
+                        <td> <input type="text" name="tipoTel1" id="tipoTel1" value="@itemTel[0].TipoTel"/> </td>
+                        <td> <input type="text" name="mail1" id="mail1" value="@itemMail[0].DireccionMail"/> </td>
+                        <td> <input type="text" name="tipoMail1" id="tipoMail1" value="@itemMail[0].TipoMail"/> </td>
+                    </tr>
+                    <tr>
+                        <!-- <td> <input type="checkbox" name="check2" id="check2"/> </td> -->
+                        <td> <input type="text" name="telefono2" id="telefono2"/> </td>
+                        <td> <input type="text" name="tipoTel2" id="tipoTel2"/> </td>
+                        <td> <input type="text" name="mail2" id="mail2"/> </td>
+                        <td> <input type="text" name="tipoMail2" id="tipoMail2"/> </td>
+                    </tr>
+                    <tr>
+                        <!-- <td> <input type="checkbox" name="check3" id="check3"/> </td> -->
+                        <td> <input type="text" name="telefono3" id="telefono3"/> </td>
+                        <td> <input type="text" name="tipoTel3" id="tipoTel3"/> </td>
+                        <td> <input type="text" name="mail3" id="mail3"/> </td>
+                        <td> <input type="text" name="tipoMail3" id="tipoMail3"/> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+   
+        <div class="boton-submit">
+            <input id="boton_submit" type="submit" value="Confirmar"/>
+        </div>
+
+    </form>
+</div>

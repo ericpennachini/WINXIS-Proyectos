@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+    <link type="text/css" rel="Stylesheet" href="/Content/Site.css"/>
+</head>
+<body>
+    <div>
+        @foreach (var item in @ViewBag.Listado) {
+            <div>
+                @item.nombre             
+            </div>
+        }
+    </div>
+    <div>
+        <a href="/Home/MostrarDatosCompletos">
+            Consultar detalle...
+        </a>
+    </div>
+    <div>
+        <a href="/Home/NuevoUsuario">
+            Nuevo usuario...
+        </a>
+    </div>
+        
+   
+</body>
+</html>

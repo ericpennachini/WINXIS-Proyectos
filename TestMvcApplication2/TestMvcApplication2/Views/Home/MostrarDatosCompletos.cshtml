@@ -1,0 +1,47 @@
+﻿<div id="DetalleUsuarios">
+    <div class="indicaciones">
+        <span>@Idiomas.Resource.DetalleInfo1</span>     
+    </div>
+
+    <table class="tabla">
+        <thead>
+            <tr>
+                <td>@Idiomas.Resource.TDNI</td>
+                <td>@Idiomas.Resource.TNombre</td>
+                <td>@Idiomas.Resource.TApellido</td>
+                <td>@Idiomas.Resource.TFechaNac</td>
+                <td>@Idiomas.Resource.TDomicilio</td>
+                <td>@Idiomas.Resource.TLocalidad</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @ViewBag.Listado) {
+                <tr class="usuario-seleccionado" onclick="cargarDivDetallesUsuario(@item.IdUsuario)">
+                    <td>@item.Dni</td>
+                    <td>@item.Nombre </td>
+                    <td>@item.Apellido </td>
+                    <td>@item.FechaNacimiento </td>
+                    <td>@item.Domicilio </td>
+                    <td>@item.Localidad </td>
+                    <td>
+                        <a href="#" onclick="cargarDivInfoUsuarioModif(@item.IdUsuario)">
+                            @Idiomas.Resource.Modificar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/Abm/EliminarUsuario/@item.IdUsuario" onclick="window.alert('@Idiomas.Resource.AlertUsuarioEliminado');">
+                            @Idiomas.Resource.Borrar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="detalles-usuario" id="contenidoDetalle">
+        
+    </div>
+</div>
+

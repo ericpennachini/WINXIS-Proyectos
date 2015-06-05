@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @12 @15 Member=(Name=Create OverloadingParameters=[(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Create" />
+    <Node Id="(@1 @12 @15 Member=(Name=Delete @34))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Delete" />
+    <Node Id="(@1 @12 @15 Member=(Name=Delete OverloadingParameters=[(@4 @5 Type=Int32),(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Delete" />
+    <Node Id="(@1 @12 @15 Member=(Name=Details @34))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Details" />
+    <Node Id="(@1 @12 @15 Member=(Name=Edit @34))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Edit" />
+    <Node Id="(@1 @12 @15 Member=(Name=Edit OverloadingParameters=[(@4 @5 Type=Int32),(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Edit" />
+    <Node Id="(@1 @12 @15 Member=(Name=ModificarUsuario @34))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="ModificarUsuario" />
+    <Node Id="(@1 @12 @15 Member=Create)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Create" />
+    <Node Id="(@1 @12 @15 Member=Index)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Index" />
+    <Node Id="(@1 @12 @20 Member=(Name=Create OverloadingParameters=[(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Create" />
+    <Node Id="(@1 @12 @20 Member=(Name=Delete @34))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Delete" />
+    <Node Id="(@1 @12 @20 Member=(Name=Delete OverloadingParameters=[(@4 @5 Type=Int32),(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Delete" />
+    <Node Id="(@1 @12 @20 Member=(Name=Details @34))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Details" />
+    <Node Id="(@1 @12 @20 Member=(Name=Edit @34))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Edit" />
+    <Node Id="(@1 @12 @20 Member=(Name=Edit OverloadingParameters=[(@4 @5 Type=Int32),(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Edit" />
+    <Node Id="(@1 @12 @20 Member=Create)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Create" />
+    <Node Id="(@1 @12 @20 Member=Index)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Index" />
+    <Node Id="(@1 @12 @20 Member=NuevoUsuario)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="NuevoUsuario" />
+    <Node Id="(@1 @17 @18 Member=(Name=Conectar OverloadingParameters=[@6,@6,@6,@6]))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Conectar" />
+    <Node Id="(@1 @17 @18 Member=(Name=TraerInfoUsuario @34))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="TraerInfoUsuario" />
+    <Node Id="(@1 @17 @22 Member=(Name=set_DireccionMail @44))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_DireccionMail" />
+    <Node Id="(@1 @17 @22 Member=(Name=set_TipoMail @44))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_TipoMail" />
+    <Node Id="(@1 @17 @27 Member=(Name=set_NumeroTel @44))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_NumeroTel" />
+    <Node Id="(@1 @17 @27 Member=(Name=set_TipoTel @44))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_TipoTel" />
+    <Node Id="(@1 @17 @29 Member=(Name=set_ListaMails OverloadingParameters=[(@4 Namespace=System.Collections.Generic Type=(Name=List GenericParameterCount=1 GenericArguments=[@23]))]))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_ListaMails" />
+    <Node Id="(@1 @17 @29 Member=(Name=set_ListaTelefonos OverloadingParameters=[(@4 Namespace=System.Collections.Generic Type=(Name=List GenericParameterCount=1 GenericArguments=[@28]))]))" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_ListaTelefonos" />
+    <Node Id="(@1 @17 @29 Member=CalcularEdad)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="CalcularEdad" />
+    <Node Id="(@1 @17 @29 Member=get_IdUsuario)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_IdUsuario" />
+    <Node Id="(@1 @2 Member=GetHashCode)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="GetHashCode" />
+    <Node Id="(@1 @2 Member=ToString)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="ToString" />
+    <Node Id="(@1 @2 Member=get_action)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_action" />
+    <Node Id="(@1 @2 Member=get_controller)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_controller" />
+    <Node Id="(@1 @2 Member=get_id)" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_id" />
+    <Node Id="(@1 @24 @25 @53)" Category="CodeSchema_Method" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="MvcApplication" />
+    <Node Id="@10" Category="CodeSchema_Method" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="&lt;&gt;f__AnonymousType0" />
+    <Node Id="@11" Category="CodeSchema_Method" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsExternal="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="&lt;&gt;f__AnonymousType0" />
+    <Node Id="@13" Category="CodeSchema_Class" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPrivate="True" Group="Collapsed" Label="HomeController.&lt;DetallesUsuario&gt;o__SiteContainer2" />
+    <Node Id="@14" Category="CodeSchema_Class" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPrivate="True" Group="Collapsed" Label="HomeController.&lt;MostrarDatosCompletos&gt;o__SiteContainer0" />
+    <Node Id="@16" Category="CodeSchema_Class" CodeSchemaProperty_IsPublic="True" Group="Collapsed" Label="AbmController" />
+    <Node Id="@19" Category="CodeSchema_Class" CodeSchemaProperty_IsPrivate="True" Group="Collapsed" Label="ConexionBD" />
+    <Node Id="@21" Category="CodeSchema_Class" CodeSchemaProperty_IsPublic="True" Group="Collapsed" Label="HomeController" />
+    <Node Id="@23" Category="CodeSchema_Class" CodeSchemaProperty_IsPublic="True" Group="Collapsed" Label="Mail" />
+    <Node Id="@26" Category="CodeSchema_Class" CodeSchemaProperty_IsPublic="True" Group="Collapsed" Label="MvcApplication" />
+    <Node Id="@28" Category="CodeSchema_Class" CodeSchemaProperty_IsPublic="True" Group="Collapsed" Label="Telefono" />
+    <Node Id="@3" Category="CodeSchema_Class" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPrivate="True" Group="Collapsed" Label="&lt;&gt;f__AnonymousType0&lt;&lt;controller&gt;j__TPar,&lt;action&gt;j__TPar,&lt;id&gt;j__TPar&gt;" />
+    <Node Id="@30" Category="CodeSchema_Class" CodeSchemaProperty_IsPublic="True" Group="Collapsed" Label="Usuario" />
+    <Node Id="@31" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_FechaNacimiento" />
+    <Node Id="@32" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="AgregarUsuario" />
+    <Node Id="@33" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="RegisterGlobalFilters" />
+    <Node Id="@35" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="DetallesUsuario" />
+    <Node Id="@36" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="EjecutarConsultaDetalleUsuario" />
+    <Node Id="@37" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="EjecutarDelete" />
+    <Node Id="@38" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="EliminarUsuario" />
+    <Node Id="@39" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_Dni" />
+    <Node Id="@40" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_IdUsuario" />
+    <Node Id="@41" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="AgregarMail" />
+    <Node Id="@43" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="RegisterRoutes" />
+    <Node Id="@45" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_Apellido" />
+    <Node Id="@46" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_Domicilio" />
+    <Node Id="@47" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_Localidad" />
+    <Node Id="@48" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="set_Nombre" />
+    <Node Id="@49" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="AgregarTelefono" />
+    <Node Id="@50" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="EjecutarUpdate" />
+    <Node Id="@51" Category="CodeSchema_Method" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="Mail" />
+    <Node Id="@52" Category="CodeSchema_Method" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="Telefono" />
+    <Node Id="@54" Category="CodeSchema_Method" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="AbmController" />
+    <Node Id="@55" Category="CodeSchema_Method" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="ConexionBD" />
+    <Node Id="@56" Category="CodeSchema_Method" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="HomeController" />
+    <Node Id="@57" Category="CodeSchema_Method" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="Usuario" />
+    <Node Id="@58" Category="CodeSchema_Method" CodeSchemaProperty_IsProtected="True" Label="Application_Start" />
+    <Node Id="@59" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Conectar" />
+    <Node Id="@60" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Desconectar" />
+    <Node Id="@61" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="EjecutarConsultaDetalle" />
+    <Node Id="@62" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_Apellido" />
+    <Node Id="@63" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_DireccionMail" />
+    <Node Id="@64" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_Dni" />
+    <Node Id="@65" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_Domicilio" />
+    <Node Id="@66" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_FechaNacimiento" />
+    <Node Id="@67" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_ListaMails" />
+    <Node Id="@68" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_ListaTelefonos" />
+    <Node Id="@69" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_Localidad" />
+    <Node Id="@70" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_Nombre" />
+    <Node Id="@71" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_NumeroTel" />
+    <Node Id="@72" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_TipoMail" />
+    <Node Id="@73" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" Label="get_TipoTel" />
+    <Node Id="@74" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="MostrarDatosCompletos" />
+    <Node Id="@8" Category="CodeSchema_Class" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsGenericInstance="True" CodeSchemaProperty_IsPrivate="True" Group="Collapsed" Label="&lt;&gt;f__AnonymousType0&lt;String,String,UrlParameter&gt;" />
+    <Node Id="@9" Category="CodeSchema_Method" CodeSchemaProperty_IsPublic="True" Label="Equals" />
+    <Node Id="_standardGraphGenericsGroup" Category="Generics" Group="Collapsed" Label="Genéricos" />
+  </Nodes>
+  <Links>
+    <Link Source="@11" Target="@10" Category="CodeSchema_GenericMemberUse" />
+    <Link Source="@16" Target="(@1 @12 @15 Member=(Name=Create OverloadingParameters=[(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="Contains" />
+    <Link Source="@16" Target="(@1 @12 @15 Member=(Name=Delete @34))" Category="Contains" />
+    <Link Source="@16" Target="(@1 @12 @15 Member=(Name=Delete OverloadingParameters=[(@4 @5 Type=Int32),(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="Contains" />
+    <Link Source="@16" Target="(@1 @12 @15 Member=(Name=Details @34))" Category="Contains" />
+    <Link Source="@16" Target="(@1 @12 @15 Member=(Name=Edit @34))" Category="Contains" />
+    <Link Source="@16" Target="(@1 @12 @15 Member=(Name=Edit OverloadingParameters=[(@4 @5 Type=Int32),(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="Contains" />
+    <Link Source="@16" Target="(@1 @12 @15 Member=(Name=ModificarUsuario @34))" Category="Contains" />
+    <Link Source="@16" Target="(@1 @12 @15 Member=Create)" Category="Contains" />
+    <Link Source="@16" Target="(@1 @12 @15 Member=Index)" Category="Contains" />
+    <Link Source="@16" Target="@19" Category="References">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@16" Target="@32" Category="Contains" />
+    <Link Source="@16" Target="@38" Category="Contains" />
+    <Link Source="@16" Target="@54" Category="Contains" />
+    <Link Source="@19" Target="(@1 @17 @18 Member=(Name=Conectar OverloadingParameters=[@6,@6,@6,@6]))" Category="Contains" />
+    <Link Source="@19" Target="(@1 @17 @18 Member=(Name=TraerInfoUsuario @34))" Category="Contains" />
+    <Link Source="@19" Target="@36" Category="Contains" />
+    <Link Source="@19" Target="@37" Category="Contains" />
+    <Link Source="@19" Target="@50" Category="Contains" />
+    <Link Source="@19" Target="@55" Category="Contains" />
+    <Link Source="@19" Target="@59" Category="Contains" />
+    <Link Source="@19" Target="@60" Category="Contains" />
+    <Link Source="@19" Target="@61" Category="Contains" />
+    <Link Source="@21" Target="(@1 @12 @20 Member=(Name=Create OverloadingParameters=[(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="Contains" />
+    <Link Source="@21" Target="(@1 @12 @20 Member=(Name=Delete @34))" Category="Contains" />
+    <Link Source="@21" Target="(@1 @12 @20 Member=(Name=Delete OverloadingParameters=[(@4 @5 Type=Int32),(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="Contains" />
+    <Link Source="@21" Target="(@1 @12 @20 Member=(Name=Details @34))" Category="Contains" />
+    <Link Source="@21" Target="(@1 @12 @20 Member=(Name=Edit @34))" Category="Contains" />
+    <Link Source="@21" Target="(@1 @12 @20 Member=(Name=Edit OverloadingParameters=[(@4 @5 Type=Int32),(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" Category="Contains" />
+    <Link Source="@21" Target="(@1 @12 @20 Member=Create)" Category="Contains" />
+    <Link Source="@21" Target="(@1 @12 @20 Member=Index)" Category="Contains" />
+    <Link Source="@21" Target="(@1 @12 @20 Member=NuevoUsuario)" Category="Contains" />
+    <Link Source="@21" Target="@13" Category="Contains" />
+    <Link Source="@21" Target="@14" Category="Contains" />
+    <Link Source="@21" Target="@19" Category="References">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@21" Target="@35" Category="Contains" />
+    <Link Source="@21" Target="@56" Category="Contains" />
+    <Link Source="@21" Target="@74" Category="Contains" />
+    <Link Source="@23" Target="(@1 @17 @22 Member=(Name=set_DireccionMail @44))" Category="Contains" />
+    <Link Source="@23" Target="(@1 @17 @22 Member=(Name=set_TipoMail @44))" Category="Contains" />
+    <Link Source="@23" Target="@51" Category="Contains" />
+    <Link Source="@23" Target="@63" Category="Contains" />
+    <Link Source="@23" Target="@72" Category="Contains" />
+    <Link Source="@26" Target="(@1 @24 @25 @53)" Category="Contains" />
+    <Link Source="@26" Target="@33" Category="Contains" />
+    <Link Source="@26" Target="@43" Category="Contains" />
+    <Link Source="@26" Target="@58" Category="Contains" />
+    <Link Source="@28" Target="(@1 @17 @27 Member=(Name=set_NumeroTel @44))" Category="Contains" />
+    <Link Source="@28" Target="(@1 @17 @27 Member=(Name=set_TipoTel @44))" Category="Contains" />
+    <Link Source="@28" Target="@52" Category="Contains" />
+    <Link Source="@28" Target="@71" Category="Contains" />
+    <Link Source="@28" Target="@73" Category="Contains" />
+    <Link Source="@3" Target="(@1 @2 Member=GetHashCode)" Category="Contains" />
+    <Link Source="@3" Target="(@1 @2 Member=ToString)" Category="Contains" />
+    <Link Source="@3" Target="(@1 @2 Member=get_action)" Category="Contains" />
+    <Link Source="@3" Target="(@1 @2 Member=get_controller)" Category="Contains" />
+    <Link Source="@3" Target="(@1 @2 Member=get_id)" Category="Contains" />
+    <Link Source="@3" Target="@10" Category="Contains" />
+    <Link Source="@3" Target="@9" Category="Contains" />
+    <Link Source="@30" Target="(@1 @17 @29 Member=(Name=set_ListaMails OverloadingParameters=[(@4 Namespace=System.Collections.Generic Type=(Name=List GenericParameterCount=1 GenericArguments=[@23]))]))" Category="Contains" />
+    <Link Source="@30" Target="(@1 @17 @29 Member=(Name=set_ListaTelefonos OverloadingParameters=[(@4 Namespace=System.Collections.Generic Type=(Name=List GenericParameterCount=1 GenericArguments=[@28]))]))" Category="Contains" />
+    <Link Source="@30" Target="(@1 @17 @29 Member=CalcularEdad)" Category="Contains" />
+    <Link Source="@30" Target="(@1 @17 @29 Member=get_IdUsuario)" Category="Contains" />
+    <Link Source="@30" Target="@31" Category="Contains" />
+    <Link Source="@30" Target="@39" Category="Contains" />
+    <Link Source="@30" Target="@40" Category="Contains" />
+    <Link Source="@30" Target="@41" Category="Contains" />
+    <Link Source="@30" Target="@45" Category="Contains" />
+    <Link Source="@30" Target="@46" Category="Contains" />
+    <Link Source="@30" Target="@47" Category="Contains" />
+    <Link Source="@30" Target="@48" Category="Contains" />
+    <Link Source="@30" Target="@49" Category="Contains" />
+    <Link Source="@30" Target="@57" Category="Contains" />
+    <Link Source="@30" Target="@62" Category="Contains" />
+    <Link Source="@30" Target="@64" Category="Contains" />
+    <Link Source="@30" Target="@65" Category="Contains" />
+    <Link Source="@30" Target="@66" Category="Contains" />
+    <Link Source="@30" Target="@67" Category="Contains" />
+    <Link Source="@30" Target="@68" Category="Contains" />
+    <Link Source="@30" Target="@69" Category="Contains" />
+    <Link Source="@30" Target="@70" Category="Contains" />
+    <Link Source="@32" Target="@30" Category="References" />
+    <Link Source="@32" Target="@31" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@39" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@41" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@45" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@46" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@47" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@48" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@49" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@50" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@51" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@52" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@57" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@59" Category="CodeSchema_Calls" />
+    <Link Source="@32" Target="@60" Category="CodeSchema_Calls" />
+    <Link Source="@35" Target="@13" Category="References" />
+    <Link Source="@35" Target="@21" Category="References" />
+    <Link Source="@35" Target="@30" Category="References" />
+    <Link Source="@35" Target="@36" Category="CodeSchema_Calls" />
+    <Link Source="@35" Target="@57" Category="CodeSchema_Calls" />
+    <Link Source="@35" Target="@59" Category="CodeSchema_Calls" />
+    <Link Source="@35" Target="@60" Category="CodeSchema_Calls" />
+    <Link Source="@35" Target="@67" Category="CodeSchema_Calls" />
+    <Link Source="@35" Target="@68" Category="CodeSchema_Calls" />
+    <Link Source="@36" Target="@30" Category="References">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@36" Target="@41" Category="CodeSchema_Calls" />
+    <Link Source="@36" Target="@49" Category="CodeSchema_Calls" />
+    <Link Source="@36" Target="@51" Category="CodeSchema_Calls" />
+    <Link Source="@36" Target="@52" Category="CodeSchema_Calls" />
+    <Link Source="@36" Target="@57" Category="CodeSchema_Calls" />
+    <Link Source="@38" Target="@37" Category="CodeSchema_Calls" />
+    <Link Source="@38" Target="@59" Category="CodeSchema_Calls" />
+    <Link Source="@38" Target="@60" Category="CodeSchema_Calls" />
+    <Link Source="@43" Target="@11" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@62" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@63" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@64" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@65" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@66" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@67" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@68" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@69" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@70" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@71" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@72" Category="CodeSchema_Calls" />
+    <Link Source="@50" Target="@73" Category="CodeSchema_Calls" />
+    <Link Source="@54" Target="@55" Category="CodeSchema_Calls" />
+    <Link Source="@56" Target="@55" Category="CodeSchema_Calls" />
+    <Link Source="@58" Target="@33" Category="CodeSchema_Calls" />
+    <Link Source="@58" Target="@43" Category="CodeSchema_Calls" />
+    <Link Source="@61" Target="@30" Category="References" />
+    <Link Source="@61" Target="@31" Category="CodeSchema_Calls" />
+    <Link Source="@61" Target="@39" Category="CodeSchema_Calls" />
+    <Link Source="@61" Target="@40" Category="CodeSchema_Calls" />
+    <Link Source="@61" Target="@45" Category="CodeSchema_Calls" />
+    <Link Source="@61" Target="@46" Category="CodeSchema_Calls" />
+    <Link Source="@61" Target="@47" Category="CodeSchema_Calls" />
+    <Link Source="@61" Target="@48" Category="CodeSchema_Calls" />
+    <Link Source="@61" Target="@57" Category="CodeSchema_Calls" />
+    <Link Source="@74" Target="@14" Category="References" />
+    <Link Source="@74" Target="@21" Category="References" />
+    <Link Source="@74" Target="@59" Category="CodeSchema_Calls" />
+    <Link Source="@74" Target="@60" Category="CodeSchema_Calls" />
+    <Link Source="@74" Target="@61" Category="CodeSchema_Calls" />
+    <Link Source="@8" Target="@11" Category="Contains" />
+    <Link Source="@8" Target="@3" Category="CodeSchema_GenericTypeUse" />
+    <Link Source="@9" Target="@3" Category="References" />
+    <Link Source="_standardGraphGenericsGroup" Target="@8" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Block" Label="Bloque" BasedOn="CodeSchema_Statement" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" IsProviderRoot="False" NavigationActionLabel="Bloques" />
+    <Category Id="CodeSchema_Calls" Label="Llamadas" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Llamado por" OutgoingActionLabel="Llama a" />
+    <Category Id="CodeSchema_Class" Label="Clase" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" IsProviderRoot="False" NavigationActionLabel="Clases" />
+    <Category Id="CodeSchema_GenericMemberUse" Label="Uso de miembro genérico" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Definición de miembro genérico" OutgoingActionLabel="Usos de miembro genérico" />
+    <Category Id="CodeSchema_GenericTypeUse" Label="Uso de tipo genérico" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Definición de tipo genérico" OutgoingActionLabel="Usos de tipo genérico" />
+    <Category Id="CodeSchema_Member" Label="Miembro" BasedOn="CodeSchema_Block" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" IsProviderRoot="False" NavigationActionLabel="Miembros" />
+    <Category Id="CodeSchema_Method" Label="Método" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" IsProviderRoot="False" NavigationActionLabel="Métodos" />
+    <Category Id="CodeSchema_ReturnTypeLink" Label="Tipo devuelto" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Tipos devueltos" OutgoingActionLabel="Tipos devueltos" />
+    <Category Id="CodeSchema_Statement" Label="Instrucción" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" IsProviderRoot="False" NavigationActionLabel="Instrucción" />
+    <Category Id="CodeSchema_Type" Label="Tipo" BasedOn="CodeSchema_Block" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" IsProviderRoot="False" NavigationActionLabel="Tipos" />
+    <Category Id="Contains" Label="Contiene" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contenido por" IsContainment="True" OutgoingActionLabel="Contiene" />
+    <Category Id="Generics" Label="Genéricos" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="Genéricos" />
+    <Category Id="References" Label="Hace referencia a" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenciado por" OutgoingActionLabel="Hace referencia a" />
+  </Categories>
+  <Properties>
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsCompilerGenerated" Label="IsCompilerGenerated" Description="IsCompilerGenerated" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="IsConstructor" Description="IsConstructor" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsExternal" Label="IsExternal" Description="IsExternal" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsGenericInstance" Label="IsGenericInstance" Description="IsGenericInstance" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="IsPrivate" Description="IsPrivate" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsProtected" Label="IsProtected" Description="IsProtected" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="IsPublic" Description="IsPublic" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsSpecialName" Label="IsSpecialName" Description="IsSpecialName" DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Group" Label="Grupo" Description="Muestra el nodo como un grupo." DataType="Microsoft.VisualStudio.Progression.GraphModel.GroupStyle" />
+    <Property Id="Icon" Label="Icono" Description="Icono" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsProviderRoot" Label="IsProviderRoot" Description="IsProviderRoot" DataType="System.Boolean" />
+    <Property Id="Label" Label="Etiqueta" Description="Etiqueta Displayable de un objeto Annotatable." DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Ensamblado" ValueType="Uri" />
+    <Name Id="GenericArguments" Label="Argumentos genéricos" ValueType="Microsoft.VisualStudio.Progression.GraphModel.QualifiedIdentifierArrayCollection" />
+    <Name Id="GenericParameterCount" Label="Recuento de parámetros genéricos" ValueType="System.String" />
+    <Name Id="Member" Label="Miembro" ValueType="System.Object" />
+    <Name Id="Name" Label="Nombre" ValueType="System.String" />
+    <Name Id="Namespace" Label="Espacio de nombres" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parámetro" ValueType="Microsoft.VisualStudio.Progression.GraphModel.QualifiedIdentifierArrayCollection" Formatter="NameValueNoEscape" />
+    <Name Id="ParentType" Label="Tipo primario" ValueType="System.Object" />
+    <Name Id="Type" Label="Tipo" ValueType="System.Object" />
+  </QualifiedNames>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Ensamblado" ValueLabel="Tiene categoría">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#1C3068" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Espacio de nombres" ValueLabel="Tiene categoría">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#4A65A0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Tipo" ValueLabel="Tiene categoría">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#D3DCEF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Método" ValueLabel="Tiene categoría">
+      <Condition Expression="HasCategory('CodeSchema_Method')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Genéricos" ValueLabel="Tiene categoría">
+      <Condition Expression="HasCategory('Generics')" />
+      <Setter Property="Background" Value="#FFA080A0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externos" ValueLabel="Tiene categoría">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FFA08080" />
+    </Style>
+  </Styles>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(73e89035-cd5e-498f-9bc1-2da67fdc46df.OutputPathUri)" />
+    <Alias n="2" Id="Type=(Name=&lt;&gt;f__AnonymousType0 GenericParameterCount=3)" />
+    <Alias n="3" Id="(@1 @2)" />
+    <Alias n="4" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll" />
+    <Alias n="5" Id="Namespace=System" />
+    <Alias n="6" Id="(@4 @5 Type=String)" />
+    <Alias n="7" Uri="Assembly=$(ProgramFilesUri)/Microsoft ASP.NET/ASP.NET MVC 3/Assemblies/System.Web.Mvc.dll" />
+    <Alias n="8" Id="(@1 Type=(Name=&lt;&gt;f__AnonymousType0 GenericParameterCount=3 GenericArguments=[@6,@6,(@7 Namespace=System.Web.Mvc Type=UrlParameter)]))" />
+    <Alias n="9" Id="(@1 @2 Member=(Name=Equals OverloadingParameters=[(@4 @5 Type=Object)]))" />
+    <Alias n="10" Id="(@1 @2 Member=(Name=.ctor OverloadingParameters=[(@1 Type=&lt;controller&gt;j__TPar),(@1 Type=&lt;action&gt;j__TPar),(@1 Type=&lt;id&gt;j__TPar)]))" />
+    <Alias n="11" Id="(@1 Type=(Name=&lt;&gt;f__AnonymousType0 GenericParameterCount=3 GenericArguments=[@6,@6,(@7 Namespace=System.Web.Mvc Type=UrlParameter)]) Member=(Name=.ctor OverloadingParameters=[@6,@6,(@7 Namespace=System.Web.Mvc Type=UrlParameter)]))" />
+    <Alias n="12" Id="Namespace=TestMvcApplication2.Controllers" />
+    <Alias n="13" Id="(@1 @12 Type=(Name=&lt;DetallesUsuario&gt;o__SiteContainer2 ParentType=HomeController))" />
+    <Alias n="14" Id="(@1 @12 Type=(Name=&lt;MostrarDatosCompletos&gt;o__SiteContainer0 ParentType=HomeController))" />
+    <Alias n="15" Id="Type=AbmController" />
+    <Alias n="16" Id="(@1 @12 @15)" />
+    <Alias n="17" Id="Namespace=TestMvcApplication2.Models" />
+    <Alias n="18" Id="Type=ConexionBD" />
+    <Alias n="19" Id="(@1 @17 @18)" />
+    <Alias n="20" Id="Type=HomeController" />
+    <Alias n="21" Id="(@1 @12 @20)" />
+    <Alias n="22" Id="Type=Mail" />
+    <Alias n="23" Id="(@1 @17 @22)" />
+    <Alias n="24" Id="Namespace=TestMvcApplication2" />
+    <Alias n="25" Id="Type=MvcApplication" />
+    <Alias n="26" Id="(@1 @24 @25)" />
+    <Alias n="27" Id="Type=Telefono" />
+    <Alias n="28" Id="(@1 @17 @27)" />
+    <Alias n="29" Id="Type=Usuario" />
+    <Alias n="30" Id="(@1 @17 @29)" />
+    <Alias n="31" Id="(@1 @17 @29 Member=(Name=set_FechaNacimiento OverloadingParameters=[(@4 @5 Type=DateTime)]))" />
+    <Alias n="32" Id="(@1 @12 @15 Member=(Name=AgregarUsuario OverloadingParameters=[(@7 Namespace=System.Web.Mvc Type=FormCollection)]))" />
+    <Alias n="33" Id="(@1 @24 @25 Member=(Name=RegisterGlobalFilters OverloadingParameters=[(@7 Namespace=System.Web.Mvc Type=GlobalFilterCollection)]))" />
+    <Alias n="34" Id="OverloadingParameters=[(@4 @5 Type=Int32)]" />
+    <Alias n="35" Id="(@1 @12 @20 Member=(Name=DetallesUsuario @34))" />
+    <Alias n="36" Id="(@1 @17 @18 Member=(Name=EjecutarConsultaDetalleUsuario @34))" />
+    <Alias n="37" Id="(@1 @17 @18 Member=(Name=EjecutarDelete @34))" />
+    <Alias n="38" Id="(@1 @12 @15 Member=(Name=EliminarUsuario @34))" />
+    <Alias n="39" Id="(@1 @17 @29 Member=(Name=set_Dni @34))" />
+    <Alias n="40" Id="(@1 @17 @29 Member=(Name=set_IdUsuario @34))" />
+    <Alias n="41" Id="(@1 @17 @29 Member=(Name=AgregarMail OverloadingParameters=[@23]))" />
+    <Alias n="42" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.0/System.Web.dll" />
+    <Alias n="43" Id="(@1 @24 @25 Member=(Name=RegisterRoutes OverloadingParameters=[(@42 Namespace=System.Web.Routing Type=RouteCollection)]))" />
+    <Alias n="44" Id="OverloadingParameters=[@6]" />
+    <Alias n="45" Id="(@1 @17 @29 Member=(Name=set_Apellido @44))" />
+    <Alias n="46" Id="(@1 @17 @29 Member=(Name=set_Domicilio @44))" />
+    <Alias n="47" Id="(@1 @17 @29 Member=(Name=set_Localidad @44))" />
+    <Alias n="48" Id="(@1 @17 @29 Member=(Name=set_Nombre @44))" />
+    <Alias n="49" Id="(@1 @17 @29 Member=(Name=AgregarTelefono OverloadingParameters=[@28]))" />
+    <Alias n="50" Id="(@1 @17 @18 Member=(Name=EjecutarUpdate OverloadingParameters=[@30]))" />
+    <Alias n="51" Id="(@1 @17 @22 Member=(Name=.ctor OverloadingParameters=[@6,@6]))" />
+    <Alias n="52" Id="(@1 @17 @27 Member=(Name=.ctor OverloadingParameters=[@6,@6]))" />
+    <Alias n="53" Id="Member=.ctor" />
+    <Alias n="54" Id="(@1 @12 @15 @53)" />
+    <Alias n="55" Id="(@1 @17 @18 @53)" />
+    <Alias n="56" Id="(@1 @12 @20 @53)" />
+    <Alias n="57" Id="(@1 @17 @29 @53)" />
+    <Alias n="58" Id="(@1 @24 @25 Member=Application_Start)" />
+    <Alias n="59" Id="(@1 @17 @18 Member=Conectar)" />
+    <Alias n="60" Id="(@1 @17 @18 Member=Desconectar)" />
+    <Alias n="61" Id="(@1 @17 @18 Member=EjecutarConsultaDetalle)" />
+    <Alias n="62" Id="(@1 @17 @29 Member=get_Apellido)" />
+    <Alias n="63" Id="(@1 @17 @22 Member=get_DireccionMail)" />
+    <Alias n="64" Id="(@1 @17 @29 Member=get_Dni)" />
+    <Alias n="65" Id="(@1 @17 @29 Member=get_Domicilio)" />
+    <Alias n="66" Id="(@1 @17 @29 Member=get_FechaNacimiento)" />
+    <Alias n="67" Id="(@1 @17 @29 Member=get_ListaMails)" />
+    <Alias n="68" Id="(@1 @17 @29 Member=get_ListaTelefonos)" />
+    <Alias n="69" Id="(@1 @17 @29 Member=get_Localidad)" />
+    <Alias n="70" Id="(@1 @17 @29 Member=get_Nombre)" />
+    <Alias n="71" Id="(@1 @17 @27 Member=get_NumeroTel)" />
+    <Alias n="72" Id="(@1 @17 @22 Member=get_TipoMail)" />
+    <Alias n="73" Id="(@1 @17 @27 Member=get_TipoTel)" />
+    <Alias n="74" Id="(@1 @12 @20 Member=MostrarDatosCompletos)" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="73e89035-cd5e-498f-9bc1-2da67fdc46df.OutputPathUri" Value="file:///C:/Users/Eric/Documents/Visual Studio 2010/Projects/TestMvcApplication2/TestMvcApplication2/bin/TestMvcApplication2.dll" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+    <Path Id="ProgramFilesUri" Value="file:///C:/Program Files (x86)" />
+  </Paths>
+</DirectedGraph>

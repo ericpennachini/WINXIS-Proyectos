@@ -1,0 +1,25 @@
+﻿<div id="detalles">
+    <div class="indicaciones">
+        @Idiomas.Resource.DetalleInfo2
+    </div>
+    <dl style="list-style-type:circle;">
+        <dt>
+            <span><b>@Idiomas.Resource.DetalleInfoTel</b></span> <!-- telefonos -->
+            @foreach (var item in @ViewBag.Telefonos)
+            {
+                <dd>
+                    <span>@item.NumeroTel: </span><span><i>@item.TipoTel </i></span>
+                </dd>
+            }
+        </dt>
+        <dt>
+            <span><b>@Idiomas.Resource.DetalleInfoMail</b></span> <!-- mails -->
+            @foreach (var item in @ViewBag.Mails)
+            {
+                <dd>
+                    <span>@item.DireccionMail: </span><span><i>@item.TipoMail </i></span>
+                </dd>
+            }
+        </dt>
+    </dl>
+</div>

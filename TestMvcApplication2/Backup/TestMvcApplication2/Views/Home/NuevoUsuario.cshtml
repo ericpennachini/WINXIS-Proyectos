@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Nuevo usuario</title>
+    <link type="text/css" rel="Stylesheet" href="/Content/Site.css"/>
+    <script src="/Scripts/jscript.validacion.js"></script>
+    <script src="/Scripts/jquery.mis-funciones.js"></script>
+</head>
+<body>
+    <div>
+        <p>
+            Ingrese los datos del nuevo usuario:
+        </p>    
+    </div>
+    <form name="formAltaUsuario" action="/Home/AgregarUsuario" method="post" onsubmit="return validarCampos()">
+        <div>
+            <table border="2" style="width: 100%">
+                <thead style="background-color: #99ADEB;">
+                    <tr>
+                        <td>D.N.I. nº</td>
+                        <td>Nombre</td>
+                        <td>Apellido</td>
+                        <td>Fecha de nacimiento</td>
+                        <td>Domicilio</td>
+                        <td>Localidad</td>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td> <input type="text" name="dni"/> </td>
+                            <td> <input type="text" name="nombre"/> </td>
+                            <td> <input type="text" name="apellido"/> </td>
+                            <td> <input type="text" name="fecha_nacimiento"/> </td>
+                            <td> <input type="text" name="domicilio"/> </td>
+                            <td> <input type="text" name="localidad"/> </td>
+                        </tr>
+                </tbody>
+            </table>    
+        </div>
+   
+        <div class="boton-submit">
+            <input id="boton_submit" type="submit" value="Confirmar"/>
+        </div>
+        <div>
+            <a href="Index">Volver al inicio</a>
+        </div>
+
+    </form>
+</body>
+</html>

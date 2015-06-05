@@ -1,0 +1,40 @@
+﻿| APLICAR LOCALIZACIÓN A UNA SITIO en ASP MVC3 .NET (usando Razor): |
+| [En base al idioma del navegador]                                 |
+|___________________________________________________________________|
+
+1-) Crear archivos de recursos (uno para cada idioma). Hacer una carpeta 'Recursos' -por ej.- y dentro de dicha carpeta van los archivos.
+	El nombre del archivo se compone de: "[nombre_archivo].[cultura].resx". La 'cultura' puede ser NEUTRAL, solamente el código de lenguaje (en, es, ru, ...), o CONCRETA, agregando un código de región (en-US para EE.UU., es-AR para español de Argentina, etc.).
+	Por defecto, si no se especifica ninguna cultura, es 'en' (ingles).
+
+2-) Estos archivos estan compuestos de forma CLAVE - VALOR. La CLAVE es el nombre del elemento de la página HTML que se quiere que cambie el lenguaje, y el VALOR es la cadena (string) que se va a mostrar, escrita en el idioma deseado.
+	Por ejemplo, si se tiene un sitio que se quiere mostrar en español e ingles tendría dos archivos: Resource.resx (en ingles) y Resource.es-AR.resx (en español de Argentina).
+	Si quiero mostrar un elemento en la página que originalmente tiene el texto 'Hola numdo', especifico:
+		| TextoEjemplo | Hola mundo | en 'Resource.es-AR.resx'
+		| TextoEjepmlo | Hello world | en 'Resource.resx'
+
+3-) Hacer tantos archivos como idiomas tenga. Es recomendable estructurar los archivos de recursos en carpetas como las vistas.
+	Para poder acceder a los recursos, hay que modificar su acceso a 'Public', ya que por defecto es 'Internal'. 
+	Además, se debe especificar el espacio de nombres (namespace) del archivo, en la ventana Propiedades.
+
+4-) Una vez que tengo los archivos creados, en las vistas hay que modificar los elementos que contienen texto, cambiando dicho texto por las claves que creamos en los archivos.
+	Por ejemplo: si tengo la siguiente estructura:
+		<div>
+			<p>Hola mundo</p>
+		</div>
+	Reemplazar 'Hola mundo' por lo siguiente: [namespace].[nombre-archivo].[clave]
+	>>> ¡¡¡EL NOMBRE DEL ARCHIVO SE ESPECIFICA SIN LA CULTURA!!! <<<
+	El bloque anterior queda asi, por ejemplo:
+		<div>
+			<p>@Idiomas.Resource.TextoEjemplo</p> <!-- sintaxis de Razor -->
+		</div>
+
+5-) Hecho todo esto, abrir el archivo 'Global.asax' y agregar el siguiente método:
+		protected void Application_AcquireRequestState(object sender, EventArgs e)
+		{
+			CultureInfo ci = new CultureInfo(System.Threading.Thread.CurrentThread.CurrentUICulture.Name);
+			System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(ci.Name);
+		}
+	El prósito de este método es presentar la página de acuerdo el idioma del navegador (System.Threading.Thread.CurrentThread.CurrentUICulture.Name)
+	Para probar, cambiar el idioma del navegador.
+
+6-) Ejecutar la aplicación y verificar los cambios.
