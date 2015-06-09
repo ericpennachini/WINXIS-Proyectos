@@ -1,0 +1,63 @@
+﻿<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:ar="http://ar.gov.afip.dif.fev1/">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <FECAESolicitar>
+      <!--Optional:-->
+      <Auth>
+        <Token>PD94.....</Token>
+        <Sign>tYft0........</Sign>
+        <Cuit>33693450239</Cuit>
+      </Auth>
+      <FeCAEReq>
+        <FeCabReq>
+          <CantReg>1</CantReg>
+          <PtoVta>12</PtoVta>
+          <CbteTipo>1</CbteTipo> --> FACTURA A
+        </FeCabReq>
+        <FeDetReq>
+          <FEDetRequest>
+            <Concepto>1</Concepto> --> Productos
+            <DocTipo>80</DocTipo> --> CUIT
+            <DocNro>20111111112</DocNro>
+            <CbteDesde>1</CbteDesde>
+            <CbteHasta>1</CbteHasta>
+            <CbteFch>20100903</CbteFch>
+            <ImpTotal>184.05</ImpTotal>
+            <ImpTotConc>0</ImpTotConc>
+            <ImpNeto>150</ImpNeto>
+            <ImpOpEx>0</ImpOpEx>
+            <ImpTrib>7.8</ImpTrib>
+            <ImpIVA>26.25</ImpIVA>
+            <FchServDesde></FchServDesde>
+            <FchServHasta></FchServHasta>
+            <FchVtoPago></FchVtoPago>
+            <MonId>PES</MonId>
+            <MonCotiz>1</MonCotiz>
+            <Tributos>
+              <Tributo>
+                <Id>99</Id>
+                <Desc>Impuesto Municipal Matanza</Desc>
+                <BaseImp>150</BaseImp>
+                <Alic>5.2</Alic>
+                <Importe>7.8</Importe>
+              </Tributo>
+            </Tributos>
+            <Iva>
+              <AlicIva>
+                <Id>5</Id> --> 21%
+                <BaseImp>100</BaseImp>
+                <Importe>21</Importe>
+              </AlicIva>
+              <AlicIva>
+                <Id>4</Id> --> 10.5%
+                <BaseImp>50</BaseImp>
+                <Importe>5.25</Importe>
+              </AlicIva>
+            </Iva>
+          </FEDetRequest>
+        </FeDetReq>
+      </FeCAEReq>
+    </FECAESolicitar>
+  </soapenv:Body>
+</soapenv:Envelope>
