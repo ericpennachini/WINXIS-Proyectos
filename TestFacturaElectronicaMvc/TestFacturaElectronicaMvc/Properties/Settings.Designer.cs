@@ -22,15 +22,5 @@ namespace TestFacturaElectronicaMvc.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://wswhomo.afip.gov.ar/wsfev1/service.asmx")]
-        public string TestFacturaElectronicaMvc_ar_gov_afip_wswhomo_Service {
-            get {
-                return ((string)(this["TestFacturaElectronicaMvc_ar_gov_afip_wswhomo_Service"]));
-            }
-        }
     }
 }
