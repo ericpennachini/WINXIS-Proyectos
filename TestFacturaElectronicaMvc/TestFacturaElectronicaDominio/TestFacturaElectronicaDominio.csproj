@@ -40,9 +40,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WSAFIPFE">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\SC\WSAFIPFE\WSAFIPFE.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ServFactElect.cs" />
@@ -57,7 +54,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\FacturaElectronicaWS\service.wsdl" />
     <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.CbteTipoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
