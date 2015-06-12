@@ -1,9 +1,0 @@
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaDominio\bin\Debug\TestFacturaElectronicaDominio.dll.config
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaDominio\bin\Debug\TestFacturaElectronicaDominio.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaDominio\bin\Debug\TestFacturaElectronicaDominio.pdb
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaDominio\bin\Debug\WSAFIPFE.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaDominio\bin\Debug\Google.GData.Spreadsheets.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaDominio\bin\Debug\Google.GData.Client.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaDominio\bin\Debug\Google.GData.Extensions.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaDominio\obj\Debug\TestFacturaElectronicaDominio.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaDominio\obj\Debug\TestFacturaElectronicaDominio.pdb
