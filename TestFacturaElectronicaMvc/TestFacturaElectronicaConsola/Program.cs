@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using TestFacturaElectronicaDominio;
 using TestFacturaElectronicaDominio.FacturaElectronicaWS;
+using TestFacturaElectronicaDominio.LoginWS;
 
 namespace TestFacturaElectronicaConsola
 {
@@ -13,6 +14,11 @@ namespace TestFacturaElectronicaConsola
         {
             //try
             //{
+            
+            loginCmsRequest logReq = new loginCmsRequest();
+            logReq.in0 = "C:\\Program Files (x86)\\PyAfipWs\\pennachini_prueba_wsass.crt";
+            
+                
                 ServiceSoapClient f = new ServiceSoapClient();
                 ServFactElect servicio = new ServFactElect();
                 FEAuthRequest autorizacion = new FEAuthRequest();

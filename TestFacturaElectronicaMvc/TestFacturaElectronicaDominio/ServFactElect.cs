@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TestFacturaElectronicaDominio.FacturaElectronicaWS;
+using TestFacturaElectronicaDominio.LoginWS;
 
 namespace TestFacturaElectronicaDominio
 {
@@ -14,8 +15,8 @@ namespace TestFacturaElectronicaDominio
 
             FEAuthRequest autorizacion = new FEAuthRequest();
 
-            autorizacion.Sign = "lkj34h23k4j5";
-            autorizacion.Token = "mnbv43m54nvb635";
+            autorizacion.Sign = "";
+            autorizacion.Token = "";
             autorizacion.Cuit = 20360999301;
             
             return autorizacion;
