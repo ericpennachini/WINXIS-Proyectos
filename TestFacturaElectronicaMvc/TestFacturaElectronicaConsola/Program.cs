@@ -10,67 +10,54 @@ namespace TestFacturaElectronicaConsola
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             try
             {
+                LoginCMSClient login = new LoginCMSClient();
                 
-                ServiceSoapClient fServ = new ServiceSoapClient();
-                ServFactElect servicio = new ServFactElect();
-                FEAuthRequest autorizacion = new FEAuthRequest();
-                FECAERequest request = new FECAERequest();
-                FECAEResponse response = new FECAEResponse();
-                LoginCMSClient login = new LoginCMSClient(); // ver como autenticarse desde el codigo
-            
-                
-                //Instancio algunos campos del response que son compuestos, y tambien sus subcampos
-                //Observaciones (solo uno para prueba)
-                response.FeDetResp = new FECAEDetResponse[1];
-                response.FeDetResp[0] = new FECAEDetResponse();
-                response.FeDetResp[0].Observaciones = new Obs[1];
-                response.FeDetResp[0].Observaciones[0] = new Obs();
-                
-                //Errores
-                response.Errors = new Err[5];
-                for (int i = 0; i < 5; i++)
-                {
-                    response.Errors[i] = new Err();
-                }
 
-                
-                //Obtengo la autorizacion
-                autorizacion = servicio.Autorizar();
+
+
+
+                ServFactElect servicio = new ServFactElect();
+
+                Console.Write("Ingrese un CUIT: ");
+                long cuit = Convert.ToInt64(Console.ReadLine());
+                //Realizo la autorizacion
+                servicio.Autorizar(cuit);
                 //Llamo al método que arma el request, que serian los campos de la factura
-                request = servicio.ConfigurarRequest();
-                //Llamo al web service, y me devuelve la respuesta (response)
-                response = fServ.FECAESolicitar(autorizacion, request); //necesita una autorizacion y el request
+                servicio.ConfigurarRequest();
+                //Llamo al web service mandandole el request con la autorizacion
+                servicio.Solicitar();
 
                 //Muestro los resultados
-                switch (response.FeCabResp.Resultado)
+                switch (servicio.Response.FeCabResp.Resultado)
                 {
                     case "A":
-                        Console.WriteLine("Resultado: " + response.FeCabResp.Resultado + " (Aprobado)");
+                        Console.WriteLine("Resultado: " + servicio.Response.FeCabResp.Resultado + " (Aprobado)");
                         break;
                     case "P":
-                        Console.WriteLine("Resultado: " + response.FeCabResp.Resultado + " (Parcial)");
+                        Console.WriteLine("Resultado: " + servicio.Response.FeCabResp.Resultado + " (Parcial)");
                         break;
                     case "R":
-                        Console.WriteLine("Resultado: " + response.FeCabResp.Resultado + " (Rechazado)");
+                        Console.WriteLine("Resultado: " + servicio.Response.FeCabResp.Resultado + " (Rechazado)");
                         break;
                 }
 
-                if (response.Errors != null)
+                if (servicio.Response.Errors != null)
                 {
-                    for (int i = 0; i < response.Errors.Length; i++)
+                    for (int i = 0; i < servicio.Response.Errors.Length; i++)
                     {
-                        Console.WriteLine("Error: " + response.Errors[i].Code + " -> " + response.Errors[i].Msg);
+                        Console.WriteLine("Error: " + servicio.Response.Errors[i].Code + " -> " + servicio.Response.Errors[i].Msg);
                         Console.WriteLine("-------------");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("CAE = " + response.FeDetResp[0].CAE + "\n Vencimiento: " + servicio.ConvertirAFormatoFecha(response.FeDetResp[0].CAEFchVto));
-                    Console.WriteLine(response.FeCabResp.PtoVta);
+                    Console.WriteLine("CAE = " + servicio.Response.FeDetResp[0].CAE + "\n Vencimiento: " + servicio.ConvertirAFormatoFecha(servicio.Response.FeDetResp[0].CAEFchVto));
+                    Console.WriteLine(servicio.Response.FeCabResp.PtoVta);
                 }
                 Console.ReadKey();
             }
@@ -82,7 +69,7 @@ namespace TestFacturaElectronicaConsola
                 Console.WriteLine("\n \n- En: " + ex.TargetSite);
                 Console.ReadKey();
             }
-            
+
         }
     }
 }

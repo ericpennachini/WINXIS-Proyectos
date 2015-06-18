@@ -9,24 +9,91 @@ namespace TestFacturaElectronicaDominio
 {
     public class ServFactElect
     {
-        //ServiceSoapClient fServ = new ServiceSoapClient();
-        
-        public FEAuthRequest Autorizar()
+        #region Campos
+        private ServiceSoapClient _fServ;
+        private FEAuthRequest _autorizacion;
+        private FECAERequest _request;
+        private FECAEResponse _response;
+        #endregion
+
+        #region Constructor
+        public ServFactElect()
         {
+            _fServ = new ServiceSoapClient();
+            _autorizacion = new FEAuthRequest();
+            _request = new FECAERequest();
+            _response = new FECAEResponse();
 
-            FEAuthRequest _autorizacion = new FEAuthRequest();
+            //Instancio algunos campos del response que son compuestos, y tambien sus subcampos
+            _response.FeDetResp = new FECAEDetResponse[1];
+            _response.FeDetResp[0] = new FECAEDetResponse();
+            //Observaciones (solo uno para prueba)
+            _response.FeDetResp[0].Observaciones = new Obs[1];
+            _response.FeDetResp[0].Observaciones[0] = new Obs();
+            //Errores
+            _response.Errors = new Err[5];
+            for (int i = 0; i < 5; i++)
+            {
+                _response.Errors[i] = new Err();
+            }
+        }
+        #endregion
 
-            _autorizacion.Token = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgdW5pcXVlX2lkPSIxMzI3MTk1MDgwIiBzcmM9IkNOPXdzYWFob21vLCBPPUFGSVAsIEM9QVIsIFNFUklBTE5VTUJFUj1DVUlUIDMzNjkzNDUwMjM5IiBnZW5fdGltZT0iMTQzNDU0MTgyNiIgZXhwX3RpbWU9IjE0MzQ1ODUwODYiIGRzdD0iQ049d3NmZSwgTz1BRklQLCBDPUFSIi8+CiAgICA8b3BlcmF0aW9uIHZhbHVlPSJncmFudGVkIiB0eXBlPSJsb2dpbiI+CiAgICAgICAgPGxvZ2luIHVpZD0iQz1hciwgTz1wZW5uYWNoaW5pIGVyaWMgZGFuaWVsLCBTRVJJQUxOVU1CRVI9Q1VJVCAyMDM2MDk5OTMwMSwgQ049cHlhZmlwd3MiIHNlcnZpY2U9IndzZmUiIHJlZ21ldGhvZD0iMjIiIGVudGl0eT0iMzM2OTM0NTAyMzkiIGF1dGhtZXRob2Q9ImNtcyI+CiAgICAgICAgICAgIDxyZWxhdGlvbnM+CiAgICAgICAgICAgICAgICA8cmVsYXRpb24gcmVsdHlwZT0iNCIga2V5PSIyMDM2MDk5OTMwMSIvPgogICAgICAgICAgICA8L3JlbGF0aW9ucz4KICAgICAgICA8L2xvZ2luPgogICAgPC9vcGVyYXRpb24+Cjwvc3NvPgoK";
-            _autorizacion.Sign = "KJGlK4vxSxHxkbqLeOyaIUSVBk/MYBg5ouxIAsWWsZjqZljQNMvWvxSP2UFp2DBRmtiWO3U1sfcfBd1+xhFNa6uRLA84uc20b90wbZR5N8wy74pFEPHuhdhyug35k2Huzzwtpg+s501KRvhBWzG6b40/bfO8OdRQODcOo5BY/c4=";
-            _autorizacion.Cuit = 20360999301;
+        #region Propiedades
+        public ServiceSoapClient FServ
+        {
+            get { return _fServ; }
+            set { _fServ = value; }
+        }
+        public FEAuthRequest Autorizacion
+        {
+            get { return _autorizacion; }
+            set { _autorizacion = value; }
+        }
+        public FECAERequest Request
+        {
+            get { return _request; }
+            set { _request = value; }
+        }
+        public FECAEResponse Response
+        {
+            get { return _response; }
+            set { _response = value; }
+        }
+        #endregion
+
+        #region Metodos
+        public void Autorizar(long cuit)
+        {
             
-            return _autorizacion;
+            //_autorizacion.Token = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgdW5pcXVlX2lkPSIzODI0NzgwMTUxIiBzcmM9IkNOPXdzYWFob21vLCBPPUFGSVAsIEM9QVIsIFNFUklBTE5VTUJFUj1DVUlUIDMzNjkzNDUwMjM5IiBnZW5fdGltZT0iMTQzNDYzMjgwNSIgZXhwX3RpbWU9IjE0MzQ2NzYwNjUiIGRzdD0iQ049d3NmZSwgTz1BRklQLCBDPUFSIi8+CiAgICA8b3BlcmF0aW9uIHZhbHVlPSJncmFudGVkIiB0eXBlPSJsb2dpbiI+CiAgICAgICAgPGxvZ2luIHVpZD0iQz1hciwgTz1wZW5uYWNoaW5pIGVyaWMgZGFuaWVsLCBTRVJJQUxOVU1CRVI9Q1VJVCAyMDM2MDk5OTMwMSwgQ049cHlhZmlwd3MiIHNlcnZpY2U9IndzZmUiIHJlZ21ldGhvZD0iMjIiIGVudGl0eT0iMzM2OTM0NTAyMzkiIGF1dGhtZXRob2Q9ImNtcyI+CiAgICAgICAgICAgIDxyZWxhdGlvbnM+CiAgICAgICAgICAgICAgICA8cmVsYXRpb24gcmVsdHlwZT0iNCIga2V5PSIyMDM2MDk5OTMwMSIvPgogICAgICAgICAgICA8L3JlbGF0aW9ucz4KICAgICAgICA8L2xvZ2luPgogICAgPC9vcGVyYXRpb24+Cjwvc3NvPgoK";
+            //_autorizacion.Sign = "V78ihkBSpcpQooKkV89odJzECM0or01QChM2DagOAnXtl7qxDOlZCxK/L/3amdPEG5Lp3iGoDQnZkkiVcxXuk4KxEF3UvhbScVbXK5dibLUSu1COE4Dhn6mUoFYWAvIldcj13aL+5P+nCHvd2DD374wR5f3VnajTbka7tmcKw7s=";
+            //_autorizacion.Cuit = cuit;
 
+            //Creao una instancia dinámica (¿?¿?... Averiguar) de WSAA
+            dynamic WSAA = Activator.CreateInstance(Type.GetTypeFromProgID("WSAA"));
+
+            //Cargo las rutas del certificado y clave privada, creo el TRA y luego se firma junto con el cert. y la clave privada
+            string _certificado, _clavePrivada, cms, tra;
+            _certificado = "C:\\Program Files (x86)\\PyAfipWs\\pennachini_prueba_wsass.crt";
+            _clavePrivada = "C:\\Program Files (x86)\\PyAfipWs\\pennachini_prueba_wsass.key";
+            tra = WSAA.CreateTRA("wsfe");
+            cms = WSAA.SignTRA(tra, _certificado, _clavePrivada);
+
+            //se conecta al WSAA y obtiene el TA (Ticket de Acceso) con el token y sign
+            string proxy = "";
+            string cache = "";
+            string wsdl = "https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl";
+            WSAA.Conectar(cache, wsdl, proxy); // Homologación
+            string ta = WSAA.LoginCMS(cms);
+
+            _autorizacion.Token = WSAA.Token;
+            _autorizacion.Sign = WSAA.Sign;
+            _autorizacion.Cuit = cuit;
         }
 
-        public FECAERequest ConfigurarRequest()
+        public void ConfigurarRequest() //refactorizar con parámetros, para no hardcodear todo
         {
-            FECAERequest _request = new TestFacturaElectronicaDominio.FacturaElectronicaWS.FECAERequest();
             FECAECabRequest _cabecera = new FECAECabRequest();
             FECAEDetRequest _detalle = new FECAEDetRequest();
 
@@ -38,9 +105,10 @@ namespace TestFacturaElectronicaDominio
             _detalle.Concepto = 1; //Productos
             _detalle.DocTipo = 80; //CUIT
             _detalle.DocNro = 20377033251;
-            _detalle.CbteDesde = 13;
-            _detalle.CbteHasta = 13;
-            _detalle.CbteFch = "20150617";
+            _detalle.CbteDesde = 15;
+            _detalle.CbteHasta = 15;
+            DateTime cbteFch = new DateTime(); //REALIZAR  METODO PARA CONVERTIR FECHA NORMAL A STRING QUE SE USA ACA.
+            _detalle.CbteFch = "20150618";
             _detalle.ImpTotal = 121;
             _detalle.ImpTotConc = 0;
             _detalle.ImpNeto = 100;
@@ -55,25 +123,24 @@ namespace TestFacturaElectronicaDominio
             _detalle.CbtesAsoc = null;
             _detalle.Tributos = null;
             _detalle.Iva = new AlicIva[1]; //solo uno a modo de ejemplo
+            
             _detalle.Iva[0] = new AlicIva
             {
                 Id = 5,
                 Importe = 21,
                 BaseImp = 100
             };
-            
 
             _request.FeCabReq = _cabecera;
             _request.FeDetReq = new FECAEDetRequest[1];
             _request.FeDetReq[0] = new FECAEDetRequest();
             _request.FeDetReq[0] = _detalle;
-
-            return _request;
         }
 
-        //public FECAEResponse Solicitar()
-        //{
-        //}    
+        public void Solicitar()
+        {
+            _response = _fServ.FECAESolicitar(_autorizacion, _request);
+        }    
         
         public DateTime ConvertirAFormatoFecha(string fechaComprobante)
         {
@@ -85,5 +152,9 @@ namespace TestFacturaElectronicaDominio
             
             return _fechaADevolver;
         }
+        
+        
+
+        #endregion
     }
 }
