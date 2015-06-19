@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using TestFacturaElectronicaDominio;
 using TestFacturaElectronicaDominio.FacturaElectronicaWS;
-using TestFacturaElectronicaDominio.LoginWS;
 
 namespace TestFacturaElectronicaConsola
 {
@@ -15,12 +14,6 @@ namespace TestFacturaElectronicaConsola
         {
             try
             {
-                LoginCMSClient login = new LoginCMSClient();
-                
-
-
-
-
                 ServFactElect servicio = new ServFactElect();
 
                 Console.Write("Ingrese un CUIT: ");

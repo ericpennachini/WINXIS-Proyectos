@@ -1,0 +1,8 @@
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaConsola\bin\Debug\TestFacturaElectronicaConsola.exe.config
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaConsola\bin\Debug\TestFacturaElectronicaConsola.exe
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaConsola\bin\Debug\TestFacturaElectronicaConsola.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaConsola\bin\Debug\TestFacturaElectronicaDominio.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaConsola\bin\Debug\TestFacturaElectronicaDominio.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaConsola\obj\x86\Debug\TestFacturaElectronicaConsola.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaConsola\obj\x86\Debug\TestFacturaElectronicaConsola.exe
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaConsola\obj\x86\Debug\TestFacturaElectronicaConsola.pdb

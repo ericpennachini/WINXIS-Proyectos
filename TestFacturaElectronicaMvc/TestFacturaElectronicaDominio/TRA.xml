@@ -1,1 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<loginTicketRequest version="1.0">
+  <header>
+    <uniqueId>1000000</uniqueId>
+    <generationTime>2015-06-19 09:30:00</generationTime>
+    <expirationTime>2015-06-19 21:30:00</expirationTime>
+  </header>
+  <service>wsfe</service>
+</loginTicketRequest>
+
+
+
+<!--<source>c=ar, o=pennachini eric daniel, serialNumber=CUIT 20360999301, CN=pyafipws</source>
+    <destination>cn=wsaahomo,o=afip,c=ar,serialNumber=CUIT 20360999301</destination>-->
