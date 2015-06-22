@@ -12,20 +12,20 @@ namespace TestFacturaElectronicaDominio
     {
         #region Campos
         private ServiceSoapClient _fServ;
-        private LoginCMSService _authServ;
         private FEAuthRequest _autorizacion;
         private FECAERequest _request;
         private FECAEResponse _response;
+        private Autorizacion _objAutorizacion;
         #endregion
 
         #region Constructor
         public ServFactElect()
         {
             _fServ = new ServiceSoapClient();
-            _authServ = new LoginCMSService();
             _autorizacion = new FEAuthRequest();
             _request = new FECAERequest();
             _response = new FECAEResponse();
+            _objAutorizacion = new Autorizacion();
 
             //Instancio algunos campos del response que son compuestos, y tambien sus subcampos
             _response.FeDetResp = new FECAEDetResponse[1];
@@ -106,8 +106,12 @@ namespace TestFacturaElectronicaDominio
         public void Autorizar(long cuit) //opcion -3-, llamando al WSAA por código
         {
 
-            string authResponse = _authServ.loginCms("");
-            
+            _objAutorizacion.ObtenerTicketAcceso();
+
+            //Finalmente, asigo Token y Sign a los campos de _autorizacion
+            _autorizacion.Token = _objAutorizacion.Token;
+            _autorizacion.Sign = _objAutorizacion.Sign;
+            _autorizacion.Cuit = cuit;
 
         }
 
@@ -125,9 +129,9 @@ namespace TestFacturaElectronicaDominio
             _detalle.Concepto = 1; //Productos
             _detalle.DocTipo = 80; //CUIT
             _detalle.DocNro = 20377033251;
-            _detalle.CbteDesde = 16;
-            _detalle.CbteHasta = 16;
-            DateTime cbteFch = new DateTime(); //REALIZAR  METODO PARA CONVERTIR FECHA NORMAL A STRING QUE SE USA ACA.
+            _detalle.CbteDesde = 17;
+            _detalle.CbteHasta = 17;
+            //DateTime cbteFch = new DateTime(); //REALIZAR  METODO PARA CONVERTIR FECHA NORMAL A STRING QUE SE USA ACA.
             _detalle.CbteFch = "20150618";
             _detalle.ImpTotal = 121;
             _detalle.ImpTotConc = 0;
