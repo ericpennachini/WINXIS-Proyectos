@@ -19,6 +19,9 @@ namespace TestFacturaElectronicaDominio
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor de ServFactElect
+        /// </summary>
         public ServFactElect()
         {
             _fServ = new ServiceSoapClient();
@@ -39,6 +42,7 @@ namespace TestFacturaElectronicaDominio
             {
                 _response.Errors[i] = new Err();
             }
+
         }
         #endregion
 
@@ -66,6 +70,7 @@ namespace TestFacturaElectronicaDominio
         #endregion
 
         #region Metodos
+        #region Metodos de autorización viejos
         //public void Autorizar(long cuit) //opcion -1-, con algoritmo raro
         //{
         //    ///Creao una instancia dinámica (¿?¿?... Averiguar) de WSAA
@@ -97,25 +102,26 @@ namespace TestFacturaElectronicaDominio
         //    _autorizacion.Token = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgdW5pcXVlX2lkPSIzODI0NzgwMTUxIiBzcmM9IkNOPXdzYWFob21vLCBPPUFGSVAsIEM9QVIsIFNFUklBTE5VTUJFUj1DVUlUIDMzNjkzNDUwMjM5IiBnZW5fdGltZT0iMTQzNDYzMjgwNSIgZXhwX3RpbWU9IjE0MzQ2NzYwNjUiIGRzdD0iQ049d3NmZSwgTz1BRklQLCBDPUFSIi8+CiAgICA8b3BlcmF0aW9uIHZhbHVlPSJncmFudGVkIiB0eXBlPSJsb2dpbiI+CiAgICAgICAgPGxvZ2luIHVpZD0iQz1hciwgTz1wZW5uYWNoaW5pIGVyaWMgZGFuaWVsLCBTRVJJQUxOVU1CRVI9Q1VJVCAyMDM2MDk5OTMwMSwgQ049cHlhZmlwd3MiIHNlcnZpY2U9IndzZmUiIHJlZ21ldGhvZD0iMjIiIGVudGl0eT0iMzM2OTM0NTAyMzkiIGF1dGhtZXRob2Q9ImNtcyI+CiAgICAgICAgICAgIDxyZWxhdGlvbnM+CiAgICAgICAgICAgICAgICA8cmVsYXRpb24gcmVsdHlwZT0iNCIga2V5PSIyMDM2MDk5OTMwMSIvPgogICAgICAgICAgICA8L3JlbGF0aW9ucz4KICAgICAgICA8L2xvZ2luPgogICAgPC9vcGVyYXRpb24+Cjwvc3NvPgoK";
         //    _autorizacion.Sign = "V78ihkBSpcpQooKkV89odJzECM0or01QChM2DagOAnXtl7qxDOlZCxK/L/3amdPEG5Lp3iGoDQnZkkiVcxXuk4KxEF3UvhbScVbXK5dibLUSu1COE4Dhn6mUoFYWAvIldcj13aL+5P+nCHvd2DD374wR5f3VnajTbka7tmcKw7s=";
         //    _autorizacion.Cuit = cuit;
-        //}
+        //} 
+        #endregion
 
         /// <summary>
         ///     Obtiene el token y sign devuelto por el WSAA, y lo asigna al campo _autorizacion.
         /// </summary>
         /// <param name="cuit">CUIT del contribuyente</param>
-        public void Autorizar(long cuit) //opcion -3-, llamando al WSAA por código
+        public void Autorizar(long cuit)
         {
 
             _objAutorizacion.ObtenerTicketAcceso();
 
-            //Finalmente, asigo Token y Sign a los campos de _autorizacion
             _autorizacion.Token = _objAutorizacion.Token;
             _autorizacion.Sign = _objAutorizacion.Sign;
             _autorizacion.Cuit = cuit;
 
         }
-
-
+        /// <summary>
+        /// Configura campo por campo el request que se manda al WSFE
+        /// </summary>
         public void ConfigurarRequest() //refactorizar con parámetros, para no hardcodear todo
         {
             FECAECabRequest _cabecera = new FECAECabRequest();
@@ -129,8 +135,8 @@ namespace TestFacturaElectronicaDominio
             _detalle.Concepto = 1; //Productos
             _detalle.DocTipo = 80; //CUIT
             _detalle.DocNro = 20377033251;
-            _detalle.CbteDesde = 17;
-            _detalle.CbteHasta = 17;
+            _detalle.CbteDesde = 18;
+            _detalle.CbteHasta = 18;
             //DateTime cbteFch = new DateTime(); //REALIZAR  METODO PARA CONVERTIR FECHA NORMAL A STRING QUE SE USA ACA.
             _detalle.CbteFch = "20150618";
             _detalle.ImpTotal = 121;
@@ -161,9 +167,19 @@ namespace TestFacturaElectronicaDominio
             _request.FeDetReq[0] = _detalle;
         }
 
+        /// <summary>
+        /// Solicita al WSFE el CAE, mandando la autorizacion recibida por el WSAA y el objeto FECAERequest (que contiene los campos de la factura), configurado anteriormente por el método 'public void ConfigurarRequest()'
+        /// </summary>
         public void Solicitar()
         {
-            _response = _fServ.FECAESolicitar(_autorizacion, _request);
+            try
+            {
+                _response = _fServ.FECAESolicitar(_autorizacion, _request);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         /// <summary>
@@ -181,8 +197,6 @@ namespace TestFacturaElectronicaDominio
 
             return _fechaADevolver;
         }
-
-
 
         #endregion
     }

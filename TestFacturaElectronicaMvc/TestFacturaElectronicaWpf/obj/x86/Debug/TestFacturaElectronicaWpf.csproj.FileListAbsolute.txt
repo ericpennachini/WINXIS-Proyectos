@@ -1,0 +1,11 @@
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWpf\bin\Debug\TestFacturaElectronicaWpf.exe
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWpf\bin\Debug\TestFacturaElectronicaWpf.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWpf\obj\x86\Debug\MainWindow.baml
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWpf\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWpf\obj\x86\Debug\App.g.cs
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWpf\obj\x86\Debug\TestFacturaElectronicaWpf_MarkupCompile.cache
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWpf\obj\x86\Debug\TestFacturaElectronicaWpf.g.resources
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWpf\obj\x86\Debug\TestFacturaElectronicaWpf.Properties.Resources.resources
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWpf\obj\x86\Debug\TestFacturaElectronicaWpf.csproj.GenerateResource.Cache
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWpf\obj\x86\Debug\TestFacturaElectronicaWpf.exe
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWpf\obj\x86\Debug\TestFacturaElectronicaWpf.pdb

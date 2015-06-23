@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFacturaElectronicaDomin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFacturaElectronicaConsola", "TestFacturaElectronicaConsola\TestFacturaElectronicaConsola.csproj", "{D485D3DF-3188-41E9-AEBA-9688CEA66990}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFacturaElectronicaWpf", "TestFacturaElectronicaWpf\TestFacturaElectronicaWpf.csproj", "{AE4FA0D7-B4B4-45FE-8FAB-E73887E78564}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,16 @@ Global
 		{D485D3DF-3188-41E9-AEBA-9688CEA66990}.Release|Mixed Platforms.Build.0 = Release|x86
 		{D485D3DF-3188-41E9-AEBA-9688CEA66990}.Release|x86.ActiveCfg = Release|x86
 		{D485D3DF-3188-41E9-AEBA-9688CEA66990}.Release|x86.Build.0 = Release|x86
+		{AE4FA0D7-B4B4-45FE-8FAB-E73887E78564}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{AE4FA0D7-B4B4-45FE-8FAB-E73887E78564}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{AE4FA0D7-B4B4-45FE-8FAB-E73887E78564}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{AE4FA0D7-B4B4-45FE-8FAB-E73887E78564}.Debug|x86.ActiveCfg = Debug|x86
+		{AE4FA0D7-B4B4-45FE-8FAB-E73887E78564}.Debug|x86.Build.0 = Debug|x86
+		{AE4FA0D7-B4B4-45FE-8FAB-E73887E78564}.Release|Any CPU.ActiveCfg = Release|x86
+		{AE4FA0D7-B4B4-45FE-8FAB-E73887E78564}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{AE4FA0D7-B4B4-45FE-8FAB-E73887E78564}.Release|Mixed Platforms.Build.0 = Release|x86
+		{AE4FA0D7-B4B4-45FE-8FAB-E73887E78564}.Release|x86.ActiveCfg = Release|x86
+		{AE4FA0D7-B4B4-45FE-8FAB-E73887E78564}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

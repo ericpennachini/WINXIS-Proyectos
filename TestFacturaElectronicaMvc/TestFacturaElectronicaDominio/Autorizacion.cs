@@ -12,11 +12,18 @@ namespace TestFacturaElectronicaDominio
 {
     class Autorizacion
     {
-        private string TicketAccesoTemplateXml = "<loginTicketRequest><header><uniqueId></uniqueId><generationTime></generationTime><expirationTime></expirationTime></header><service></service></loginTicketRequest>";
 
         #region Campos y propiedades
         public LoginCMSService servicioWsaa;
-        public Int32 UniqueId { get; set; }
+        private string TicketAccesoTemplateXml = "<loginTicketRequest>" + 
+                                                    "<header>" + 
+                                                    "<uniqueId></uniqueId>" +
+                                                    "<generationTime></generationTime>" + 
+                                                    "<expirationTime></expirationTime>" + 
+                                                    "</header>" +
+                                                    "<service></service>" +
+                                                 "</loginTicketRequest>";
+        public Int64 UniqueId { get; set; }
         public DateTime GenerationTime { get; set; }
         public DateTime ExpirationTime { get; set; }
         public string Service { get; set; }
@@ -28,15 +35,22 @@ namespace TestFacturaElectronicaDominio
         public string CmsFirmadoBase64 { get; set; }
         public string UrlServicio { get; set; }
 
-        private static Int32 _globalUniqueID = 0;
+        private static Int32 _globalUniqueID = 1;
         #endregion
 
+        /// <summary>
+        /// Constructor de Autorizacion
+        /// </summary>
         public Autorizacion()
         {
             RutaCertificado = "C:\\Users\\Eric\\Desktop\\certificado_clave\\pennachini_prueba_wsass.p12";
+            UrlServicio = "https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl";
             servicioWsaa = new LoginCMSService();
         }
 
+        /// <summary>
+        /// Obtiene el TA (Ticket de Acceso) generando el XML y codificandolo para mandarlo al WSAA, e interpreta la respuesta recibida para extraer el Token y Sign
+        /// </summary>
         public void ObtenerTicketAcceso()
         {
 
@@ -46,7 +60,7 @@ namespace TestFacturaElectronicaDominio
             XmlNode nodoService;
             string ticketAccesoResponse;
 
-            #region PASO 1: Genero el Ticket request
+            #region PASO 1: genero el Ticket request
             try
             {
                 this.XmlTicketAccesoRequest = new XmlDocument();
@@ -59,8 +73,10 @@ namespace TestFacturaElectronicaDominio
 
                 nodoUniqueId.InnerText = Convert.ToString(_globalUniqueID);
                 nodoGenerationTime.InnerText = DateTime.Now.AddMinutes(-10).ToString("s");
-                nodoExpirationTime.InnerText = DateTime.Now.AddMinutes(+10).ToString("s");
-                nodoService.InnerText = servicioWsaa.Url;
+                nodoExpirationTime.InnerText = DateTime.Now.AddMinutes(10).ToString("s");
+                nodoService.InnerText = "wsfe";
+
+                _globalUniqueID += 1;
             }
             catch (Exception ex)
             {
@@ -68,15 +84,15 @@ namespace TestFacturaElectronicaDominio
             }
             #endregion
 
-            #region PASO 2: Leo archivo del disco
+            #region PASO 2: leo archivo del disco y lo codifico en Base64
             try
             {
                 X509Certificate2 certificadoEnDisco = new X509Certificate2();
                 certificadoEnDisco = LeerCertificadoDeDisco(RutaCertificado);
 
                 //--- codifico el msje
-                Encoding EncodeMsg = Encoding.UTF8;
-                byte[] mensajeBytes = EncodeMsg.GetBytes(XmlTicketAccesoRequest.OuterXml);
+                Encoding encodeMsg = Encoding.UTF8;
+                byte[] mensajeBytes = encodeMsg.GetBytes(XmlTicketAccesoRequest.OuterXml);
                 byte[] mensajeCodificado = FirmarMensaje(mensajeBytes, certificadoEnDisco);
 
                 CmsFirmadoBase64 = Convert.ToBase64String(mensajeCodificado);
@@ -87,9 +103,11 @@ namespace TestFacturaElectronicaDominio
             }
             #endregion
 
-            #region PASO 3: Invoco al WSAA
+            #region PASO 3: invoco al WSAA
             try
             {
+                //LoginCMSService servicioWsaa = new LoginCMSService();
+                servicioWsaa.Url = UrlServicio;
                 ticketAccesoResponse = servicioWsaa.loginCms(CmsFirmadoBase64);
             }
             catch (Exception ex)
@@ -98,12 +116,12 @@ namespace TestFacturaElectronicaDominio
             }
             #endregion
 
-            #region PASO 4: desarmo el xml de respuesta
+            #region PASO 4: desarmo el XML de respuesta
             try
             {
                 XmlTicketAccesoResponse = new XmlDocument();
                 XmlTicketAccesoResponse.LoadXml(ticketAccesoResponse);
-                this.UniqueId = Int32.Parse(XmlTicketAccesoResponse.SelectSingleNode("//uniqueId").InnerText);
+                this.UniqueId = Int64.Parse(XmlTicketAccesoResponse.SelectSingleNode("//uniqueId").InnerText);
                 this.GenerationTime = DateTime.Parse(XmlTicketAccesoResponse.SelectSingleNode("//generationTime").InnerText);
                 this.ExpirationTime = DateTime.Parse(XmlTicketAccesoResponse.SelectSingleNode("//expirationTime").InnerText);
                 this.Token = XmlTicketAccesoResponse.SelectSingleNode("//token").InnerText;
@@ -117,11 +135,14 @@ namespace TestFacturaElectronicaDominio
 
         }
 
-
-
-
         #region Metodos extra
-        public X509Certificate2 LeerCertificadoDeDisco(string ruta)
+
+        /// <summary>
+        /// Lee el certificado p12 en disco desde la ruta pasada por parámetro y devuelve un certificado X509
+        /// </summary>
+        /// <param name="ruta">Ruta del certificado p12 en disco</param>
+        /// <returns>Certificado X509</returns>
+        private X509Certificate2 LeerCertificadoDeDisco(string ruta)
         {
             X509Certificate2 certificado = new X509Certificate2();
             try
@@ -135,7 +156,13 @@ namespace TestFacturaElectronicaDominio
             }
         }
 
-        public byte[] FirmarMensaje(byte[] msjeBytes, X509Certificate2 certFirmante)
+        /// <summary>
+        /// Firma el mensaje (XML)
+        /// </summary>
+        /// <param name="msjeBytes">XML codificado en bytes</param>
+        /// <param name="certFirmante">Certificado X509 obtenido en 'private X509Certificate2 LeerCertificadoDeDisco(string ruta)'</param>
+        /// <returns>Mensaje firmado</returns>
+        private byte[] FirmarMensaje(byte[] msjeBytes, X509Certificate2 certFirmante)
         {
             ContentInfo contenidoMsje = new ContentInfo(msjeBytes);
             SignedCms cmsFirmado = new SignedCms(contenidoMsje);
@@ -143,7 +170,7 @@ namespace TestFacturaElectronicaDominio
             cmsFirmante.IncludeOption = X509IncludeOption.EndCertOnly;
             cmsFirmado.ComputeSignature(cmsFirmante);
             return cmsFirmado.Encode();
-        } 
+        }
         #endregion
     }
 }

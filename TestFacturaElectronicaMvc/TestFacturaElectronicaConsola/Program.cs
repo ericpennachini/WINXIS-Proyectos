@@ -15,9 +15,15 @@ namespace TestFacturaElectronicaConsola
             try
             {
                 ServFactElect servicio = new ServFactElect();
+                Console.WriteLine(" __________________________________________________________ ");
+                Console.WriteLine("|                                                          |");
+                Console.WriteLine("| PRUEBA DE FACTURACIÓN ELECTRÓNICA DE AFIP (HOMOLOGACION) |");
+                Console.WriteLine("|__________________________________________________________|");
+                Console.WriteLine();
 
                 Console.Write("Ingrese un CUIT: ");
                 long cuit = Convert.ToInt64(Console.ReadLine());
+                Console.WriteLine();
                 //Realizo la autorizacion
                 servicio.Autorizar(cuit);
                 //Llamo al método que arma el request, que serian los campos de la factura
@@ -58,8 +64,8 @@ namespace TestFacturaElectronicaConsola
             {
                 Console.WriteLine("····· EXCEPCION ·····");
                 Console.WriteLine("Ocurrio el siguiente error: \n\n" + ex.Message);
-                Console.WriteLine("\n \n- Tipo de excepcion: " + ex.GetType());
-                Console.WriteLine("\n \n- En: " + ex.TargetSite);
+                Console.WriteLine("\n - Tipo de excepcion: " + ex.GetType());
+                Console.WriteLine("\n - En: " + ex.TargetSite);
                 Console.ReadKey();
             }
 
