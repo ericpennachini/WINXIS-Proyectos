@@ -1,0 +1,8 @@
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWcf\bin\TestFacturaElectronicaWcf.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWcf\bin\TestFacturaElectronicaWcf.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWcf\obj\Debug\TestFacturaElectronicaWcf.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaWcf\obj\Debug\TestFacturaElectronicaWcf.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaWcf\bin\TestFacturaElectronicaWcf.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaWcf\bin\TestFacturaElectronicaWcf.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaWcf\obj\Debug\TestFacturaElectronicaWcf.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaWcf\obj\Debug\TestFacturaElectronicaWcf.pdb

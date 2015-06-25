@@ -1,0 +1,4 @@
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfService1\WcfService1\bin\WcfService1.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfService1\WcfService1\bin\WcfService1.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfService1\WcfService1\obj\Debug\WcfService1.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfService1\WcfService1\obj\Debug\WcfService1.pdb

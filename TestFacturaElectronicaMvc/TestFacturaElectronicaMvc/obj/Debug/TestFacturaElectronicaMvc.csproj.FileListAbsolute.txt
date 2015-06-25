@@ -1,9 +1,0 @@
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaMvc\bin\TestFacturaElectronicaMvc.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaMvc\bin\TestFacturaElectronicaMvc.pdb
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaMvc\bin\EntityFramework.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaMvc\bin\TestFacturaElectronicaDominio.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaMvc\bin\TestFacturaElectronicaDominio.pdb
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaMvc\bin\EntityFramework.xml
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaMvc\obj\Debug\TestFacturaElectronicaMvc.csprojResolveAssemblyReference.cache
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaMvc\obj\Debug\TestFacturaElectronicaMvc.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaMvc\TestFacturaElectronicaMvc\obj\Debug\TestFacturaElectronicaMvc.pdb
