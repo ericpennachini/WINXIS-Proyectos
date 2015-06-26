@@ -15,6 +15,8 @@ namespace TestFacturaElectronicaDominio
         private FEAuthRequest _autorizacion;
         private FECAERequest _request;
         private FECAEResponse _response;
+        private FECAECabRequest _cabecera;
+        private FECAEDetRequest _detalle;
         private Autorizacion _objAutorizacion;
         #endregion
 
@@ -28,9 +30,10 @@ namespace TestFacturaElectronicaDominio
             _autorizacion = new FEAuthRequest();
             _request = new FECAERequest();
             _response = new FECAEResponse();
+            _cabecera = new FECAECabRequest();
             _objAutorizacion = new Autorizacion();
-
             //Instancio algunos campos del response que son compuestos, y tambien sus subcampos (solo uno para prueba)
+            
             _response.FeDetResp = new FECAEDetResponse[1];
             _response.FeDetResp[0] = new FECAEDetResponse();
             //Observaciones
@@ -69,6 +72,9 @@ namespace TestFacturaElectronicaDominio
         #endregion
 
         #region Metodos
+
+        #region Autorización
+
         #region Metodos de autorización viejos
         //public void Autorizar(long cuit) //opcion -1-, con algoritmo raro
         //{
@@ -118,33 +124,36 @@ namespace TestFacturaElectronicaDominio
             _autorizacion.Cuit = cuit;
 
         }
-        /// <summary>
-        /// Configura campo por campo el request que se manda al WSFE
-        /// </summary>
-        public void ConfigurarRequest() //refactorizar con parámetros, para no hardcodear todo
-        {
-            FECAECabRequest _cabecera = new FECAECabRequest();
-            FECAEDetRequest _detalle = new FECAEDetRequest();
-            #region Comprobación del ultimo comp. autorizado, se suma +1 al ultimo autorizado
-            FERecuperaLastCbteResponse ultimoComp = new FERecuperaLastCbteResponse();
-            ultimoComp = _fServ.FECompUltimoAutorizado(_autorizacion, 1, 1);
-            long nroComp = ultimoComp.CbteNro + 1;  
-            #endregion
-            
-            //Cabecera
+        #endregion
+
+        public void SetCabecera(int _cantReg, int _ptoVta, int _cbteTipo)
+        {           
             _cabecera.CantReg = 1;
             _cabecera.PtoVta = 1;
             _cabecera.CbteTipo = 1; //factura "A"
+
+            _request.FeCabReq = _cabecera;
+        }
+
+        public void SetDetalle(int _concepto, int _docTipo, long _docNro, 
+            DateTime _cbteFch, double _impTotal, double _impTotConc, double _impNeto, double _impIVA, double _impOpEx, double _impTrib, 
+            DateTime _fchServDesde, DateTime _fchServHasta, DateTime _fchVtoPago, string _monId, double _monCotiz,
+            int _cantCbtesAsoc, int _cantTributos, int _cantIva)
+        {
+            _detalle = new FECAEDetRequest();
+            
+            #region Comprobación del ultimo comp. autorizado, se suma +1 al ultimo autorizado
+            long nroComp = UltimoCompAutorizado() + 1;
+            #endregion
+
             //Detalle - NO OBLIGATORIO = N
             _detalle.Concepto = 1; //Productos
             _detalle.DocTipo = 80; //CUIT
             _detalle.DocNro = 20377033251;
-            _detalle.CbteDesde = nroComp; //20
+            _detalle.CbteDesde = nroComp;
             _detalle.CbteHasta = nroComp;
             #region _detalle.CbteFch = <<fecha en string devuelta por el metodo, en base a la fecha actual>>
-            DateTime cbteFch = new DateTime();
-            cbteFch = DateTime.Now;
-            _detalle.CbteFch = ConvertirFechaAString(cbteFch); 
+            _detalle.CbteFch = ConvertirFechaAString(_cbteFch); 
             #endregion
             _detalle.ImpTotal = 121;
             _detalle.ImpTotConc = 0;
@@ -152,26 +161,24 @@ namespace TestFacturaElectronicaDominio
             _detalle.ImpIVA = 21;
             _detalle.ImpOpEx = 0;
             _detalle.ImpTrib = 0;
-            //detalle.FchServDesde = "";  N
-            //detalle.FchServHasta = "";  N
-            //detalle.FchVtoPago = "";    N
+            _detalle.FchServDesde = ""; //  N
+            _detalle.FchServHasta = ""; //  N
+            _detalle.FchVtoPago = ""; //  N
             _detalle.MonId = "PES";
             _detalle.MonCotiz = 1;
-            _detalle.CbtesAsoc = null;
-            _detalle.Tributos = null;
-            _detalle.Iva = new AlicIva[1]; //solo uno a modo de ejemplo
+            _detalle.CbtesAsoc = null; //  N
+            _detalle.Tributos = null; //  N
+            _detalle.Iva = null; //  N
 
-            _detalle.Iva[0] = new AlicIva
-            {
-                Id = 5,
-                Importe = 21,
-                BaseImp = 100
-            };
-
-            _request.FeCabReq = _cabecera;
             _request.FeDetReq = new FECAEDetRequest[1];
             _request.FeDetReq[0] = new FECAEDetRequest();
             _request.FeDetReq[0] = _detalle;
+        }
+
+        public AlicIva SetAlicIva()
+        {
+
+            return null;
         }
 
         /// <summary>
@@ -225,6 +232,13 @@ namespace TestFacturaElectronicaDominio
             _fechaADevolver += (fecha.Day < 10) ? "0" + fecha.Day.ToString() : fecha.Day.ToString(); //idem a anterior
 
             return _fechaADevolver;
+        }
+
+        public long UltimoCompAutorizado()
+        {
+            FERecuperaLastCbteResponse ultimoComp = new FERecuperaLastCbteResponse();
+            ultimoComp = _fServ.FECompUltimoAutorizado(_autorizacion, 1, 1);
+            return ultimoComp.CbteNro;
         }
 
         #endregion

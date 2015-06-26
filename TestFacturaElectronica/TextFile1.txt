@@ -8,3 +8,13 @@
 >>> Inputs -> http://getbootstrap.com/components/?#input-groups
 >>> Alerts -> http://getbootstrap.com/components/?#alerts-dismissible
 >>> Buttons -> http://getbootstrap.com/components/?#btn-groups
+
+--------------------------------------------------------------------------------
+PARA REFACTORIZAR EL PROYECTO DE FACT. ELECT. DE FORMA QUE INTERACTÚE CON EL USUARIO, SE HARÁ LO SIGUIENTE:
+
+	1) Modificar la clase ServFactElect para que pueda recibir los parámetros del usuario para los campos de la factura.
+		1.1) Parámetros del detalle del request
+		1.2) Dependiendo de la cant. de reg. de la cabecera, hacer tantos detalles como esa cantidad.
+	2) Modificar la clase Autorizacion para que pueda recibir el parámetro con la ruta del certificado del usuario
+	3) Modificar la inicialización de los campos compuestos (los Arrays por ejemplo, IVA, Response, ...)
+	4) Modificar la parte donde consulta el ult. compr. autorizado, de forma que esté en un método que el usuario pueda consultar.

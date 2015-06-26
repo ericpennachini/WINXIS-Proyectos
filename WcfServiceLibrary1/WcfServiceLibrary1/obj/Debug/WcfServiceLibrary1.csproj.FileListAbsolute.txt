@@ -1,0 +1,8 @@
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll.config
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\TestFacturaElectronicaDominio.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfServiceLibrary1\WcfServiceLibrary1\bin\Debug\TestFacturaElectronicaDominio.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\WcfServiceLibrary1\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb

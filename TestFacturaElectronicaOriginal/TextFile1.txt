@@ -1,0 +1,10 @@
+1) Boostrap
+2) Hacer un header y footer. Header con el título "Factura electronica"
+3) En lo que sería el body, hacer dos opciones:
+	· NUEVA FACTURA
+	· VER FACTURAS
+
+[CONSIDERACIONES]
+>>> Inputs -> http://getbootstrap.com/components/?#input-groups
+>>> Alerts -> http://getbootstrap.com/components/?#alerts-dismissible
+>>> Buttons -> http://getbootstrap.com/components/?#btn-groups

@@ -10,16 +10,16 @@ using TestFacturaElectronicaDominio.LoginWS;
 
 namespace TestFacturaElectronicaDominio
 {
-    class Autorizacion
+    public class Autorizacion
     {
 
         #region Campos y propiedades
         public LoginCMSService servicioWsaa;
-        private string TicketAccesoTemplateXml = "<loginTicketRequest>" + 
-                                                    "<header>" + 
-                                                    "<uniqueId></uniqueId>" +
-                                                    "<generationTime></generationTime>" + 
-                                                    "<expirationTime></expirationTime>" + 
+        private string TicketAccesoTemplateXml = "<loginTicketRequest>" +
+                                                    "<header>" +
+                                                        "<uniqueId></uniqueId>" +
+                                                        "<generationTime></generationTime>" +
+                                                        "<expirationTime></expirationTime>" +
                                                     "</header>" +
                                                     "<service></service>" +
                                                  "</loginTicketRequest>";
