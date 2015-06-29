@@ -43,7 +43,7 @@ namespace TestFacturaElectronicaDominio
         /// </summary>
         public Autorizacion()
         {
-            RutaCertificado = "C:\\Users\\Eric\\Desktop\\certificado_clave\\pennachini_prueba_wsass.p12";
+            //RutaCertificado = "C:\\Users\\Eric\\Desktop\\certificado_clave\\pennachini_prueba_wsass.p12";
             UrlServicio = "https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl";
             servicioWsaa = new LoginCMSService();
         }

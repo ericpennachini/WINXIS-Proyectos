@@ -16,7 +16,7 @@ namespace TestFacturaElectronicaDominio
         private FECAERequest _request;
         private FECAEResponse _response;
         private FECAECabRequest _cabecera;
-        private FECAEDetRequest _detalle;
+        private FECAEDetRequest[] _detalle;
         private Autorizacion _objAutorizacion;
         #endregion
 
@@ -33,7 +33,7 @@ namespace TestFacturaElectronicaDominio
             _cabecera = new FECAECabRequest();
             _objAutorizacion = new Autorizacion();
             //Instancio algunos campos del response que son compuestos, y tambien sus subcampos (solo uno para prueba)
-            
+
             _response.FeDetResp = new FECAEDetResponse[1];
             _response.FeDetResp[0] = new FECAEDetResponse();
             //Observaciones
@@ -69,46 +69,16 @@ namespace TestFacturaElectronicaDominio
             get { return _response; }
             set { _response = value; }
         }
+        public Autorizacion ObjAutorizacion
+        {
+            get { return _objAutorizacion; }
+            set { _objAutorizacion = value; }
+        }
         #endregion
 
         #region Metodos
 
         #region Autorización
-
-        #region Metodos de autorización viejos
-        //public void Autorizar(long cuit) //opcion -1-, con algoritmo raro
-        //{
-        //    ///Creao una instancia dinámica (¿?¿?... Averiguar) de WSAA
-        //    ///Aparentemente, busca el archivo wsaa.exe ubicado en C:\Program files (x86)\PyAfipWs
-        //    ///en base a la entrada en el registro de Windows.
-        //    dynamic WSAA = Activator.CreateInstance(Type.GetTypeFromProgID("WSAA"));
-        //    //Console.WriteLine(WSAA.GetType());
-        //    //Cargo las rutas del certificado y clave privada, creo el TRA y luego se firma junto con el cert. y la clave privada
-        //    string _certificado, _clavePrivada, cms, tra;
-        //    _certificado = "C:\\Program Files (x86)\\PyAfipWs\\pennachini_prueba_wsass.crt";
-        //    _clavePrivada = "C:\\Program Files (x86)\\PyAfipWs\\pennachini_prueba_wsass.key";
-        //    tra = WSAA.CreateTRA("wsfe");
-        //    cms = WSAA.SignTRA(tra, _certificado, _clavePrivada);
-
-        //    //se conecta al WSAA y obtiene el TA (Ticket de Acceso) con el token y sign
-        //    string proxy = "";
-        //    string cache = "";
-        //    string wsdl = "https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl";
-        //    WSAA.Conectar(cache, wsdl, proxy); // Homologación
-        //    string ta = WSAA.LoginCMS(cms);
-
-        //    _autorizacion.Token = WSAA.Token;
-        //    _autorizacion.Sign = WSAA.Sign;
-        //    _autorizacion.Cuit = cuit;
-        //}
-
-        //public void Autorizar(long cuit) //opcion -2-, con el token y sign hardcodeados, usando lo que me da la app visual wsaa
-        //{
-        //    _autorizacion.Token = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgdW5pcXVlX2lkPSIzODI0NzgwMTUxIiBzcmM9IkNOPXdzYWFob21vLCBPPUFGSVAsIEM9QVIsIFNFUklBTE5VTUJFUj1DVUlUIDMzNjkzNDUwMjM5IiBnZW5fdGltZT0iMTQzNDYzMjgwNSIgZXhwX3RpbWU9IjE0MzQ2NzYwNjUiIGRzdD0iQ049d3NmZSwgTz1BRklQLCBDPUFSIi8+CiAgICA8b3BlcmF0aW9uIHZhbHVlPSJncmFudGVkIiB0eXBlPSJsb2dpbiI+CiAgICAgICAgPGxvZ2luIHVpZD0iQz1hciwgTz1wZW5uYWNoaW5pIGVyaWMgZGFuaWVsLCBTRVJJQUxOVU1CRVI9Q1VJVCAyMDM2MDk5OTMwMSwgQ049cHlhZmlwd3MiIHNlcnZpY2U9IndzZmUiIHJlZ21ldGhvZD0iMjIiIGVudGl0eT0iMzM2OTM0NTAyMzkiIGF1dGhtZXRob2Q9ImNtcyI+CiAgICAgICAgICAgIDxyZWxhdGlvbnM+CiAgICAgICAgICAgICAgICA8cmVsYXRpb24gcmVsdHlwZT0iNCIga2V5PSIyMDM2MDk5OTMwMSIvPgogICAgICAgICAgICA8L3JlbGF0aW9ucz4KICAgICAgICA8L2xvZ2luPgogICAgPC9vcGVyYXRpb24+Cjwvc3NvPgoK";
-        //    _autorizacion.Sign = "V78ihkBSpcpQooKkV89odJzECM0or01QChM2DagOAnXtl7qxDOlZCxK/L/3amdPEG5Lp3iGoDQnZkkiVcxXuk4KxEF3UvhbScVbXK5dibLUSu1COE4Dhn6mUoFYWAvIldcj13aL+5P+nCHvd2DD374wR5f3VnajTbka7tmcKw7s=";
-        //    _autorizacion.Cuit = cuit;
-        //} 
-        #endregion
 
         /// <summary>
         ///     Obtiene el token y sign devuelto por el WSAA, y lo asigna al campo _autorizacion.
@@ -126,59 +96,110 @@ namespace TestFacturaElectronicaDominio
         }
         #endregion
 
-        public void SetCabecera(int _cantReg, int _ptoVta, int _cbteTipo)
-        {           
-            _cabecera.CantReg = 1;
-            _cabecera.PtoVta = 1;
-            _cabecera.CbteTipo = 1; //factura "A"
+        /// <summary>
+        /// Configura la cabecera de la factura
+        /// </summary>
+        /// <remarks>Se trabaja con un campo de la clase, porque la cabecera siempre es una sola.</remarks>
+        /// <param name="_cantReg">Cantidad de registros del  para la factura</param>
+        /// <param name="_ptoVta">Nro de punto de venta</param>
+        /// <param name="_cbteTipo">Tipo de comprobante (Ej., 1 = factura 'A')</param>
+        /// <returns>Cabecera de la factura, en formato FECAECabRequest</returns>
+        public FECAECabRequest SetCabecera(int _cantReg, int _ptoVta, int _cbteTipo)
+        {
+            _cabecera.CantReg = _cantReg;
+            _cabecera.PtoVta = _ptoVta;
+            _cabecera.CbteTipo = _cbteTipo; //factura "A"
 
-            _request.FeCabReq = _cabecera;
+            return _cabecera;
         }
 
-        public void SetDetalle(int _concepto, int _docTipo, long _docNro, 
-            DateTime _cbteFch, double _impTotal, double _impTotConc, double _impNeto, double _impIVA, double _impOpEx, double _impTrib, 
+        /// <summary>
+        /// Confecciona el detalle, es decir los campos de la factura, y lo devuelve.
+        /// </summary>
+        /// <see cref="http://www.afip.gob.ar/fe/documentos/manualdesarrolladorCOMPGv26.pdf"/>
+        /// <returns>Detalle en formato FECAEDetRequest</returns>
+        public FECAEDetRequest SetDetalle(int _concepto, int _docTipo, long _docNro,
+            DateTime _cbteFch, double _impTotal, double _impTotConc, double _impNeto, double _impIVA, double _impOpEx, double _impTrib,
             DateTime _fchServDesde, DateTime _fchServHasta, DateTime _fchVtoPago, string _monId, double _monCotiz,
-            int _cantCbtesAsoc, int _cantTributos, int _cantIva)
+            CbteAsoc[] _cbtesAsoc, Tributo[] _tributo, AlicIva[] _iva, Opcional[] _opcionales)
         {
-            _detalle = new FECAEDetRequest();
-            
+            FECAEDetRequest _detalle = new FECAEDetRequest();
+
             #region Comprobación del ultimo comp. autorizado, se suma +1 al ultimo autorizado
             long nroComp = UltimoCompAutorizado() + 1;
             #endregion
 
             //Detalle - NO OBLIGATORIO = N
-            _detalle.Concepto = 1; //Productos
-            _detalle.DocTipo = 80; //CUIT
-            _detalle.DocNro = 20377033251;
+            _detalle.Concepto = _concepto;
+            _detalle.DocTipo = _docTipo;
+            _detalle.DocNro = _docNro;
             _detalle.CbteDesde = nroComp;
             _detalle.CbteHasta = nroComp;
             #region _detalle.CbteFch = <<fecha en string devuelta por el metodo, en base a la fecha actual>>
-            _detalle.CbteFch = ConvertirFechaAString(_cbteFch); 
+            _detalle.CbteFch = ConvertirFechaAString(_cbteFch);
             #endregion
-            _detalle.ImpTotal = 121;
-            _detalle.ImpTotConc = 0;
-            _detalle.ImpNeto = 100;
-            _detalle.ImpIVA = 21;
-            _detalle.ImpOpEx = 0;
-            _detalle.ImpTrib = 0;
-            _detalle.FchServDesde = ""; //  N
-            _detalle.FchServHasta = ""; //  N
-            _detalle.FchVtoPago = ""; //  N
-            _detalle.MonId = "PES";
-            _detalle.MonCotiz = 1;
-            _detalle.CbtesAsoc = null; //  N
-            _detalle.Tributos = null; //  N
-            _detalle.Iva = null; //  N
+            _detalle.ImpTotal = _impTotal;
+            _detalle.ImpTotConc = _impTotConc;
+            _detalle.ImpNeto = _impNeto;
+            _detalle.ImpIVA = _impIVA;
+            _detalle.ImpOpEx = _impOpEx;
+            _detalle.ImpTrib = _impTrib;
+            _detalle.FchServDesde = ConvertirFechaAString(_fchServDesde); //  N
+            _detalle.FchServHasta = ConvertirFechaAString(_fchServHasta); //  N
+            _detalle.FchVtoPago = ConvertirFechaAString(_fchVtoPago); //  N
+            _detalle.MonId = _monId;
+            _detalle.MonCotiz = _monCotiz;
+            //_detalle.CbtesAsoc = _cbtesAsoc; //  N
+            int i = 0;
+            foreach (CbteAsoc c in _cbtesAsoc)
+            {
+                _detalle.CbtesAsoc[i] = new CbteAsoc();
+                _detalle.CbtesAsoc[i] = c;
+                i++;
+            }
+            i = 0;
+            //_detalle.Tributos = _tributo; //  N
+            foreach (Tributo t in _tributo)
+            {
+                _detalle.Tributos[i] = new Tributo();
+                _detalle.Tributos[i] = t;
+                i++;
+            }
+            i = 0;
+            //_detalle.Iva = _iva; //  N
+            foreach (AlicIva a in _iva)
+            {
+                _detalle.Iva[i] = new AlicIva();
+                _detalle.Iva[i] = a;
+                i++;
+            }
+            i = 0;
+            //_detalle.Opcionales = _opcionales; //  N
+            foreach (Opcional o in _opcionales)
+            {
+                _detalle.Opcionales[i] = new Opcional();
+                _detalle.Opcionales[i] = o;
+                i++;
+            }
 
-            _request.FeDetReq = new FECAEDetRequest[1];
-            _request.FeDetReq[0] = new FECAEDetRequest();
-            _request.FeDetReq[0] = _detalle;
+            return _detalle;
         }
 
-        public AlicIva SetAlicIva()
+        /// <summary>
+        /// Configura el request con la cabecera y los detalles.
+        /// </summary>
+        /// <param name="_detalles">Arreglo de detalles</param>
+        public void SetRequest(FECAEDetRequest[] _detalles)
         {
-
-            return null;
+            _request.FeCabReq = _cabecera;
+            //_request.FeDetReq = _detalles;
+            int i = 0;
+            foreach (FECAEDetRequest d in _detalles)
+            {
+                _request.FeDetReq[i] = new FECAEDetRequest();
+                _request.FeDetReq[i] = d;
+                i++;
+            }
         }
 
         /// <summary>
@@ -195,6 +216,8 @@ namespace TestFacturaElectronicaDominio
                 throw new Exception(ex.Message);
             }
         }
+
+        #region Métodos extra
 
         /// <summary>
         /// Convierte una fecha con formato manejado por FECAEDetRequest a un System.DateTime
@@ -234,12 +257,18 @@ namespace TestFacturaElectronicaDominio
             return _fechaADevolver;
         }
 
+        /// <summary>
+        /// Obtiene el ultimo comprobante autorizado por el WSFE
+        /// </summary>
+        /// <returns>Nro. del último comprobante autorizado</returns>
         public long UltimoCompAutorizado()
         {
             FERecuperaLastCbteResponse ultimoComp = new FERecuperaLastCbteResponse();
             ultimoComp = _fServ.FECompUltimoAutorizado(_autorizacion, 1, 1);
             return ultimoComp.CbteNro;
         }
+
+        #endregion
 
         #endregion
     }
