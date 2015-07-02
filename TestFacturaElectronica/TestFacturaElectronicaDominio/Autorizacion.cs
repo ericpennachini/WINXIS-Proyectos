@@ -7,6 +7,7 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography.Pkcs;
 using TestFacturaElectronicaDominio.LoginWS;
+using System.Runtime.Serialization;
 
 namespace TestFacturaElectronicaDominio
 {
@@ -15,7 +16,7 @@ namespace TestFacturaElectronicaDominio
 
         #region Campos y propiedades
         public LoginCMSService servicioWsaa;
-        private string TicketAccesoTemplateXml = "<loginTicketRequest>" +
+        public string TicketAccesoTemplateXml = "<loginTicketRequest>" +
                                                     "<header>" +
                                                         "<uniqueId></uniqueId>" +
                                                         "<generationTime></generationTime>" +
@@ -35,7 +36,7 @@ namespace TestFacturaElectronicaDominio
         public string CmsFirmadoBase64 { get; set; }
         public string UrlServicio { get; set; }
 
-        private static Int32 _globalUniqueID = 1;
+        public static Int32 _globalUniqueID = 1;
         #endregion
 
         /// <summary>
@@ -43,7 +44,6 @@ namespace TestFacturaElectronicaDominio
         /// </summary>
         public Autorizacion()
         {
-            //RutaCertificado = "C:\\Users\\Eric\\Desktop\\certificado_clave\\pennachini_prueba_wsass.p12";
             UrlServicio = "https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl";
             servicioWsaa = new LoginCMSService();
         }
@@ -141,7 +141,7 @@ namespace TestFacturaElectronicaDominio
         /// </summary>
         /// <param name="ruta">Ruta del certificado p12 en disco</param>
         /// <returns>Certificado X509</returns>
-        private X509Certificate2 LeerCertificadoDeDisco(string ruta)
+        public X509Certificate2 LeerCertificadoDeDisco(string ruta)
         {
             X509Certificate2 certificado = new X509Certificate2();
             try
@@ -161,7 +161,7 @@ namespace TestFacturaElectronicaDominio
         /// <param name="msjeBytes">XML codificado en bytes</param>
         /// <param name="certFirmante">Certificado X509 obtenido en 'private X509Certificate2 LeerCertificadoDeDisco(string ruta)'</param>
         /// <returns>Mensaje firmado</returns>
-        private byte[] FirmarMensaje(byte[] msjeBytes, X509Certificate2 certFirmante)
+        public byte[] FirmarMensaje(byte[] msjeBytes, X509Certificate2 certFirmante)
         {
             ContentInfo contenidoMsje = new ContentInfo(msjeBytes);
             SignedCms cmsFirmado = new SignedCms(contenidoMsje);
@@ -171,5 +171,6 @@ namespace TestFacturaElectronicaDominio
             return cmsFirmado.Encode();
         }
         #endregion
+
     }
 }

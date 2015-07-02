@@ -5,20 +5,51 @@ using System.Text;
 using System.Xml;
 using TestFacturaElectronicaDominio.FacturaElectronicaWS;
 using TestFacturaElectronicaDominio.LoginWS;
+using System.Runtime.Serialization;
 
 namespace TestFacturaElectronicaDominio
 {
     public class ServFactElect
     {
         #region Campos
-        private ServiceSoapClient _fServ;
-        private FEAuthRequest _autorizacion;
-        private FECAERequest _request;
-        private FECAEResponse _response;
-        private FECAECabRequest _cabecera;
-        private FECAEDetRequest[] _detalle;
-        private Autorizacion _objAutorizacion;
+        //private ServiceSoapClient _fServ;
+        public Service FServ { get; set; }
+        public FEAuthRequest Autorizacion { get; set; }
+        public FECAERequest Request { get; set; }
+        public FECAEResponse Response { get; set; }
+        public FECAECabRequest CabeceraFactura { get; set; }
+        public FECAEDetRequest[] DetalleFactura { get; set; }
+        public Autorizacion ObjAutorizacion { get; set; }
+        public int UltimoElementoArrayDetalle { get; set; }
         #endregion
+
+        //#region Propiedades
+        //public Service FServ
+        //{
+        //    get { return _fServ; }
+        //    set { _fServ = value; }
+        //}
+        //public FEAuthRequest Autorizacion
+        //{
+        //    get { return _autorizacion; }
+        //    set { _autorizacion = value; }
+        //}
+        //public FECAERequest Request
+        //{
+        //    get { return _request; }
+        //    set { _request = value; }
+        //}
+        //public FECAEResponse Response
+        //{
+        //    get { return _response; }
+        //    set { _response = value; }
+        //}
+        //public Autorizacion ObjAutorizacion
+        //{
+        //    get { return _objAutorizacion; }
+        //    set { _objAutorizacion = value; }
+        //}
+        //#endregion
 
         #region Constructor
         /// <summary>
@@ -26,53 +57,28 @@ namespace TestFacturaElectronicaDominio
         /// </summary>
         public ServFactElect()
         {
-            _fServ = new ServiceSoapClient();
-            _autorizacion = new FEAuthRequest();
-            _request = new FECAERequest();
-            _response = new FECAEResponse();
-            _cabecera = new FECAECabRequest();
-            _objAutorizacion = new Autorizacion();
+            //_fServ = new ServiceSoapClient();
+            FServ = new Service();
+            Autorizacion = new FEAuthRequest();
+            Request = new FECAERequest();
+            Response = new FECAEResponse();
+            CabeceraFactura = new FECAECabRequest();
+            ObjAutorizacion = new Autorizacion();
             //Instancio algunos campos del response que son compuestos, y tambien sus subcampos (solo uno para prueba)
 
-            _response.FeDetResp = new FECAEDetResponse[1];
-            _response.FeDetResp[0] = new FECAEDetResponse();
+            Response.FeDetResp = new FECAEDetResponse[1];
+            Response.FeDetResp[0] = new FECAEDetResponse();
             //Observaciones
-            _response.FeDetResp[0].Observaciones = new Obs[1];
-            _response.FeDetResp[0].Observaciones[0] = new Obs();
+            Response.FeDetResp[0].Observaciones = new Obs[1];
+            Response.FeDetResp[0].Observaciones[0] = new Obs();
             //Errores
-            _response.Errors = new Err[5];
+            Response.Errors = new Err[5];
             for (int i = 0; i < 5; i++)
             {
-                _response.Errors[i] = new Err();
+                Response.Errors[i] = new Err();
             }
-        }
-        #endregion
 
-        #region Propiedades
-        public ServiceSoapClient FServ
-        {
-            get { return _fServ; }
-            set { _fServ = value; }
-        }
-        public FEAuthRequest Autorizacion
-        {
-            get { return _autorizacion; }
-            set { _autorizacion = value; }
-        }
-        public FECAERequest Request
-        {
-            get { return _request; }
-            set { _request = value; }
-        }
-        public FECAEResponse Response
-        {
-            get { return _response; }
-            set { _response = value; }
-        }
-        public Autorizacion ObjAutorizacion
-        {
-            get { return _objAutorizacion; }
-            set { _objAutorizacion = value; }
+            UltimoElementoArrayDetalle = 0;
         }
         #endregion
 
@@ -87,11 +93,11 @@ namespace TestFacturaElectronicaDominio
         public void Autorizar(long cuit)
         {
 
-            _objAutorizacion.ObtenerTicketAcceso();
+            ObjAutorizacion.ObtenerTicketAcceso();
 
-            _autorizacion.Token = _objAutorizacion.Token;
-            _autorizacion.Sign = _objAutorizacion.Sign;
-            _autorizacion.Cuit = cuit;
+            Autorizacion.Token = ObjAutorizacion.Token;
+            Autorizacion.Sign = ObjAutorizacion.Sign;
+            Autorizacion.Cuit = cuit;
 
         }
         #endregion
@@ -104,21 +110,19 @@ namespace TestFacturaElectronicaDominio
         /// <param name="_ptoVta">Nro de punto de venta</param>
         /// <param name="_cbteTipo">Tipo de comprobante (Ej., 1 = factura 'A')</param>
         /// <returns>Cabecera de la factura, en formato FECAECabRequest</returns>
-        public FECAECabRequest SetCabecera(int _cantReg, int _ptoVta, int _cbteTipo)
+        public void SetCabecera(int _cantReg, int _ptoVta, int _cbteTipo)
         {
-            _cabecera.CantReg = _cantReg;
-            _cabecera.PtoVta = _ptoVta;
-            _cabecera.CbteTipo = _cbteTipo; //factura "A"
-
-            return _cabecera;
+            CabeceraFactura.CantReg = _cantReg;
+            CabeceraFactura.PtoVta = _ptoVta;
+            CabeceraFactura.CbteTipo = _cbteTipo;
+            DetalleFactura = new FECAEDetRequest[_cantReg];
         }
 
         /// <summary>
         /// Confecciona el detalle, es decir los campos de la factura, y lo devuelve.
         /// </summary>
         /// <see cref="http://www.afip.gob.ar/fe/documentos/manualdesarrolladorCOMPGv26.pdf"/>
-        /// <returns>Detalle en formato FECAEDetRequest</returns>
-        public FECAEDetRequest SetDetalle(int _concepto, int _docTipo, long _docNro,
+        public void SetDetalle(int _concepto, int _docTipo, long _docNro,
             DateTime _cbteFch, double _impTotal, double _impTotConc, double _impNeto, double _impIVA, double _impOpEx, double _impTrib,
             DateTime _fchServDesde, DateTime _fchServHasta, DateTime _fchVtoPago, string _monId, double _monCotiz,
             CbteAsoc[] _cbtesAsoc, Tributo[] _tributo, AlicIva[] _iva, Opcional[] _opcionales)
@@ -151,55 +155,77 @@ namespace TestFacturaElectronicaDominio
             _detalle.MonCotiz = _monCotiz;
             //_detalle.CbtesAsoc = _cbtesAsoc; //  N
             int i = 0;
-            foreach (CbteAsoc c in _cbtesAsoc)
+            if (_cbtesAsoc != null)
             {
-                _detalle.CbtesAsoc[i] = new CbteAsoc();
-                _detalle.CbtesAsoc[i] = c;
-                i++;
+                i = 0;
+                foreach (CbteAsoc c in _cbtesAsoc)
+                {
+                    _detalle.CbtesAsoc[i] = new CbteAsoc();
+                    _detalle.CbtesAsoc[i] = c;
+                    i++;
+                }
             }
-            i = 0;
+            else
+            {
+                _detalle.CbtesAsoc = null;
+            }
             //_detalle.Tributos = _tributo; //  N
-            foreach (Tributo t in _tributo)
+            if (_tributo != null)
             {
-                _detalle.Tributos[i] = new Tributo();
-                _detalle.Tributos[i] = t;
-                i++;
+                i = 0;
+                foreach (Tributo t in _tributo)
+                {
+                    _detalle.Tributos[i] = new Tributo();
+                    _detalle.Tributos[i] = t;
+                    i++;
+                }
             }
-            i = 0;
+            else
+            {
+                _detalle.Tributos = null;
+            }
             //_detalle.Iva = _iva; //  N
-            foreach (AlicIva a in _iva)
+            if (_iva != null)
             {
-                _detalle.Iva[i] = new AlicIva();
-                _detalle.Iva[i] = a;
-                i++;
+                i = 0;
+                foreach (AlicIva a in _iva)
+                {
+                    _detalle.Iva[i] = new AlicIva();
+                    _detalle.Iva[i] = a;
+                    i++;
+                }
             }
-            i = 0;
-            //_detalle.Opcionales = _opcionales; //  N
-            foreach (Opcional o in _opcionales)
+            else
             {
-                _detalle.Opcionales[i] = new Opcional();
-                _detalle.Opcionales[i] = o;
-                i++;
+                _detalle.Iva = null;
+            }
+            //_detalle.Opcionales = _opcionales; //  N
+            if (_opcionales != null)
+            {
+                i = 0;
+                foreach (Opcional o in _opcionales)
+                {
+                    _detalle.Opcionales[i] = new Opcional();
+                    _detalle.Opcionales[i] = o;
+                    i++;
+                }
+            }
+            else
+            {
+                _detalle.Opcionales = null;
             }
 
-            return _detalle;
+            DetalleFactura[UltimoElementoArrayDetalle] = _detalle;
+            UltimoElementoArrayDetalle++;
         }
 
         /// <summary>
         /// Configura el request con la cabecera y los detalles.
         /// </summary>
-        /// <param name="_detalles">Arreglo de detalles</param>
-        public void SetRequest(FECAEDetRequest[] _detalles)
+        public void SetRequest()
         {
-            _request.FeCabReq = _cabecera;
-            //_request.FeDetReq = _detalles;
-            int i = 0;
-            foreach (FECAEDetRequest d in _detalles)
-            {
-                _request.FeDetReq[i] = new FECAEDetRequest();
-                _request.FeDetReq[i] = d;
-                i++;
-            }
+            Request.FeCabReq = CabeceraFactura;
+            Request.FeDetReq = DetalleFactura;
         }
 
         /// <summary>
@@ -209,7 +235,7 @@ namespace TestFacturaElectronicaDominio
         {
             try
             {
-                _response = _fServ.FECAESolicitar(_autorizacion, _request);
+                Response = FServ.FECAESolicitar(Autorizacion, Request);
             }
             catch (Exception ex)
             {
@@ -264,12 +290,13 @@ namespace TestFacturaElectronicaDominio
         public long UltimoCompAutorizado()
         {
             FERecuperaLastCbteResponse ultimoComp = new FERecuperaLastCbteResponse();
-            ultimoComp = _fServ.FECompUltimoAutorizado(_autorizacion, 1, 1);
+            ultimoComp = FServ.FECompUltimoAutorizado(Autorizacion, 1, 1);
             return ultimoComp.CbteNro;
         }
 
         #endregion
 
         #endregion
+
     }
 }

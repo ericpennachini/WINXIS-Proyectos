@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestFacturaElectronicaDominio</RootNamespace>
     <AssemblyName>TestFacturaElectronicaDominio</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,10 +57,10 @@
     </Compile>
     <Compile Include="ServFactElect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\FacturaElectronicaWS\Reference.cs">
+    <Compile Include="Web References\FacturaElectronicaWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\LoginWS\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -78,64 +79,68 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\service.wsdl" />
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.CbteTipoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\CbteTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.ConceptoTipoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\ConceptoTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.DocTipoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\DocTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.DummyResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\DummyResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FECAEAGetResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FECAEAGetResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FECAEAResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FECAEAResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FECAEASinMovConsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FECAEASinMovConsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FECAEASinMovResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FECAEASinMovResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FECAEResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FECAEResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FECompConsultaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FECompConsultaResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FECotizacionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FECotizacionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FEPaisResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FEPaisResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FEPtoVentaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FEPtoVentaResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FERecuperaLastCbteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FERecuperaLastCbteResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FERegXReqResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FERegXReqResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.FETributoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\FETributoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.IvaTipoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\IvaTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.MonedaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\MonedaResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\FacturaElectronicaWS\TestFacturaElectronicaDominio.FacturaElectronicaWS.OpcionalTipoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\FacturaElectronicaWS\OpcionalTipoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\FacturaElectronicaWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\FacturaElectronicaWS\service.wsdl" />
     <None Include="Web References\LoginWS\LoginCms.wsdl" />
     <None Include="Web References\LoginWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -143,31 +148,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\FacturaElectronicaWS\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FacturaElectronicaWS\service.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FacturaElectronicaWS\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FacturaElectronicaWS\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FacturaElectronicaWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="https://wsaahomo.afip.gov.ar/ws/services/LoginCms%3fwsdl">
+    <WebReferenceUrl Include="https://wsaahomo.afip.gov.ar/ws/services/LoginCms%3fWSDL">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\LoginWS\</RelPath>
-      <UpdateFromURL>https://wsaahomo.afip.gov.ar/ws/services/LoginCms%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>https://wsaahomo.afip.gov.ar/ws/services/LoginCms%3fWSDL</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -175,9 +162,20 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>TestFacturaElectronicaDominio_LoginWS_LoginCMSService</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="https://wswhomo.afip.gov.ar/wsfev1/service.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\FacturaElectronicaWS\</RelPath>
+      <UpdateFromURL>https://wswhomo.afip.gov.ar/wsfev1/service.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TestFacturaElectronicaDominio_FacturaElectronicaWS_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="XMLFile1.xml" />
+    <None Include="Web References\FacturaElectronicaWS\service.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

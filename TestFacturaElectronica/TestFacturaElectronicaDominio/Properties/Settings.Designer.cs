@@ -32,5 +32,15 @@ namespace TestFacturaElectronicaDominio.Properties {
                 return ((string)(this["TestFacturaElectronicaDominio_LoginWS_LoginCMSService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://wswhomo.afip.gov.ar/wsfev1/service.asmx")]
+        public string TestFacturaElectronicaDominio_FacturaElectronicaWS_Service {
+            get {
+                return ((string)(this["TestFacturaElectronicaDominio_FacturaElectronicaWS_Service"]));
+            }
+        }
     }
 }
