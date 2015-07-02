@@ -6,10 +6,10 @@ using System.Xml;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography.Pkcs;
-using TestFacturaElectronicaDominio.LoginWS;
+using TestFacturaElectronica.Dominio.LoginWS;
 using System.Runtime.Serialization;
 
-namespace TestFacturaElectronicaDominio
+namespace TestFacturaElectronica
 {
     public class Autorizacion
     {

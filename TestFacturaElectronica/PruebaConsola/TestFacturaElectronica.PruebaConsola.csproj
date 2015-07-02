@@ -59,9 +59,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TestFacturaElectronicaDominio\TestFacturaElectronicaDominio.csproj">
+    <ProjectReference Include="..\TestFacturaElectronicaDominio\TestFacturaElectronica.Dominio.csproj">
       <Project>{AD2BD28E-CE25-4803-B88C-34917D160FAD}</Project>
-      <Name>TestFacturaElectronicaDominio</Name>
+      <Name>TestFacturaElectronica.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

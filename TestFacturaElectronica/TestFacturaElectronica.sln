@@ -1,25 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFacturaElectronicaDominio", "TestFacturaElectronicaDominio\TestFacturaElectronicaDominio.csproj", "{AD2BD28E-CE25-4803-B88C-34917D160FAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFacturaElectronica.Dominio", "TestFacturaElectronicaDominio\TestFacturaElectronica.Dominio.csproj", "{AD2BD28E-CE25-4803-B88C-34917D160FAD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Varios", "Varios", "{DE64A277-1C4D-4BE5-BB9E-18E4191D0A14}"
 	ProjectSection(SolutionItems) = preProject
 		TextFile1.txt = TextFile1.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFacturaElectronicaWeb", "TestFacturaElectronicaWeb\TestFacturaElectronicaWeb.csproj", "{A940AEDD-130D-4606-A640-489AAE5F8F25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFacturaElectronica.WebService", "TestFacturaElectronicaWeb\TestFacturaElectronica.WebService.csproj", "{A940AEDD-130D-4606-A640-489AAE5F8F25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaConsola", "PruebaConsola\PruebaConsola.csproj", "{8E3F6A75-E3F0-4AF1-B955-79DD359293D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFacturaElectronica.PruebaConsola", "PruebaConsola\TestFacturaElectronica.PruebaConsola.csproj", "{8E3F6A75-E3F0-4AF1-B955-79DD359293D5}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A940AEDD-130D-4606-A640-489AAE5F8F25} = {A940AEDD-130D-4606-A640-489AAE5F8F25}
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentacion", "Presentacion", "{0DF708AB-50AD-491E-B045-0EF58C0681E6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentacion", "1 - Presentacion", "{0DF708AB-50AD-491E-B045-0EF58C0681E6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dominio", "Dominio", "{5F2311CB-13F1-4431-B286-8CC4D5267ACC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Dominio", "3 - Dominio", "{5F2311CB-13F1-4431-B286-8CC4D5267ACC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servicios", "Servicios", "{58D67D22-9898-434F-9AE5-CDF4AA3A112A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Servicios", "2 - Servicios", "{58D67D22-9898-434F-9AE5-CDF4AA3A112A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,5 +64,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8E3F6A75-E3F0-4AF1-B955-79DD359293D5} = {0DF708AB-50AD-491E-B045-0EF58C0681E6}
+		{AD2BD28E-CE25-4803-B88C-34917D160FAD} = {5F2311CB-13F1-4431-B286-8CC4D5267ACC}
+		{A940AEDD-130D-4606-A640-489AAE5F8F25} = {58D67D22-9898-434F-9AE5-CDF4AA3A112A}
 	EndGlobalSection
 EndGlobal

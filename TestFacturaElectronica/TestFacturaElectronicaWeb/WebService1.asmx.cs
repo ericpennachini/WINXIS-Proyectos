@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using TestFacturaElectronicaDominio;
-using TestFacturaElectronicaDominio.FacturaElectronicaWS;
+using TestFacturaElectronica.Dominio;
+using TestFacturaElectronica.Dominio.FacturaElectronicaWS;
 
-namespace TestFacturaElectronicaWeb
+namespace TestFacturaElectronica.WebService
 {
     /// <summary>
     /// Descripción breve de WebService1
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/TestFacturaElectronicaWeb/WebService1")]
+    [WebService(Namespace = "http://tempuri.org/TestFacturaElectronica.WebService/WebService1")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // Para permitir que se llame a este servicio Web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 

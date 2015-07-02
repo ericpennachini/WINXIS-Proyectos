@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PruebaConsola.localhost;
-using TestFacturaElectronicaDominio;
+using TestFacturaElectronica.Dominio;
 
-namespace PruebaConsola
+namespace TestFacturaElectronica.PruebaConsola
 {
     /// <summary>
     /// Programa en consola para pruebas

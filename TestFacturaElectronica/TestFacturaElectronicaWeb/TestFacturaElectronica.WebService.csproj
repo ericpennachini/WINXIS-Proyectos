@@ -13,6 +13,7 @@
     <RootNamespace>TestFacturaElectronicaWeb</RootNamespace>
     <AssemblyName>TestFacturaElectronicaWeb</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,9 +68,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TestFacturaElectronicaDominio\TestFacturaElectronicaDominio.csproj">
+    <ProjectReference Include="..\TestFacturaElectronicaDominio\TestFacturaElectronica.Dominio.csproj">
       <Project>{AD2BD28E-CE25-4803-B88C-34917D160FAD}</Project>
-      <Name>TestFacturaElectronicaDominio</Name>
+      <Name>TestFacturaElectronica.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

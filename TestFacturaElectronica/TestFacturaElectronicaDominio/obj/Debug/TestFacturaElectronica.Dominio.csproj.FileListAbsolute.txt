@@ -1,0 +1,5 @@
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaDominio\obj\Debug\TestFacturaElectronicaDominio.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaDominio\bin\Debug\TestFacturaElectronicaDominio.dll.config
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaDominio\bin\Debug\TestFacturaElectronicaDominio.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaDominio\bin\Debug\TestFacturaElectronicaDominio.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaDominio\obj\Debug\TestFacturaElectronicaDominio.dll

@@ -1,0 +1,7 @@
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaWeb\obj\Debug\TestFacturaElectronicaWeb.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaWeb\obj\Debug\TestFacturaElectronica.WebService.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaWeb\bin\TestFacturaElectronicaWeb.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaWeb\bin\TestFacturaElectronicaWeb.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaWeb\bin\TestFacturaElectronicaDominio.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaWeb\bin\TestFacturaElectronicaDominio.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronicaWeb\obj\Debug\TestFacturaElectronicaWeb.dll

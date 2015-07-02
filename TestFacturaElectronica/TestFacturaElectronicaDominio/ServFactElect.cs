@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
-using TestFacturaElectronicaDominio.FacturaElectronicaWS;
-using TestFacturaElectronicaDominio.LoginWS;
+using TestFacturaElectronica.Dominio.FacturaElectronicaWS;
+using TestFacturaElectronica.Dominio.LoginWS;
 using System.Runtime.Serialization;
 
-namespace TestFacturaElectronicaDominio
+namespace TestFacturaElectronica.Dominio
 {
     public class ServFactElect
     {
