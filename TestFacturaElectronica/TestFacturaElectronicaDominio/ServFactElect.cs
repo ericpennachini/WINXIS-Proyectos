@@ -9,6 +9,13 @@ using System.Runtime.Serialization;
 
 namespace TestFacturaElectronica.Dominio
 {
+    /// <summary>
+    /// Clase encargada de manejar la facturación:
+    ///     1) Setea los campos
+    ///     2) Autoriza usando la clase Autorización, encargada de manejar la autorización con el web service WSAA
+    ///     3) Solicita la autorización de la factura en espera del CAE (o errores en su defecto) al web service WSFE
+    /// </summary>
+    [Serializable]
     public class ServFactElect
     {
         #region Campos
@@ -23,7 +30,7 @@ namespace TestFacturaElectronica.Dominio
         public int UltimoElementoArrayDetalle { get; set; }
         #endregion
 
-        //#region Propiedades
+        #region Propiedades
         //public Service FServ
         //{
         //    get { return _fServ; }
@@ -49,7 +56,7 @@ namespace TestFacturaElectronica.Dominio
         //    get { return _objAutorizacion; }
         //    set { _objAutorizacion = value; }
         //}
-        //#endregion
+        #endregion
 
         #region Constructor
         /// <summary>
@@ -57,26 +64,24 @@ namespace TestFacturaElectronica.Dominio
         /// </summary>
         public ServFactElect()
         {
-            //_fServ = new ServiceSoapClient();
             FServ = new Service();
             Autorizacion = new FEAuthRequest();
             Request = new FECAERequest();
             Response = new FECAEResponse();
             CabeceraFactura = new FECAECabRequest();
             ObjAutorizacion = new Autorizacion();
-            //Instancio algunos campos del response que son compuestos, y tambien sus subcampos (solo uno para prueba)
-
-            Response.FeDetResp = new FECAEDetResponse[1];
-            Response.FeDetResp[0] = new FECAEDetResponse();
-            //Observaciones
-            Response.FeDetResp[0].Observaciones = new Obs[1];
-            Response.FeDetResp[0].Observaciones[0] = new Obs();
-            //Errores
-            Response.Errors = new Err[5];
-            for (int i = 0; i < 5; i++)
-            {
-                Response.Errors[i] = new Err();
-            }
+            ////Instancio algunos campos del response que son compuestos, y tambien sus subcampos (solo uno para prueba)
+            //Response.FeDetResp = new FECAEDetResponse[1];
+            //Response.FeDetResp[0] = new FECAEDetResponse();
+            ////Observaciones
+            //Response.FeDetResp[0].Observaciones = new Obs[1];
+            //Response.FeDetResp[0].Observaciones[0] = new Obs();
+            ////Errores
+            //Response.Errors = new Err[5];
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Response.Errors[i] = new Err();
+            //}
 
             UltimoElementoArrayDetalle = 0;
         }
@@ -153,67 +158,67 @@ namespace TestFacturaElectronica.Dominio
             _detalle.FchVtoPago = ConvertirFechaAString(_fchVtoPago); //  N
             _detalle.MonId = _monId;
             _detalle.MonCotiz = _monCotiz;
-            //_detalle.CbtesAsoc = _cbtesAsoc; //  N
-            int i = 0;
-            if (_cbtesAsoc != null)
-            {
-                i = 0;
-                foreach (CbteAsoc c in _cbtesAsoc)
-                {
-                    _detalle.CbtesAsoc[i] = new CbteAsoc();
-                    _detalle.CbtesAsoc[i] = c;
-                    i++;
-                }
-            }
-            else
-            {
-                _detalle.CbtesAsoc = null;
-            }
-            //_detalle.Tributos = _tributo; //  N
-            if (_tributo != null)
-            {
-                i = 0;
-                foreach (Tributo t in _tributo)
-                {
-                    _detalle.Tributos[i] = new Tributo();
-                    _detalle.Tributos[i] = t;
-                    i++;
-                }
-            }
-            else
-            {
-                _detalle.Tributos = null;
-            }
-            //_detalle.Iva = _iva; //  N
-            if (_iva != null)
-            {
-                i = 0;
-                foreach (AlicIva a in _iva)
-                {
-                    _detalle.Iva[i] = new AlicIva();
-                    _detalle.Iva[i] = a;
-                    i++;
-                }
-            }
-            else
-            {
-                _detalle.Iva = null;
-            }
-            //_detalle.Opcionales = _opcionales; //  N
-            if (_opcionales != null)
-            {
-                i = 0;
-                foreach (Opcional o in _opcionales)
-                {
-                    _detalle.Opcionales[i] = new Opcional();
-                    _detalle.Opcionales[i] = o;
-                    i++;
-                }
-            }
-            else
-            {
-                _detalle.Opcionales = null;
-            }
+            _detalle.CbtesAsoc = _cbtesAsoc; //  N
+            //int i = 0;
+            //if (_cbtesAsoc != null)
+            //{
+            //    i = 0;
+            //    foreach (CbteAsoc c in _cbtesAsoc)
+            //    {
+            //        _detalle.CbtesAsoc[i] = new CbteAsoc();
+            //        _detalle.CbtesAsoc[i] = c;
+            //        i++;
+            //    }
+            //}
+            //else
+            //{
+            //    _detalle.CbtesAsoc = null;
+            //}
+            _detalle.Tributos = _tributo; //  N
+            //if (_tributo != null)
+            //{
+            //    i = 0;
+            //    foreach (Tributo t in _tributo)
+            //    {
+            //        _detalle.Tributos[i] = new Tributo();
+            //        _detalle.Tributos[i] = t;
+            //        i++;
+            //    }
+            //}
+            //else
+            //{
+            //    _detalle.Tributos = null;
+            //}
+            _detalle.Iva = _iva; //  N
+            //if (_iva != null)
+            //{
+            //    i = 0;
+            //    foreach (AlicIva a in _iva)
+            //    {
+            //        _detalle.Iva[i] = new AlicIva();
+            //        _detalle.Iva[i] = a;
+            //        i++;
+            //    }
+            //}
+            //else
+            //{
+            //    _detalle.Iva = null;
+            //}
+            _detalle.Opcionales = _opcionales; //  N
+            //if (_opcionales != null)
+            //{
+            //    i = 0;
+            //    foreach (Opcional o in _opcionales)
+            //    {
+            //        _detalle.Opcionales[i] = new Opcional();
+            //        _detalle.Opcionales[i] = o;
+            //        i++;
+            //    }
+            //}
+            //else
+            //{
+            //    _detalle.Opcionales = null;
+            //}
 
             DetalleFactura[UltimoElementoArrayDetalle] = _detalle;
             UltimoElementoArrayDetalle++;

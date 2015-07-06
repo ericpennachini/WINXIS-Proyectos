@@ -8,8 +8,8 @@
     <ProjectGuid>{8E3F6A75-E3F0-4AF1-B955-79DD359293D5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PruebaConsola</RootNamespace>
-    <AssemblyName>PruebaConsola</AssemblyName>
+    <RootNamespace>TestFacturaElectronica.PruebaConsola</RootNamespace>
+    <AssemblyName>TestFacturaElectronica.PruebaConsola</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -73,13 +73,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Service References\localhost\PruebaConsola.localhost.ArrayOfString.datasource">
+    <None Include="Service References\localhost\TestFacturaElectronica.PruebaConsola.localhost.ArrayOfString.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\localhost\WebService1.wsdl" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\localhost\" />

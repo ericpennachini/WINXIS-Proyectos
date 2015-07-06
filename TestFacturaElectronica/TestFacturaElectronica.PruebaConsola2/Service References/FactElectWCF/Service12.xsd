@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TestFacturaElectronica.Dominio.FacturaElectronicaWS" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TestFacturaElectronica.Dominio.FacturaElectronicaWS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCbteAsoc">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CbteAsoc" nillable="true" type="tns:CbteAsoc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCbteAsoc" nillable="true" type="tns:ArrayOfCbteAsoc" />
+  <xs:complexType name="CbteAsoc">
+    <xs:sequence>
+      <xs:element name="nroField" type="xs:long" />
+      <xs:element name="ptoVtaField" type="xs:int" />
+      <xs:element name="tipoField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CbteAsoc" nillable="true" type="tns:CbteAsoc" />
+  <xs:complexType name="ArrayOfTributo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tributo" nillable="true" type="tns:Tributo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTributo" nillable="true" type="tns:ArrayOfTributo" />
+  <xs:complexType name="Tributo">
+    <xs:sequence>
+      <xs:element name="alicField" type="xs:double" />
+      <xs:element name="baseImpField" type="xs:double" />
+      <xs:element name="descField" nillable="true" type="xs:string" />
+      <xs:element name="idField" type="xs:short" />
+      <xs:element name="importeField" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tributo" nillable="true" type="tns:Tributo" />
+  <xs:complexType name="ArrayOfAlicIva">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlicIva" nillable="true" type="tns:AlicIva" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlicIva" nillable="true" type="tns:ArrayOfAlicIva" />
+  <xs:complexType name="AlicIva">
+    <xs:sequence>
+      <xs:element name="baseImpField" type="xs:double" />
+      <xs:element name="idField" type="xs:int" />
+      <xs:element name="importeField" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlicIva" nillable="true" type="tns:AlicIva" />
+  <xs:complexType name="ArrayOfOpcional">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Opcional" nillable="true" type="tns:Opcional" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOpcional" nillable="true" type="tns:ArrayOfOpcional" />
+  <xs:complexType name="Opcional">
+    <xs:sequence>
+      <xs:element name="idField" nillable="true" type="xs:string" />
+      <xs:element name="valorField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Opcional" nillable="true" type="tns:Opcional" />
+  <xs:complexType name="FECAEResponse">
+    <xs:sequence>
+      <xs:element name="errorsField" nillable="true" type="tns:ArrayOfErr" />
+      <xs:element name="eventsField" nillable="true" type="tns:ArrayOfEvt" />
+      <xs:element name="feCabRespField" nillable="true" type="tns:FECAECabResponse" />
+      <xs:element name="feDetRespField" nillable="true" type="tns:ArrayOfFECAEDetResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FECAEResponse" nillable="true" type="tns:FECAEResponse" />
+  <xs:complexType name="ArrayOfErr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Err" nillable="true" type="tns:Err" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErr" nillable="true" type="tns:ArrayOfErr" />
+  <xs:complexType name="Err">
+    <xs:sequence>
+      <xs:element name="codeField" type="xs:int" />
+      <xs:element name="msgField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Err" nillable="true" type="tns:Err" />
+  <xs:complexType name="ArrayOfEvt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Evt" nillable="true" type="tns:Evt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvt" nillable="true" type="tns:ArrayOfEvt" />
+  <xs:complexType name="Evt">
+    <xs:sequence>
+      <xs:element name="codeField" type="xs:int" />
+      <xs:element name="msgField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Evt" nillable="true" type="tns:Evt" />
+  <xs:complexType name="FECAECabResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FECabResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FECAECabResponse" nillable="true" type="tns:FECAECabResponse" />
+  <xs:complexType name="FECabResponse">
+    <xs:sequence>
+      <xs:element name="cantRegField" type="xs:int" />
+      <xs:element name="cbteTipoField" type="xs:int" />
+      <xs:element name="cuitField" type="xs:long" />
+      <xs:element name="fchProcesoField" nillable="true" type="xs:string" />
+      <xs:element name="ptoVtaField" type="xs:int" />
+      <xs:element name="reprocesoField" nillable="true" type="xs:string" />
+      <xs:element name="resultadoField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FECabResponse" nillable="true" type="tns:FECabResponse" />
+  <xs:complexType name="ArrayOfFECAEDetResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FECAEDetResponse" nillable="true" type="tns:FECAEDetResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFECAEDetResponse" nillable="true" type="tns:ArrayOfFECAEDetResponse" />
+  <xs:complexType name="FECAEDetResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FEDetResponse">
+        <xs:sequence>
+          <xs:element name="cAEFchVtoField" nillable="true" type="xs:string" />
+          <xs:element name="cAEField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FECAEDetResponse" nillable="true" type="tns:FECAEDetResponse" />
+  <xs:complexType name="FEDetResponse">
+    <xs:sequence>
+      <xs:element name="cbteDesdeField" type="xs:long" />
+      <xs:element name="cbteFchField" nillable="true" type="xs:string" />
+      <xs:element name="cbteHastaField" type="xs:long" />
+      <xs:element name="conceptoField" type="xs:int" />
+      <xs:element name="docNroField" type="xs:long" />
+      <xs:element name="docTipoField" type="xs:int" />
+      <xs:element name="observacionesField" nillable="true" type="tns:ArrayOfObs" />
+      <xs:element name="resultadoField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FEDetResponse" nillable="true" type="tns:FEDetResponse" />
+  <xs:complexType name="ArrayOfObs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Obs" nillable="true" type="tns:Obs" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfObs" nillable="true" type="tns:ArrayOfObs" />
+  <xs:complexType name="Obs">
+    <xs:sequence>
+      <xs:element name="codeField" type="xs:int" />
+      <xs:element name="msgField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Obs" nillable="true" type="tns:Obs" />
+</xs:schema>

@@ -9,8 +9,9 @@ using System.Security.Cryptography.Pkcs;
 using TestFacturaElectronica.Dominio.LoginWS;
 using System.Runtime.Serialization;
 
-namespace TestFacturaElectronica
+namespace TestFacturaElectronica.Dominio
 {
+    [Serializable]
     public class Autorizacion
     {
 

@@ -1,1 +1,1 @@
-﻿<%@ WebService Language="C#" CodeBehind="WebService1.asmx.cs" Class="TestFacturaElectronicaWeb.WebService1" %>
+﻿<%@ WebService Language="C#" CodeBehind="WebService1.asmx.cs" Class="TestFacturaElectronica.WebService.WebService1" %>

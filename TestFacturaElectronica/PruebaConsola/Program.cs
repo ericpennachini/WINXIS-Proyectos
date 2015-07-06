@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PruebaConsola.localhost;
+using TestFacturaElectronica.PruebaConsola.localhost;
 using TestFacturaElectronica.Dominio;
 
 namespace TestFacturaElectronica.PruebaConsola
@@ -29,7 +29,7 @@ namespace TestFacturaElectronica.PruebaConsola
             servicioFacturacion.ObjAutorizacion.Sign = auth[1];
             #endregion
 
-            #region PASO 3: Seteamos la cabecera de la factura, desde el objeto que maneja la factura 
+            #region PASO 3: Seteamos la cabecera de la factura, desde el objeto que maneja la factura
             servicioFacturacion.SetCabecera(1, 1, 1);
             #endregion
 
@@ -38,7 +38,9 @@ namespace TestFacturaElectronica.PruebaConsola
                 new DateTime(), new DateTime(), new DateTime(), "PES", 1, null, null, null, null);
             #endregion
 
-            //ws.AutorizarFactura();
+            #region PASO 5: Autorizo la factura con el WSFE
+            servicioFacturacion.Solicitar();
+            #endregion
 
             //FECAEResponse response = ws.LeerRespuesta();
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Runtime.Serialization;
 using TestFacturaElectronica.Dominio;
 using TestFacturaElectronica.Dominio.FacturaElectronicaWS;
 
@@ -18,11 +19,7 @@ namespace TestFacturaElectronica.WebService
     // [System.Web.Script.Services.ScriptService]
     public class WebService1 : System.Web.Services.WebService
     {
-
-        public WebService1()
-        {
-            
-        }
+        public WebService1() { }
 
         [WebMethod]
         public string HelloWorld()
@@ -42,7 +39,7 @@ namespace TestFacturaElectronica.WebService
         {
             ServFactElect servicioFacturacion = new ServFactElect();
             Autorizacion servicioAutorizacion = new Autorizacion();
-            string[] auth = new string[3];
+            string[] auth = new string[2];
             try
             {
                 servicioAutorizacion.RutaCertificado = rutaCertificado;
@@ -62,8 +59,9 @@ namespace TestFacturaElectronica.WebService
         }
 
         //[WebMethod]
-        //public ServFactElect ConfeccionarCabecera(int _cantReg, int _ptoVta, int _cbteTipo, ServFactElect _servicioFacturacion)
+        //public ServFactElect ConfeccionarCabecera(int _cantReg, int _ptoVta, int _cbteTipo)
         //{
+        //    ServFactElect _servicioFacturacion = new ServFactElect();
         //    _servicioFacturacion.SetCabecera(_cantReg, _ptoVta, _cbteTipo);
         //    return _servicioFacturacion;
         //}
@@ -107,11 +105,9 @@ namespace TestFacturaElectronica.WebService
         /// Autoriza la factura con el WSFE
         /// </summary>
         [WebMethod]
-        public ServFactElect AutorizarFactura(ServFactElect _servicioFacturacion)
+        public void AutorizarFactura()
         {
-            _servicioFacturacion.SetRequest();
-            _servicioFacturacion.Solicitar();
-            return _servicioFacturacion;
+            
         }
 
         ///// <summary>
