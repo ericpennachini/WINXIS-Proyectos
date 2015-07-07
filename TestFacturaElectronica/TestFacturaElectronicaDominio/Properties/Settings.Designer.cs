@@ -22,25 +22,5 @@ namespace TestFacturaElectronica.Dominio.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://wswhomo.afip.gov.ar/wsfev1/service.asmx")]
-        public string TestFacturaElectronica_Dominio_FacturaElectronicaWS_Service {
-            get {
-                return ((string)(this["TestFacturaElectronica_Dominio_FacturaElectronicaWS_Service"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://wsaahomo.afip.gov.ar/ws/services/LoginCms")]
-        public string TestFacturaElectronica_Dominio_LoginWS_LoginCMSService {
-            get {
-                return ((string)(this["TestFacturaElectronica_Dominio_LoginWS_LoginCMSService"]));
-            }
-        }
     }
 }

@@ -9,161 +9,1905 @@
 //------------------------------------------------------------------------------
 
 namespace TestFacturaElectronica.PruebaConsola.localhost {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfString", Namespace="http://tempuri.org/TestFacturaElectronica.WebService/WebService1", ItemName="string")]
-    [System.SerializableAttribute()]
-    public class ArrayOfString : System.Collections.Generic.List<string> {
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://tempuri.org/TestFacturaElectronica.WebService/WebService1", ConfigurationName="localhost.WebService1Soap")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1", ConfigurationName="localhost.WebService1Soap")]
     public interface WebService1Soap {
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento HelloWorldResult del espacio de nombres http://tempuri.org/TestFacturaElectronica.WebService/WebService1 no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestFacturaElectronica.WebService/WebService1/HelloWorld", ReplyAction="*")]
-        TestFacturaElectronica.PruebaConsola.localhost.HelloWorldResponse HelloWorld(TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/HelloWorld", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string HelloWorld();
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento rutaCertificado del espacio de nombres http://tempuri.org/TestFacturaElectronica.WebService/WebService1 no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestFacturaElectronica.WebService/WebService1/AutorizarConWSAA" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/AutorizarConWSAA" +
             "", ReplyAction="*")]
-        TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAAResponse AutorizarConWSAA(TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAARequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClientBaseOfLoginCMS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FEDetResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FECabResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FEDetRequest))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FECabRequest))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClientBaseOfServiceSoap))]
+        TestFacturaElectronica.PruebaConsola.localhost.ServFactElect AutorizarConWSAA(string rutaCertificado, long cuit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/ConfeccionarCabe" +
+            "cera", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClientBaseOfLoginCMS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FEDetResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FECabResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FEDetRequest))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FECabRequest))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClientBaseOfServiceSoap))]
+        TestFacturaElectronica.PruebaConsola.localhost.ServFactElect ConfeccionarCabecera(int _cantReg, int _ptoVta, int _cbteTipo, TestFacturaElectronica.PruebaConsola.localhost.ServFactElect _servicioFacturacion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/AutorizarFactura" +
+            "", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClientBaseOfLoginCMS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FEDetResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FECabResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FEDetRequest))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(FECabRequest))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ClientBaseOfServiceSoap))]
+        void AutorizarFactura();
     }
     
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldRequest {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class ServFactElect : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorld", Namespace="http://tempuri.org/TestFacturaElectronica.WebService/WebService1", Order=0)]
-        public TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequestBody Body;
+        private ServiceSoapClient fServField;
         
-        public HelloWorldRequest() {
+        private FEAuthRequest autorizacionField;
+        
+        private FECAERequest requestField;
+        
+        private FECAEResponse responseField;
+        
+        private FECAECabRequest cabeceraFacturaField;
+        
+        private FECAEDetRequest[] detalleFacturaField;
+        
+        private Autorizacion objAutorizacionField;
+        
+        private int ultimoElementoArrayDetalleField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ServiceSoapClient FServ {
+            get {
+                return this.fServField;
+            }
+            set {
+                this.fServField = value;
+                this.RaisePropertyChanged("FServ");
+            }
         }
         
-        public HelloWorldRequest(TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequestBody Body) {
-            this.Body = Body;
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public FEAuthRequest Autorizacion {
+            get {
+                return this.autorizacionField;
+            }
+            set {
+                this.autorizacionField = value;
+                this.RaisePropertyChanged("Autorizacion");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public FECAERequest Request {
+            get {
+                return this.requestField;
+            }
+            set {
+                this.requestField = value;
+                this.RaisePropertyChanged("Request");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public FECAEResponse Response {
+            get {
+                return this.responseField;
+            }
+            set {
+                this.responseField = value;
+                this.RaisePropertyChanged("Response");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public FECAECabRequest CabeceraFactura {
+            get {
+                return this.cabeceraFacturaField;
+            }
+            set {
+                this.cabeceraFacturaField = value;
+                this.RaisePropertyChanged("CabeceraFactura");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=5)]
+        public FECAEDetRequest[] DetalleFactura {
+            get {
+                return this.detalleFacturaField;
+            }
+            set {
+                this.detalleFacturaField = value;
+                this.RaisePropertyChanged("DetalleFactura");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public Autorizacion ObjAutorizacion {
+            get {
+                return this.objAutorizacionField;
+            }
+            set {
+                this.objAutorizacionField = value;
+                this.RaisePropertyChanged("ObjAutorizacion");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public int UltimoElementoArrayDetalle {
+            get {
+                return this.ultimoElementoArrayDetalleField;
+            }
+            set {
+                this.ultimoElementoArrayDetalleField = value;
+                this.RaisePropertyChanged("UltimoElementoArrayDetalle");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class HelloWorldRequestBody {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class ServiceSoapClient : ClientBaseOfServiceSoap {
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceSoapClient))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public abstract partial class ClientBaseOfServiceSoap : object, System.ComponentModel.INotifyPropertyChanged {
         
-        public HelloWorldRequestBody() {
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoginCMSClient))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldResponse {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public abstract partial class ClientBaseOfLoginCMS : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorldResponse", Namespace="http://tempuri.org/TestFacturaElectronica.WebService/WebService1", Order=0)]
-        public TestFacturaElectronica.PruebaConsola.localhost.HelloWorldResponseBody Body;
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
-        public HelloWorldResponse() {
-        }
-        
-        public HelloWorldResponse(TestFacturaElectronica.PruebaConsola.localhost.HelloWorldResponseBody Body) {
-            this.Body = Body;
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/TestFacturaElectronica.WebService/WebService1")]
-    public partial class HelloWorldResponseBody {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class LoginCMSClient : ClientBaseOfLoginCMS {
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class Autorizacion : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string HelloWorldResult;
+        private LoginCMSClient servicioWsaaField;
         
-        public HelloWorldResponseBody() {
+        private string ticketAccesoTemplateXmlField;
+        
+        private long uniqueIdField;
+        
+        private System.DateTime generationTimeField;
+        
+        private System.DateTime expirationTimeField;
+        
+        private string serviceField;
+        
+        private string tokenField;
+        
+        private string signField;
+        
+        private System.Xml.XmlNode xmlTicketAccesoRequestField;
+        
+        private System.Xml.XmlNode xmlTicketAccesoResponseField;
+        
+        private string rutaCertificadoField;
+        
+        private string cmsFirmadoBase64Field;
+        
+        private string urlServicioField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public LoginCMSClient servicioWsaa {
+            get {
+                return this.servicioWsaaField;
+            }
+            set {
+                this.servicioWsaaField = value;
+                this.RaisePropertyChanged("servicioWsaa");
+            }
         }
         
-        public HelloWorldResponseBody(string HelloWorldResult) {
-            this.HelloWorldResult = HelloWorldResult;
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string TicketAccesoTemplateXml {
+            get {
+                return this.ticketAccesoTemplateXmlField;
+            }
+            set {
+                this.ticketAccesoTemplateXmlField = value;
+                this.RaisePropertyChanged("TicketAccesoTemplateXml");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public long UniqueId {
+            get {
+                return this.uniqueIdField;
+            }
+            set {
+                this.uniqueIdField = value;
+                this.RaisePropertyChanged("UniqueId");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public System.DateTime GenerationTime {
+            get {
+                return this.generationTimeField;
+            }
+            set {
+                this.generationTimeField = value;
+                this.RaisePropertyChanged("GenerationTime");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public System.DateTime ExpirationTime {
+            get {
+                return this.expirationTimeField;
+            }
+            set {
+                this.expirationTimeField = value;
+                this.RaisePropertyChanged("ExpirationTime");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string Service {
+            get {
+                return this.serviceField;
+            }
+            set {
+                this.serviceField = value;
+                this.RaisePropertyChanged("Service");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+                this.RaisePropertyChanged("Token");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public string Sign {
+            get {
+                return this.signField;
+            }
+            set {
+                this.signField = value;
+                this.RaisePropertyChanged("Sign");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public System.Xml.XmlNode XmlTicketAccesoRequest {
+            get {
+                return this.xmlTicketAccesoRequestField;
+            }
+            set {
+                this.xmlTicketAccesoRequestField = value;
+                this.RaisePropertyChanged("XmlTicketAccesoRequest");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public System.Xml.XmlNode XmlTicketAccesoResponse {
+            get {
+                return this.xmlTicketAccesoResponseField;
+            }
+            set {
+                this.xmlTicketAccesoResponseField = value;
+                this.RaisePropertyChanged("XmlTicketAccesoResponse");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public string RutaCertificado {
+            get {
+                return this.rutaCertificadoField;
+            }
+            set {
+                this.rutaCertificadoField = value;
+                this.RaisePropertyChanged("RutaCertificado");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public string CmsFirmadoBase64 {
+            get {
+                return this.cmsFirmadoBase64Field;
+            }
+            set {
+                this.cmsFirmadoBase64Field = value;
+                this.RaisePropertyChanged("CmsFirmadoBase64");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public string UrlServicio {
+            get {
+                return this.urlServicioField;
+            }
+            set {
+                this.urlServicioField = value;
+                this.RaisePropertyChanged("UrlServicio");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class AutorizarConWSAARequest {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class Err : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AutorizarConWSAA", Namespace="http://tempuri.org/TestFacturaElectronica.WebService/WebService1", Order=0)]
-        public TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAARequestBody Body;
+        private ExtensionDataObject extensionDataField;
         
-        public AutorizarConWSAARequest() {
+        private int codeField;
+        
+        private string msgField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
         }
         
-        public AutorizarConWSAARequest(TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAARequestBody Body) {
-            this.Body = Body;
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+                this.RaisePropertyChanged("Code");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Msg {
+            get {
+                return this.msgField;
+            }
+            set {
+                this.msgField = value;
+                this.RaisePropertyChanged("Msg");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/TestFacturaElectronica.WebService/WebService1")]
-    public partial class AutorizarConWSAARequestBody {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class ExtensionDataObject : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string rutaCertificado;
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public long cuit;
-        
-        public AutorizarConWSAARequestBody() {
-        }
-        
-        public AutorizarConWSAARequestBody(string rutaCertificado, long cuit) {
-            this.rutaCertificado = rutaCertificado;
-            this.cuit = cuit;
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class AutorizarConWSAAResponse {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class Evt : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AutorizarConWSAAResponse", Namespace="http://tempuri.org/TestFacturaElectronica.WebService/WebService1", Order=0)]
-        public TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAAResponseBody Body;
+        private ExtensionDataObject extensionDataField;
         
-        public AutorizarConWSAAResponse() {
+        private int codeField;
+        
+        private string msgField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
         }
         
-        public AutorizarConWSAAResponse(TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAAResponseBody Body) {
-            this.Body = Body;
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+                this.RaisePropertyChanged("Code");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Msg {
+            get {
+                return this.msgField;
+            }
+            set {
+                this.msgField = value;
+                this.RaisePropertyChanged("Msg");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/TestFacturaElectronica.WebService/WebService1")]
-    public partial class AutorizarConWSAAResponseBody {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class Obs : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public TestFacturaElectronica.PruebaConsola.localhost.ArrayOfString AutorizarConWSAAResult;
+        private ExtensionDataObject extensionDataField;
         
-        public AutorizarConWSAAResponseBody() {
+        private int codeField;
+        
+        private string msgField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
         }
         
-        public AutorizarConWSAAResponseBody(TestFacturaElectronica.PruebaConsola.localhost.ArrayOfString AutorizarConWSAAResult) {
-            this.AutorizarConWSAAResult = AutorizarConWSAAResult;
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+                this.RaisePropertyChanged("Code");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Msg {
+            get {
+                return this.msgField;
+            }
+            set {
+                this.msgField = value;
+                this.RaisePropertyChanged("Msg");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FECAEDetResponse))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class FEDetResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ExtensionDataObject extensionDataField;
+        
+        private int conceptoField;
+        
+        private int docTipoField;
+        
+        private long docNroField;
+        
+        private long cbteDesdeField;
+        
+        private long cbteHastaField;
+        
+        private string cbteFchField;
+        
+        private string resultadoField;
+        
+        private Obs[] observacionesField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Concepto {
+            get {
+                return this.conceptoField;
+            }
+            set {
+                this.conceptoField = value;
+                this.RaisePropertyChanged("Concepto");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int DocTipo {
+            get {
+                return this.docTipoField;
+            }
+            set {
+                this.docTipoField = value;
+                this.RaisePropertyChanged("DocTipo");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public long DocNro {
+            get {
+                return this.docNroField;
+            }
+            set {
+                this.docNroField = value;
+                this.RaisePropertyChanged("DocNro");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public long CbteDesde {
+            get {
+                return this.cbteDesdeField;
+            }
+            set {
+                this.cbteDesdeField = value;
+                this.RaisePropertyChanged("CbteDesde");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public long CbteHasta {
+            get {
+                return this.cbteHastaField;
+            }
+            set {
+                this.cbteHastaField = value;
+                this.RaisePropertyChanged("CbteHasta");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string CbteFch {
+            get {
+                return this.cbteFchField;
+            }
+            set {
+                this.cbteFchField = value;
+                this.RaisePropertyChanged("CbteFch");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public string Resultado {
+            get {
+                return this.resultadoField;
+            }
+            set {
+                this.resultadoField = value;
+                this.RaisePropertyChanged("Resultado");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=8)]
+        public Obs[] Observaciones {
+            get {
+                return this.observacionesField;
+            }
+            set {
+                this.observacionesField = value;
+                this.RaisePropertyChanged("Observaciones");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class FECAEDetResponse : FEDetResponse {
+        
+        private string cAEField;
+        
+        private string cAEFchVtoField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string CAE {
+            get {
+                return this.cAEField;
+            }
+            set {
+                this.cAEField = value;
+                this.RaisePropertyChanged("CAE");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string CAEFchVto {
+            get {
+                return this.cAEFchVtoField;
+            }
+            set {
+                this.cAEFchVtoField = value;
+                this.RaisePropertyChanged("CAEFchVto");
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FECAECabResponse))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class FECabResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ExtensionDataObject extensionDataField;
+        
+        private long cuitField;
+        
+        private int ptoVtaField;
+        
+        private int cbteTipoField;
+        
+        private string fchProcesoField;
+        
+        private int cantRegField;
+        
+        private string resultadoField;
+        
+        private string reprocesoField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public long Cuit {
+            get {
+                return this.cuitField;
+            }
+            set {
+                this.cuitField = value;
+                this.RaisePropertyChanged("Cuit");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int PtoVta {
+            get {
+                return this.ptoVtaField;
+            }
+            set {
+                this.ptoVtaField = value;
+                this.RaisePropertyChanged("PtoVta");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public int CbteTipo {
+            get {
+                return this.cbteTipoField;
+            }
+            set {
+                this.cbteTipoField = value;
+                this.RaisePropertyChanged("CbteTipo");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string FchProceso {
+            get {
+                return this.fchProcesoField;
+            }
+            set {
+                this.fchProcesoField = value;
+                this.RaisePropertyChanged("FchProceso");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public int CantReg {
+            get {
+                return this.cantRegField;
+            }
+            set {
+                this.cantRegField = value;
+                this.RaisePropertyChanged("CantReg");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string Resultado {
+            get {
+                return this.resultadoField;
+            }
+            set {
+                this.resultadoField = value;
+                this.RaisePropertyChanged("Resultado");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public string Reproceso {
+            get {
+                return this.reprocesoField;
+            }
+            set {
+                this.reprocesoField = value;
+                this.RaisePropertyChanged("Reproceso");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class FECAECabResponse : FECabResponse {
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class FECAEResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ExtensionDataObject extensionDataField;
+        
+        private FECAECabResponse feCabRespField;
+        
+        private FECAEDetResponse[] feDetRespField;
+        
+        private Evt[] eventsField;
+        
+        private Err[] errorsField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public FECAECabResponse FeCabResp {
+            get {
+                return this.feCabRespField;
+            }
+            set {
+                this.feCabRespField = value;
+                this.RaisePropertyChanged("FeCabResp");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+        public FECAEDetResponse[] FeDetResp {
+            get {
+                return this.feDetRespField;
+            }
+            set {
+                this.feDetRespField = value;
+                this.RaisePropertyChanged("FeDetResp");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=3)]
+        public Evt[] Events {
+            get {
+                return this.eventsField;
+            }
+            set {
+                this.eventsField = value;
+                this.RaisePropertyChanged("Events");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
+        public Err[] Errors {
+            get {
+                return this.errorsField;
+            }
+            set {
+                this.errorsField = value;
+                this.RaisePropertyChanged("Errors");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class Opcional : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ExtensionDataObject extensionDataField;
+        
+        private string idField;
+        
+        private string valorField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Valor {
+            get {
+                return this.valorField;
+            }
+            set {
+                this.valorField = value;
+                this.RaisePropertyChanged("Valor");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class AlicIva : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ExtensionDataObject extensionDataField;
+        
+        private int idField;
+        
+        private double baseImpField;
+        
+        private double importeField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public double BaseImp {
+            get {
+                return this.baseImpField;
+            }
+            set {
+                this.baseImpField = value;
+                this.RaisePropertyChanged("BaseImp");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public double Importe {
+            get {
+                return this.importeField;
+            }
+            set {
+                this.importeField = value;
+                this.RaisePropertyChanged("Importe");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class Tributo : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ExtensionDataObject extensionDataField;
+        
+        private short idField;
+        
+        private string descField;
+        
+        private double baseImpField;
+        
+        private double alicField;
+        
+        private double importeField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public short Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Desc {
+            get {
+                return this.descField;
+            }
+            set {
+                this.descField = value;
+                this.RaisePropertyChanged("Desc");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public double BaseImp {
+            get {
+                return this.baseImpField;
+            }
+            set {
+                this.baseImpField = value;
+                this.RaisePropertyChanged("BaseImp");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public double Alic {
+            get {
+                return this.alicField;
+            }
+            set {
+                this.alicField = value;
+                this.RaisePropertyChanged("Alic");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public double Importe {
+            get {
+                return this.importeField;
+            }
+            set {
+                this.importeField = value;
+                this.RaisePropertyChanged("Importe");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class CbteAsoc : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ExtensionDataObject extensionDataField;
+        
+        private int tipoField;
+        
+        private int ptoVtaField;
+        
+        private long nroField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Tipo {
+            get {
+                return this.tipoField;
+            }
+            set {
+                this.tipoField = value;
+                this.RaisePropertyChanged("Tipo");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int PtoVta {
+            get {
+                return this.ptoVtaField;
+            }
+            set {
+                this.ptoVtaField = value;
+                this.RaisePropertyChanged("PtoVta");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public long Nro {
+            get {
+                return this.nroField;
+            }
+            set {
+                this.nroField = value;
+                this.RaisePropertyChanged("Nro");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FECAEDetRequest))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class FEDetRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ExtensionDataObject extensionDataField;
+        
+        private int conceptoField;
+        
+        private int docTipoField;
+        
+        private long docNroField;
+        
+        private long cbteDesdeField;
+        
+        private long cbteHastaField;
+        
+        private string cbteFchField;
+        
+        private double impTotalField;
+        
+        private double impTotConcField;
+        
+        private double impNetoField;
+        
+        private double impOpExField;
+        
+        private double impTribField;
+        
+        private double impIVAField;
+        
+        private string fchServDesdeField;
+        
+        private string fchServHastaField;
+        
+        private string fchVtoPagoField;
+        
+        private string monIdField;
+        
+        private double monCotizField;
+        
+        private CbteAsoc[] cbtesAsocField;
+        
+        private Tributo[] tributosField;
+        
+        private AlicIva[] ivaField;
+        
+        private Opcional[] opcionalesField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Concepto {
+            get {
+                return this.conceptoField;
+            }
+            set {
+                this.conceptoField = value;
+                this.RaisePropertyChanged("Concepto");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int DocTipo {
+            get {
+                return this.docTipoField;
+            }
+            set {
+                this.docTipoField = value;
+                this.RaisePropertyChanged("DocTipo");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public long DocNro {
+            get {
+                return this.docNroField;
+            }
+            set {
+                this.docNroField = value;
+                this.RaisePropertyChanged("DocNro");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public long CbteDesde {
+            get {
+                return this.cbteDesdeField;
+            }
+            set {
+                this.cbteDesdeField = value;
+                this.RaisePropertyChanged("CbteDesde");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public long CbteHasta {
+            get {
+                return this.cbteHastaField;
+            }
+            set {
+                this.cbteHastaField = value;
+                this.RaisePropertyChanged("CbteHasta");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string CbteFch {
+            get {
+                return this.cbteFchField;
+            }
+            set {
+                this.cbteFchField = value;
+                this.RaisePropertyChanged("CbteFch");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public double ImpTotal {
+            get {
+                return this.impTotalField;
+            }
+            set {
+                this.impTotalField = value;
+                this.RaisePropertyChanged("ImpTotal");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public double ImpTotConc {
+            get {
+                return this.impTotConcField;
+            }
+            set {
+                this.impTotConcField = value;
+                this.RaisePropertyChanged("ImpTotConc");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public double ImpNeto {
+            get {
+                return this.impNetoField;
+            }
+            set {
+                this.impNetoField = value;
+                this.RaisePropertyChanged("ImpNeto");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public double ImpOpEx {
+            get {
+                return this.impOpExField;
+            }
+            set {
+                this.impOpExField = value;
+                this.RaisePropertyChanged("ImpOpEx");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public double ImpTrib {
+            get {
+                return this.impTribField;
+            }
+            set {
+                this.impTribField = value;
+                this.RaisePropertyChanged("ImpTrib");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public double ImpIVA {
+            get {
+                return this.impIVAField;
+            }
+            set {
+                this.impIVAField = value;
+                this.RaisePropertyChanged("ImpIVA");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
+        public string FchServDesde {
+            get {
+                return this.fchServDesdeField;
+            }
+            set {
+                this.fchServDesdeField = value;
+                this.RaisePropertyChanged("FchServDesde");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
+        public string FchServHasta {
+            get {
+                return this.fchServHastaField;
+            }
+            set {
+                this.fchServHastaField = value;
+                this.RaisePropertyChanged("FchServHasta");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
+        public string FchVtoPago {
+            get {
+                return this.fchVtoPagoField;
+            }
+            set {
+                this.fchVtoPagoField = value;
+                this.RaisePropertyChanged("FchVtoPago");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
+        public string MonId {
+            get {
+                return this.monIdField;
+            }
+            set {
+                this.monIdField = value;
+                this.RaisePropertyChanged("MonId");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=17)]
+        public double MonCotiz {
+            get {
+                return this.monCotizField;
+            }
+            set {
+                this.monCotizField = value;
+                this.RaisePropertyChanged("MonCotiz");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=18)]
+        public CbteAsoc[] CbtesAsoc {
+            get {
+                return this.cbtesAsocField;
+            }
+            set {
+                this.cbtesAsocField = value;
+                this.RaisePropertyChanged("CbtesAsoc");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=19)]
+        public Tributo[] Tributos {
+            get {
+                return this.tributosField;
+            }
+            set {
+                this.tributosField = value;
+                this.RaisePropertyChanged("Tributos");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=20)]
+        public AlicIva[] Iva {
+            get {
+                return this.ivaField;
+            }
+            set {
+                this.ivaField = value;
+                this.RaisePropertyChanged("Iva");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=21)]
+        public Opcional[] Opcionales {
+            get {
+                return this.opcionalesField;
+            }
+            set {
+                this.opcionalesField = value;
+                this.RaisePropertyChanged("Opcionales");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class FECAEDetRequest : FEDetRequest {
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FECAECabRequest))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class FECabRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ExtensionDataObject extensionDataField;
+        
+        private int cantRegField;
+        
+        private int ptoVtaField;
+        
+        private int cbteTipoField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int CantReg {
+            get {
+                return this.cantRegField;
+            }
+            set {
+                this.cantRegField = value;
+                this.RaisePropertyChanged("CantReg");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int PtoVta {
+            get {
+                return this.ptoVtaField;
+            }
+            set {
+                this.ptoVtaField = value;
+                this.RaisePropertyChanged("PtoVta");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public int CbteTipo {
+            get {
+                return this.cbteTipoField;
+            }
+            set {
+                this.cbteTipoField = value;
+                this.RaisePropertyChanged("CbteTipo");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class FECAECabRequest : FECabRequest {
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class FECAERequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ExtensionDataObject extensionDataField;
+        
+        private FECAECabRequest feCabReqField;
+        
+        private FECAEDetRequest[] feDetReqField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public FECAECabRequest FeCabReq {
+            get {
+                return this.feCabReqField;
+            }
+            set {
+                this.feCabReqField = value;
+                this.RaisePropertyChanged("FeCabReq");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+        public FECAEDetRequest[] FeDetReq {
+            get {
+                return this.feDetReqField;
+            }
+            set {
+                this.feDetReqField = value;
+                this.RaisePropertyChanged("FeDetReq");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <comentarios/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    public partial class FEAuthRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private ExtensionDataObject extensionDataField;
+        
+        private string tokenField;
+        
+        private string signField;
+        
+        private long cuitField;
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+                this.RaisePropertyChanged("ExtensionData");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+                this.RaisePropertyChanged("Token");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Sign {
+            get {
+                return this.signField;
+            }
+            set {
+                this.signField = value;
+                this.RaisePropertyChanged("Sign");
+            }
+        }
+        
+        /// <comentarios/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public long Cuit {
+            get {
+                return this.cuitField;
+            }
+            set {
+                this.cuitField = value;
+                this.RaisePropertyChanged("Cuit");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
@@ -194,30 +1938,20 @@ namespace TestFacturaElectronica.PruebaConsola.localhost {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        TestFacturaElectronica.PruebaConsola.localhost.HelloWorldResponse TestFacturaElectronica.PruebaConsola.localhost.WebService1Soap.HelloWorld(TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequest request) {
-            return base.Channel.HelloWorld(request);
-        }
-        
         public string HelloWorld() {
-            TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequest inValue = new TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequest();
-            inValue.Body = new TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequestBody();
-            TestFacturaElectronica.PruebaConsola.localhost.HelloWorldResponse retVal = ((TestFacturaElectronica.PruebaConsola.localhost.WebService1Soap)(this)).HelloWorld(inValue);
-            return retVal.Body.HelloWorldResult;
+            return base.Channel.HelloWorld();
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAAResponse TestFacturaElectronica.PruebaConsola.localhost.WebService1Soap.AutorizarConWSAA(TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAARequest request) {
-            return base.Channel.AutorizarConWSAA(request);
+        public TestFacturaElectronica.PruebaConsola.localhost.ServFactElect AutorizarConWSAA(string rutaCertificado, long cuit) {
+            return base.Channel.AutorizarConWSAA(rutaCertificado, cuit);
         }
         
-        public TestFacturaElectronica.PruebaConsola.localhost.ArrayOfString AutorizarConWSAA(string rutaCertificado, long cuit) {
-            TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAARequest inValue = new TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAARequest();
-            inValue.Body = new TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAARequestBody();
-            inValue.Body.rutaCertificado = rutaCertificado;
-            inValue.Body.cuit = cuit;
-            TestFacturaElectronica.PruebaConsola.localhost.AutorizarConWSAAResponse retVal = ((TestFacturaElectronica.PruebaConsola.localhost.WebService1Soap)(this)).AutorizarConWSAA(inValue);
-            return retVal.Body.AutorizarConWSAAResult;
+        public TestFacturaElectronica.PruebaConsola.localhost.ServFactElect ConfeccionarCabecera(int _cantReg, int _ptoVta, int _cbteTipo, TestFacturaElectronica.PruebaConsola.localhost.ServFactElect _servicioFacturacion) {
+            return base.Channel.ConfeccionarCabecera(_cantReg, _ptoVta, _cbteTipo, _servicioFacturacion);
+        }
+        
+        public void AutorizarFactura() {
+            base.Channel.AutorizarFactura();
         }
     }
 }

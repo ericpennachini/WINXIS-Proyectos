@@ -267,10 +267,10 @@
       </s:element>
       <s:complexType name="FERecuperaLastCbteResponse">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfErr" />
           <s:element minOccurs="1" maxOccurs="1" name="PtoVta" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="CbteTipo" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="CbteNro" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfErr" />
           <s:element minOccurs="0" maxOccurs="1" name="Events" type="tns:ArrayOfEvt" />
         </s:sequence>
       </s:complexType>
@@ -298,8 +298,8 @@
       </s:element>
       <s:complexType name="FECompConsultaResponse">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfErr" />
           <s:element minOccurs="0" maxOccurs="1" name="ResultGet" type="tns:FECompConsResponse" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfErr" />
           <s:element minOccurs="0" maxOccurs="1" name="Events" type="tns:ArrayOfEvt" />
         </s:sequence>
       </s:complexType>

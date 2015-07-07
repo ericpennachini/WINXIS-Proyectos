@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestFacturaElectronica.PruebaConsola.Properties {
+namespace TestFacturaElectronica.PruebaConsolaWcf.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Xml.Serialization;
 using TestFacturaElectronica.Dominio.FacturaElectronicaWS;
 using TestFacturaElectronica.Dominio.LoginWS;
 using System.Runtime.Serialization;
@@ -15,12 +16,12 @@ namespace TestFacturaElectronica.Dominio
     ///     2) Autoriza usando la clase Autorización, encargada de manejar la autorización con el web service WSAA
     ///     3) Solicita la autorización de la factura en espera del CAE (o errores en su defecto) al web service WSFE
     /// </summary>
-    [Serializable]
+    [System.SerializableAttribute()]
     public class ServFactElect
     {
-        #region Campos
-        //private ServiceSoapClient _fServ;
-        public Service FServ { get; set; }
+        #region Propiedades
+        public ServiceSoapClient FServ;
+        //public Service FServ { get; set; }
         public FEAuthRequest Autorizacion { get; set; }
         public FECAERequest Request { get; set; }
         public FECAEResponse Response { get; set; }
@@ -30,41 +31,13 @@ namespace TestFacturaElectronica.Dominio
         public int UltimoElementoArrayDetalle { get; set; }
         #endregion
 
-        #region Propiedades
-        //public Service FServ
-        //{
-        //    get { return _fServ; }
-        //    set { _fServ = value; }
-        //}
-        //public FEAuthRequest Autorizacion
-        //{
-        //    get { return _autorizacion; }
-        //    set { _autorizacion = value; }
-        //}
-        //public FECAERequest Request
-        //{
-        //    get { return _request; }
-        //    set { _request = value; }
-        //}
-        //public FECAEResponse Response
-        //{
-        //    get { return _response; }
-        //    set { _response = value; }
-        //}
-        //public Autorizacion ObjAutorizacion
-        //{
-        //    get { return _objAutorizacion; }
-        //    set { _objAutorizacion = value; }
-        //}
-        #endregion
-
         #region Constructor
         /// <summary>
         /// Constructor de ServFactElect
         /// </summary>
         public ServFactElect()
         {
-            FServ = new Service();
+            FServ = new ServiceSoapClient();
             Autorizacion = new FEAuthRequest();
             Request = new FECAERequest();
             Response = new FECAEResponse();
@@ -159,66 +132,9 @@ namespace TestFacturaElectronica.Dominio
             _detalle.MonId = _monId;
             _detalle.MonCotiz = _monCotiz;
             _detalle.CbtesAsoc = _cbtesAsoc; //  N
-            //int i = 0;
-            //if (_cbtesAsoc != null)
-            //{
-            //    i = 0;
-            //    foreach (CbteAsoc c in _cbtesAsoc)
-            //    {
-            //        _detalle.CbtesAsoc[i] = new CbteAsoc();
-            //        _detalle.CbtesAsoc[i] = c;
-            //        i++;
-            //    }
-            //}
-            //else
-            //{
-            //    _detalle.CbtesAsoc = null;
-            //}
             _detalle.Tributos = _tributo; //  N
-            //if (_tributo != null)
-            //{
-            //    i = 0;
-            //    foreach (Tributo t in _tributo)
-            //    {
-            //        _detalle.Tributos[i] = new Tributo();
-            //        _detalle.Tributos[i] = t;
-            //        i++;
-            //    }
-            //}
-            //else
-            //{
-            //    _detalle.Tributos = null;
-            //}
-            _detalle.Iva = _iva; //  N
-            //if (_iva != null)
-            //{
-            //    i = 0;
-            //    foreach (AlicIva a in _iva)
-            //    {
-            //        _detalle.Iva[i] = new AlicIva();
-            //        _detalle.Iva[i] = a;
-            //        i++;
-            //    }
-            //}
-            //else
-            //{
-            //    _detalle.Iva = null;
-            //}
+            _detalle.Iva = _iva; //  N - si no lo asignas no anda
             _detalle.Opcionales = _opcionales; //  N
-            //if (_opcionales != null)
-            //{
-            //    i = 0;
-            //    foreach (Opcional o in _opcionales)
-            //    {
-            //        _detalle.Opcionales[i] = new Opcional();
-            //        _detalle.Opcionales[i] = o;
-            //        i++;
-            //    }
-            //}
-            //else
-            //{
-            //    _detalle.Opcionales = null;
-            //}
 
             DetalleFactura[UltimoElementoArrayDetalle] = _detalle;
             UltimoElementoArrayDetalle++;

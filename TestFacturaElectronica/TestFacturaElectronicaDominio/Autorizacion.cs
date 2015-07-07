@@ -11,12 +11,13 @@ using System.Runtime.Serialization;
 
 namespace TestFacturaElectronica.Dominio
 {
-    [Serializable]
+    [System.SerializableAttribute()]
     public class Autorizacion
     {
 
         #region Campos y propiedades
-        public LoginCMSService servicioWsaa;
+        public LoginCMSClient servicioWsaa;
+        //public LoginCMSService;
         public string TicketAccesoTemplateXml = "<loginTicketRequest>" +
                                                     "<header>" +
                                                         "<uniqueId></uniqueId>" +
@@ -46,7 +47,8 @@ namespace TestFacturaElectronica.Dominio
         public Autorizacion()
         {
             UrlServicio = "https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl";
-            servicioWsaa = new LoginCMSService();
+            //servicioWsaa = new LoginCMSService();
+            servicioWsaa = new LoginCMSClient();
         }
 
         /// <summary>
@@ -107,7 +109,7 @@ namespace TestFacturaElectronica.Dominio
             #region PASO 3: invoco al WSAA
             try
             {
-                servicioWsaa.Url = UrlServicio;
+                //servicioWsaa.Url = UrlServicio;
                 ticketAccesoResponse = servicioWsaa.loginCms(CmsFirmadoBase64);
             }
             catch (Exception ex)

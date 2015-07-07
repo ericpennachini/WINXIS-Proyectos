@@ -12,7 +12,7 @@ namespace TestFacturaElectronica.WebService
     /// <summary>
     /// Descripción breve de WebService1
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/TestFacturaElectronica.WebService/WebService1")]
+    [WebService(Namespace = "http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // Para permitir que se llame a este servicio Web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
@@ -30,41 +30,36 @@ namespace TestFacturaElectronica.WebService
         /// <summary>
         /// Llama al WSAA (Web Service de Autenticación y Autorización) con el fin de obtener el ticket de acceso
         /// (con Token y Sign) para acceder posteriormente al WSFE (Web Service de Facturación Electrónica).
+        /// ESTE MÉTODO INICIALIZA LA CLASE ServFactElect
         /// </summary>
         /// <see cref="http://www.afip.gob.ar/ws/default.asp"/>
         /// <param name="rutaCertificado">Ruta local (en el equipo del cliente) del certificado firmado con clave privada.</param>
         /// <param name="cuit">CUIT del contribuyente</param>
         [WebMethod]
-        public string[] AutorizarConWSAA(string rutaCertificado, long cuit)
+        public ServFactElect AutorizarConWSAA(string rutaCertificado, long cuit)
         {
             ServFactElect servicioFacturacion = new ServFactElect();
             Autorizacion servicioAutorizacion = new Autorizacion();
-            string[] auth = new string[2];
             try
             {
                 servicioAutorizacion.RutaCertificado = rutaCertificado;
                 servicioFacturacion.ObjAutorizacion = servicioAutorizacion;
                 servicioFacturacion.Autorizar(cuit);
-                auth[0] = servicioFacturacion.ObjAutorizacion.Token;
-                auth[1] = servicioFacturacion.ObjAutorizacion.Sign;
-                return auth;
+                return servicioFacturacion;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                auth[0] = "";
-                auth[1] = "";
-                return auth;
+                return null;
             }
         }
 
-        //[WebMethod]
-        //public ServFactElect ConfeccionarCabecera(int _cantReg, int _ptoVta, int _cbteTipo)
-        //{
-        //    ServFactElect _servicioFacturacion = new ServFactElect();
-        //    _servicioFacturacion.SetCabecera(_cantReg, _ptoVta, _cbteTipo);
-        //    return _servicioFacturacion;
-        //}
+        [WebMethod]
+        public ServFactElect ConfeccionarCabecera(int _cantReg, int _ptoVta, int _cbteTipo, ServFactElect _servicioFacturacion)
+        {
+            _servicioFacturacion.SetCabecera(_cantReg, _ptoVta, _cbteTipo);
+            return _servicioFacturacion;
+        }
 
         ///// <summary>
         ///// Confecciona un detalle de factura, se llamará tantas veces como detalles hay.

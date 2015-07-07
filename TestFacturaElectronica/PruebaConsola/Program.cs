@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TestFacturaElectronica.PruebaConsola.localhost;
-using TestFacturaElectronica.Dominio;
+//using TestFacturaElectronica.Dominio;
+//using TestFacturaElectronica.Dominio.FacturaElectronicaWS;
 
 namespace TestFacturaElectronica.PruebaConsola
 {
@@ -20,27 +21,19 @@ namespace TestFacturaElectronica.PruebaConsola
             #endregion
 
             #region PASO 2: Llamamos al método del WS para autorizar con el WSAA
-            //Creamos un arreglo de strings, para que el WS nos devuelva el Token y Sign obtenidos
-            string[] auth = new string[2];
-            //Llamamos al método
-            auth = ws.AutorizarConWSAA("C:\\Users\\Eric\\Desktop\\certificado_clave\\pennachini_prueba_wsass.p12", 20360999301).ToArray();
-            //Asignamos el Token y Sign
-            servicioFacturacion.ObjAutorizacion.Token = auth[0];
-            servicioFacturacion.ObjAutorizacion.Sign = auth[1];
+            servicioFacturacion = ws.AutorizarConWSAA("C:\\Users\\Eric\\Desktop\\certificado_clave\\pennachini_prueba_wsass.p12", 20360999301);
             #endregion
 
             #region PASO 3: Seteamos la cabecera de la factura, desde el objeto que maneja la factura
-            servicioFacturacion.SetCabecera(1, 1, 1);
             #endregion
 
             #region PASO 4: Seteamos el detalle de la factura, desde el objeto que maneja la factura (solo uno para probar)
-            servicioFacturacion.SetDetalle(1, 80, 20377033251, new DateTime(2015, 7, 2), 121, 0, 100, 21, 0, 0,
-                new DateTime(), new DateTime(), new DateTime(), "PES", 1, null, null, null, null);
             #endregion
 
             #region PASO 5: Autorizo la factura con el WSFE
-            servicioFacturacion.Solicitar();
             #endregion
+
+
 
             //FECAEResponse response = ws.LeerRespuesta();
 
