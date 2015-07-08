@@ -16,7 +16,8 @@ namespace TestFacturaElectronica.Dominio
     {
 
         #region Campos y propiedades
-        public LoginCMSClient servicioWsaa;
+        public LoginCMSClient servicioWsaa { get; set; }
+
         //public LoginCMSService;
         public string TicketAccesoTemplateXml = "<loginTicketRequest>" +
                                                     "<header>" +

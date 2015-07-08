@@ -61,58 +61,60 @@ namespace TestFacturaElectronica.WebService
             return _servicioFacturacion;
         }
 
-        ///// <summary>
-        ///// Confecciona un detalle de factura, se llamará tantas veces como detalles hay.
-        ///// </summary>
-        ///// <param name="_concepto"></param>
-        ///// <param name="_docTipo"></param>
-        ///// <param name="_docNro"></param>
-        ///// <param name="_cbteFch"></param>
-        ///// <param name="_impTotal"></param>
-        ///// <param name="_impTotConc"></param>
-        ///// <param name="_impNeto"></param>
-        ///// <param name="_impIVA"></param>
-        ///// <param name="_impOpEx"></param>
-        ///// <param name="_impTrib"></param>
-        ///// <param name="_fchServDesde"></param>
-        ///// <param name="_fchServHasta"></param>
-        ///// <param name="_fchVtoPago"></param>
-        ///// <param name="_monId"></param>
-        ///// <param name="_monCotiz"></param>
-        ///// <param name="_cbtesAsoc"></param>
-        ///// <param name="_tributo"></param>
-        ///// <param name="_iva"></param>
-        ///// <param name="_opcionales"></param>
-        //[WebMethod]
-        //public ServFactElect ConfeccionarDetalle(int _concepto, int _docTipo, long _docNro,
-        //    DateTime _cbteFch, double _impTotal, double _impTotConc, double _impNeto, double _impIVA, double _impOpEx, double _impTrib,
-        //    DateTime _fchServDesde, DateTime _fchServHasta, DateTime _fchVtoPago, string _monId, double _monCotiz,
-        //    CbteAsoc[] _cbtesAsoc, Tributo[] _tributo, AlicIva[] _iva, Opcional[] _opcionales, ServFactElect _servicioFacturacion)
-        //{
-        //    _servicioFacturacion.SetDetalle(_concepto, _docTipo, _docNro,
-        //            _cbteFch, _impTotal, _impTotConc, _impNeto, _impIVA, _impOpEx,
-        //            _impTrib, _fchServDesde, _fchServHasta, _fchVtoPago, _monId,
-        //            _monCotiz, _cbtesAsoc, _tributo, _iva, _opcionales);
-        //    return _servicioFacturacion;
-        //}
+        /// <summary>
+        /// Confecciona un detalle de factura, se llamará tantas veces como detalles hay.
+        /// </summary>
+        /// <param name="_concepto"></param>
+        /// <param name="_docTipo"></param>
+        /// <param name="_docNro"></param>
+        /// <param name="_cbteFch"></param>
+        /// <param name="_impTotal"></param>
+        /// <param name="_impTotConc"></param>
+        /// <param name="_impNeto"></param>
+        /// <param name="_impIVA"></param>
+        /// <param name="_impOpEx"></param>
+        /// <param name="_impTrib"></param>
+        /// <param name="_fchServDesde"></param>
+        /// <param name="_fchServHasta"></param>
+        /// <param name="_fchVtoPago"></param>
+        /// <param name="_monId"></param>
+        /// <param name="_monCotiz"></param>
+        /// <param name="_cbtesAsoc"></param>
+        /// <param name="_tributo"></param>
+        /// <param name="_iva"></param>
+        /// <param name="_opcionales"></param>
+        [WebMethod]
+        public ServFactElect ConfeccionarDetalle(int _concepto, int _docTipo, long _docNro,
+            DateTime _cbteFch, double _impTotal, double _impTotConc, double _impNeto, double _impIVA, double _impOpEx, double _impTrib,
+            DateTime _fchServDesde, DateTime _fchServHasta, DateTime _fchVtoPago, string _monId, double _monCotiz,
+            CbteAsoc[] _cbtesAsoc, Tributo[] _tributo, AlicIva[] _iva, Opcional[] _opcionales, ServFactElect _servicioFacturacion)
+        {
+            _servicioFacturacion.SetDetalle(_concepto, _docTipo, _docNro,
+                    _cbteFch, _impTotal, _impTotConc, _impNeto, _impIVA, _impOpEx,
+                    _impTrib, _fchServDesde, _fchServHasta, _fchVtoPago, _monId,
+                    _monCotiz, _cbtesAsoc, _tributo, _iva, _opcionales);
+            return _servicioFacturacion;
+        }
 
         /// <summary>
         /// Autoriza la factura con el WSFE
         /// </summary>
         [WebMethod]
-        public void AutorizarFactura()
+        public ServFactElect AutorizarFactura(ServFactElect _servicioFacturacion)
         {
-            
+            _servicioFacturacion.SetRequest();
+            _servicioFacturacion.Solicitar();
+            return _servicioFacturacion;
         }
 
-        ///// <summary>
-        ///// Devuelve la respuesta del WSFE
-        ///// </summary>
-        ///// <returns>Objeto FECAEResponse, el cual contiene la respuesta del WSFE (CAE, errores, obesrvaciones, etc.)</returns>
-        //[WebMethod]
-        //public FECAEResponse LeerRespuesta(ServFactElect _servicioFacturacion)
-        //{
-        //    return _servicioFacturacion.Response;
-        //}
+        /// <summary>
+        /// Devuelve la respuesta del WSFE
+        /// </summary>
+        /// <returns>Objeto FECAEResponse, el cual contiene la respuesta del WSFE (CAE, errores, obesrvaciones, etc.)</returns>
+        [WebMethod]
+        public FECAEResponse LeerRespuesta(ServFactElect _servicioFacturacion)
+        {
+            return _servicioFacturacion.Response;
+        }
     }
 }

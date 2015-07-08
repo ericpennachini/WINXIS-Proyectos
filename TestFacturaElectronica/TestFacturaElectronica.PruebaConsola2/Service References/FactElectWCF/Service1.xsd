@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:13143/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TestFacturaElectronica.Dominio.FacturaElectronicaWS" />
+  <xs:import schemaLocation="http://localhost:13143/Service1.svc?xsd=xsd2" namespace="http://ar.gov.afip.dif.FEV1/" />
   <xs:element name="AutorizarConWSAA">
     <xs:complexType>
       <xs:sequence>
@@ -46,10 +46,10 @@
         <xs:element minOccurs="0" name="_fchVtoPago" type="xs:dateTime" />
         <xs:element minOccurs="0" name="_monId" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="_monCotiz" type="xs:double" />
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TestFacturaElectronica.Dominio.FacturaElectronicaWS" minOccurs="0" name="_cbtesAsoc" nillable="true" type="q1:ArrayOfCbteAsoc" />
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TestFacturaElectronica.Dominio.FacturaElectronicaWS" minOccurs="0" name="_tributo" nillable="true" type="q2:ArrayOfTributo" />
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TestFacturaElectronica.Dominio.FacturaElectronicaWS" minOccurs="0" name="_iva" nillable="true" type="q3:ArrayOfAlicIva" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TestFacturaElectronica.Dominio.FacturaElectronicaWS" minOccurs="0" name="_opcionales" nillable="true" type="q4:ArrayOfOpcional" />
+        <xs:element xmlns:q1="http://ar.gov.afip.dif.FEV1/" minOccurs="0" name="_cbtesAsoc" nillable="true" type="q1:ArrayOfCbteAsoc" />
+        <xs:element xmlns:q2="http://ar.gov.afip.dif.FEV1/" minOccurs="0" name="_tributo" nillable="true" type="q2:ArrayOfTributo" />
+        <xs:element xmlns:q3="http://ar.gov.afip.dif.FEV1/" minOccurs="0" name="_iva" nillable="true" type="q3:ArrayOfAlicIva" />
+        <xs:element xmlns:q4="http://ar.gov.afip.dif.FEV1/" minOccurs="0" name="_opcionales" nillable="true" type="q4:ArrayOfOpcional" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -76,7 +76,7 @@
   <xs:element name="LeerRespuestaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TestFacturaElectronica.Dominio.FacturaElectronicaWS" minOccurs="0" name="LeerRespuestaResult" nillable="true" type="q5:FECAEResponse" />
+        <xs:element xmlns:q5="http://ar.gov.afip.dif.FEV1/" minOccurs="0" name="LeerRespuestaResult" nillable="true" type="q5:FECAEResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

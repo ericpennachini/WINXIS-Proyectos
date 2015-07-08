@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3920361e-c476-40ec-81f7-df011d23db41" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8db22ab3-07ce-4a71-b77a-d1ab3d123724" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,7 +21,7 @@
     <MetadataSource Address="https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="LoginCms.wsdl" MetadataType="Wsdl" ID="3ffe5068-9884-427c-afc0-6e09f851a060" SourceId="1" SourceUrl="https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl" />
+    <MetadataFile FileName="LoginCms.wsdl" MetadataType="Wsdl" ID="fc0cb231-9d77-46f4-a749-fde9af049c37" SourceId="1" SourceUrl="https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

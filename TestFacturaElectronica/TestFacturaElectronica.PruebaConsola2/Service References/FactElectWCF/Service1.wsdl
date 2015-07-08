@@ -52,12 +52,7 @@
                           </wsp:Policy>
                         </sp:SymmetricBinding>
                         <sp:Wss11>
-                          <wsp:Policy>
-                            <sp:MustSupportRefKeyIdentifier />
-                            <sp:MustSupportRefIssuerSerial />
-                            <sp:MustSupportRefThumbprint />
-                            <sp:MustSupportRefEncryptedKey />
-                          </wsp:Policy>
+                          <wsp:Policy />
                         </sp:Wss11>
                         <sp:Trust10>
                           <wsp:Policy>
@@ -88,12 +83,7 @@
           </wsp:Policy>
         </sp:SymmetricBinding>
         <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <wsp:Policy>
-            <sp:MustSupportRefKeyIdentifier />
-            <sp:MustSupportRefIssuerSerial />
-            <sp:MustSupportRefThumbprint />
-            <sp:MustSupportRefEncryptedKey />
-          </wsp:Policy>
+          <wsp:Policy />
         </sp:Wss11>
         <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
           <wsp:Policy>
@@ -300,7 +290,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:13143/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:13143/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:13143/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TestFacturaElectronica.Dominio.FacturaElectronicaWS" />
+      <xsd:import schemaLocation="http://localhost:13143/Service1.svc?xsd=xsd2" namespace="http://ar.gov.afip.dif.FEV1/" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_AutorizarConWSAA_InputMessage">

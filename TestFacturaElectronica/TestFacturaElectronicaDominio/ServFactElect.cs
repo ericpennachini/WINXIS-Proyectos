@@ -20,7 +20,7 @@ namespace TestFacturaElectronica.Dominio
     public class ServFactElect
     {
         #region Propiedades
-        public ServiceSoapClient FServ;
+        public ServiceSoapClient FServ { get; set; }
         //public Service FServ { get; set; }
         public FEAuthRequest Autorizacion { get; set; }
         public FECAERequest Request { get; set; }

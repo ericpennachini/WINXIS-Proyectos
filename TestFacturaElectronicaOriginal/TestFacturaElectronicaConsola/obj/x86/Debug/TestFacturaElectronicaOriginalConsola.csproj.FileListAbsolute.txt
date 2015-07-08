@@ -5,3 +5,4 @@ C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaOriginal\T
 C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaOriginal\TestFacturaElectronicaConsola\bin\Debug\TestFacturaElectronicaOriginalDominio.pdb
 C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaOriginal\TestFacturaElectronicaConsola\obj\x86\Debug\TestFacturaElectronicaOriginalConsola.exe
 C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaOriginal\TestFacturaElectronicaConsola\obj\x86\Debug\TestFacturaElectronicaOriginalConsola.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronicaOriginal\TestFacturaElectronicaConsola\obj\x86\Debug\TestFacturaElectronicaOriginalConsola.csprojResolveAssemblyReference.cache

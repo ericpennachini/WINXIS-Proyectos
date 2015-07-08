@@ -255,8 +255,8 @@
       </s:complexType>
       <s:complexType name="Autorizacion">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="servicioWsaa" type="tns:LoginCMSClient" />
           <s:element minOccurs="0" maxOccurs="1" name="TicketAccesoTemplateXml" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="servicioWsaa" type="tns:LoginCMSClient" />
           <s:element minOccurs="1" maxOccurs="1" name="UniqueId" type="s:long" />
           <s:element minOccurs="1" maxOccurs="1" name="GenerationTime" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="ExpirationTime" type="s:dateTime" />
@@ -305,11 +305,66 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ConfeccionarDetalle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_concepto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_docTipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_docNro" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="_cbteFch" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="_impTotal" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="_impTotConc" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="_impNeto" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="_impIVA" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="_impOpEx" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="_impTrib" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="_fchServDesde" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="_fchServHasta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="_fchVtoPago" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="_monId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="_monCotiz" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="_cbtesAsoc" type="tns:ArrayOfCbteAsoc" />
+            <s:element minOccurs="0" maxOccurs="1" name="_tributo" type="tns:ArrayOfTributo" />
+            <s:element minOccurs="0" maxOccurs="1" name="_iva" type="tns:ArrayOfAlicIva" />
+            <s:element minOccurs="0" maxOccurs="1" name="_opcionales" type="tns:ArrayOfOpcional" />
+            <s:element minOccurs="0" maxOccurs="1" name="_servicioFacturacion" type="tns:ServFactElect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfeccionarDetalleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfeccionarDetalleResult" type="tns:ServFactElect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="AutorizarFactura">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_servicioFacturacion" type="tns:ServFactElect" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="AutorizarFacturaResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AutorizarFacturaResult" type="tns:ServFactElect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LeerRespuesta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_servicioFacturacion" type="tns:ServFactElect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LeerRespuestaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LeerRespuestaResult" type="tns:FECAEResponse" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
     </s:schema>
   </wsdl:types>
@@ -331,11 +386,23 @@
   <wsdl:message name="ConfeccionarCabeceraSoapOut">
     <wsdl:part name="parameters" element="tns:ConfeccionarCabeceraResponse" />
   </wsdl:message>
+  <wsdl:message name="ConfeccionarDetalleSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfeccionarDetalle" />
+  </wsdl:message>
+  <wsdl:message name="ConfeccionarDetalleSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfeccionarDetalleResponse" />
+  </wsdl:message>
   <wsdl:message name="AutorizarFacturaSoapIn">
     <wsdl:part name="parameters" element="tns:AutorizarFactura" />
   </wsdl:message>
   <wsdl:message name="AutorizarFacturaSoapOut">
     <wsdl:part name="parameters" element="tns:AutorizarFacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="LeerRespuestaSoapIn">
+    <wsdl:part name="parameters" element="tns:LeerRespuesta" />
+  </wsdl:message>
+  <wsdl:message name="LeerRespuestaSoapOut">
+    <wsdl:part name="parameters" element="tns:LeerRespuestaResponse" />
   </wsdl:message>
   <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="HelloWorld">
@@ -350,9 +417,17 @@
       <wsdl:input message="tns:ConfeccionarCabeceraSoapIn" />
       <wsdl:output message="tns:ConfeccionarCabeceraSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ConfeccionarDetalle">
+      <wsdl:input message="tns:ConfeccionarDetalleSoapIn" />
+      <wsdl:output message="tns:ConfeccionarDetalleSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="AutorizarFactura">
       <wsdl:input message="tns:AutorizarFacturaSoapIn" />
       <wsdl:output message="tns:AutorizarFacturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerRespuesta">
+      <wsdl:input message="tns:LeerRespuestaSoapIn" />
+      <wsdl:output message="tns:LeerRespuestaSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
@@ -384,8 +459,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ConfeccionarDetalle">
+      <soap:operation soapAction="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/ConfeccionarDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AutorizarFactura">
       <soap:operation soapAction="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/AutorizarFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerRespuesta">
+      <soap:operation soapAction="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/LeerRespuesta" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -423,8 +516,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ConfeccionarDetalle">
+      <soap12:operation soapAction="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/ConfeccionarDetalle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AutorizarFactura">
       <soap12:operation soapAction="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/AutorizarFactura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerRespuesta">
+      <soap12:operation soapAction="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/LeerRespuesta" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

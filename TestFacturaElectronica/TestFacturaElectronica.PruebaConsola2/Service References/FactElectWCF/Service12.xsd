@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TestFacturaElectronica.Dominio.FacturaElectronicaWS" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TestFacturaElectronica.Dominio.FacturaElectronicaWS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://ar.gov.afip.dif.FEV1/" elementFormDefault="qualified" targetNamespace="http://ar.gov.afip.dif.FEV1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="ArrayOfCbteAsoc">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CbteAsoc" nillable="true" type="tns:CbteAsoc" />
@@ -8,9 +8,9 @@
   <xs:element name="ArrayOfCbteAsoc" nillable="true" type="tns:ArrayOfCbteAsoc" />
   <xs:complexType name="CbteAsoc">
     <xs:sequence>
-      <xs:element name="nroField" type="xs:long" />
-      <xs:element name="ptoVtaField" type="xs:int" />
-      <xs:element name="tipoField" type="xs:int" />
+      <xs:element name="Tipo" type="xs:int" />
+      <xs:element name="PtoVta" type="xs:int" />
+      <xs:element name="Nro" type="xs:long" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CbteAsoc" nillable="true" type="tns:CbteAsoc" />
@@ -22,11 +22,17 @@
   <xs:element name="ArrayOfTributo" nillable="true" type="tns:ArrayOfTributo" />
   <xs:complexType name="Tributo">
     <xs:sequence>
-      <xs:element name="alicField" type="xs:double" />
-      <xs:element name="baseImpField" type="xs:double" />
-      <xs:element name="descField" nillable="true" type="xs:string" />
-      <xs:element name="idField" type="xs:short" />
-      <xs:element name="importeField" type="xs:double" />
+      <xs:element name="Id" type="xs:short" />
+      <xs:element minOccurs="0" name="Desc" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BaseImp" type="xs:double" />
+      <xs:element name="Alic" type="xs:double" />
+      <xs:element name="Importe" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Tributo" nillable="true" type="tns:Tributo" />
@@ -38,9 +44,9 @@
   <xs:element name="ArrayOfAlicIva" nillable="true" type="tns:ArrayOfAlicIva" />
   <xs:complexType name="AlicIva">
     <xs:sequence>
-      <xs:element name="baseImpField" type="xs:double" />
-      <xs:element name="idField" type="xs:int" />
-      <xs:element name="importeField" type="xs:double" />
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="BaseImp" type="xs:double" />
+      <xs:element name="Importe" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AlicIva" nillable="true" type="tns:AlicIva" />
@@ -52,46 +58,56 @@
   <xs:element name="ArrayOfOpcional" nillable="true" type="tns:ArrayOfOpcional" />
   <xs:complexType name="Opcional">
     <xs:sequence>
-      <xs:element name="idField" nillable="true" type="xs:string" />
-      <xs:element name="valorField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Valor" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Opcional" nillable="true" type="tns:Opcional" />
   <xs:complexType name="FECAEResponse">
     <xs:sequence>
-      <xs:element name="errorsField" nillable="true" type="tns:ArrayOfErr" />
-      <xs:element name="eventsField" nillable="true" type="tns:ArrayOfEvt" />
-      <xs:element name="feCabRespField" nillable="true" type="tns:FECAECabResponse" />
-      <xs:element name="feDetRespField" nillable="true" type="tns:ArrayOfFECAEDetResponse" />
+      <xs:element minOccurs="0" name="FeCabResp" nillable="true" type="tns:FECAECabResponse">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="FeDetResp" nillable="true" type="tns:ArrayOfFECAEDetResponse">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Events" nillable="true" type="tns:ArrayOfEvt">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfErr">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FECAEResponse" nillable="true" type="tns:FECAEResponse" />
-  <xs:complexType name="ArrayOfErr">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Err" nillable="true" type="tns:Err" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfErr" nillable="true" type="tns:ArrayOfErr" />
-  <xs:complexType name="Err">
-    <xs:sequence>
-      <xs:element name="codeField" type="xs:int" />
-      <xs:element name="msgField" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Err" nillable="true" type="tns:Err" />
-  <xs:complexType name="ArrayOfEvt">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Evt" nillable="true" type="tns:Evt" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfEvt" nillable="true" type="tns:ArrayOfEvt" />
-  <xs:complexType name="Evt">
-    <xs:sequence>
-      <xs:element name="codeField" type="xs:int" />
-      <xs:element name="msgField" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Evt" nillable="true" type="tns:Evt" />
   <xs:complexType name="FECAECabResponse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:FECabResponse">
@@ -102,16 +118,42 @@
   <xs:element name="FECAECabResponse" nillable="true" type="tns:FECAECabResponse" />
   <xs:complexType name="FECabResponse">
     <xs:sequence>
-      <xs:element name="cantRegField" type="xs:int" />
-      <xs:element name="cbteTipoField" type="xs:int" />
-      <xs:element name="cuitField" type="xs:long" />
-      <xs:element name="fchProcesoField" nillable="true" type="xs:string" />
-      <xs:element name="ptoVtaField" type="xs:int" />
-      <xs:element name="reprocesoField" nillable="true" type="xs:string" />
-      <xs:element name="resultadoField" nillable="true" type="xs:string" />
+      <xs:element name="Cuit" type="xs:long" />
+      <xs:element name="PtoVta" type="xs:int" />
+      <xs:element name="CbteTipo" type="xs:int" />
+      <xs:element minOccurs="0" name="FchProceso" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CantReg" type="xs:int" />
+      <xs:element minOccurs="0" name="Resultado" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Reproceso" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FECabResponse" nillable="true" type="tns:FECabResponse" />
+  <xs:complexType name="FECAEACabResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FECabResponse">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FECAEACabResponse" nillable="true" type="tns:FECAEACabResponse" />
   <xs:complexType name="ArrayOfFECAEDetResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="FECAEDetResponse" nillable="true" type="tns:FECAEDetResponse" />
@@ -122,8 +164,20 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:FEDetResponse">
         <xs:sequence>
-          <xs:element name="cAEFchVtoField" nillable="true" type="xs:string" />
-          <xs:element name="cAEField" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CAE" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="CAEFchVto" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -131,14 +185,32 @@
   <xs:element name="FECAEDetResponse" nillable="true" type="tns:FECAEDetResponse" />
   <xs:complexType name="FEDetResponse">
     <xs:sequence>
-      <xs:element name="cbteDesdeField" type="xs:long" />
-      <xs:element name="cbteFchField" nillable="true" type="xs:string" />
-      <xs:element name="cbteHastaField" type="xs:long" />
-      <xs:element name="conceptoField" type="xs:int" />
-      <xs:element name="docNroField" type="xs:long" />
-      <xs:element name="docTipoField" type="xs:int" />
-      <xs:element name="observacionesField" nillable="true" type="tns:ArrayOfObs" />
-      <xs:element name="resultadoField" nillable="true" type="xs:string" />
+      <xs:element name="Concepto" type="xs:int" />
+      <xs:element name="DocTipo" type="xs:int" />
+      <xs:element name="DocNro" type="xs:long" />
+      <xs:element name="CbteDesde" type="xs:long" />
+      <xs:element name="CbteHasta" type="xs:long" />
+      <xs:element minOccurs="0" name="CbteFch" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Resultado" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Observaciones" nillable="true" type="tns:ArrayOfObs">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FEDetResponse" nillable="true" type="tns:FEDetResponse" />
@@ -150,9 +222,69 @@
   <xs:element name="ArrayOfObs" nillable="true" type="tns:ArrayOfObs" />
   <xs:complexType name="Obs">
     <xs:sequence>
-      <xs:element name="codeField" type="xs:int" />
-      <xs:element name="msgField" nillable="true" type="xs:string" />
+      <xs:element name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Msg" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Obs" nillable="true" type="tns:Obs" />
+  <xs:complexType name="FECAEADetResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FEDetResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CAEA" nillable="true" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo>
+                <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FECAEADetResponse" nillable="true" type="tns:FECAEADetResponse" />
+  <xs:complexType name="ArrayOfEvt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Evt" nillable="true" type="tns:Evt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvt" nillable="true" type="tns:ArrayOfEvt" />
+  <xs:complexType name="Evt">
+    <xs:sequence>
+      <xs:element name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Msg" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Evt" nillable="true" type="tns:Evt" />
+  <xs:complexType name="ArrayOfErr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Err" nillable="true" type="tns:Err" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErr" nillable="true" type="tns:ArrayOfErr" />
+  <xs:complexType name="Err">
+    <xs:sequence>
+      <xs:element name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Msg" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Err" nillable="true" type="tns:Err" />
 </xs:schema>
