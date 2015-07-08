@@ -70,13 +70,10 @@ namespace TestFacturaElectronica.Dominio
         /// <param name="cuit">CUIT del contribuyente</param>
         public void Autorizar(long cuit)
         {
-
             ObjAutorizacion.ObtenerTicketAcceso();
-
             Autorizacion.Token = ObjAutorizacion.Token;
             Autorizacion.Sign = ObjAutorizacion.Sign;
             Autorizacion.Cuit = cuit;
-
         }
         #endregion
 
@@ -171,7 +168,7 @@ namespace TestFacturaElectronica.Dominio
         /// </summary>
         /// <param name="fechaComprobante">String con la fecha, pero en el formato que maneja el FECAEDetRequest.</param>
         /// <returns>Fecha en formato System.DateTime</returns>
-        public DateTime ConvertirAFormatoFecha(string fechaComprobante)
+        public static DateTime ConvertirAFormatoFecha(string fechaComprobante)
         {
             try
             {
@@ -194,7 +191,7 @@ namespace TestFacturaElectronica.Dominio
         /// </summary>
         /// <param name="fecha">Fecha de tipo System.DateTime</param>
         /// <returns>Conversion de la fecha DateTime recibida a string para el comprobante</returns>
-        public string ConvertirFechaAString(DateTime fecha)
+        public static string ConvertirFechaAString(DateTime fecha)
         {
             string _fechaADevolver;
             _fechaADevolver = fecha.Year.ToString();

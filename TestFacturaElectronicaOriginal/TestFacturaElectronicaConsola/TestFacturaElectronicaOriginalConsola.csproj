@@ -71,7 +71,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Program_Main.sequencediagram" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestFacturaElectronicaDominio\TestFacturaElectronicaOriginalDominio.csproj">
@@ -100,11 +99,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Program_Main.sequencediagram.layout">
-      <DependentUpon>Program_Main.sequencediagram</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

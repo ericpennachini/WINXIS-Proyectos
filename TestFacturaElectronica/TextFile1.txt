@@ -18,3 +18,9 @@ PARA REFACTORIZAR EL PROYECTO DE FACT. ELECT. DE FORMA QUE INTERACTÚE CON EL USU
 	2) Modificar la clase Autorizacion para que pueda recibir el parámetro con la ruta del certificado del usuario
 	3) Modificar la inicialización de los campos compuestos (los Arrays por ejemplo, IVA, Response, ...)
 	4) Modificar la parte donde consulta el ult. compr. autorizado, de forma que esté en un método que el usuario pueda consultar.
+
+--------------------------------------------------------------------------------
+08/07/2015 09:46 hs.
+REFACTORIZAR EL WEB SERVICE, DE FORMA QUE TENGA UN SOLO MÉTODO: ObtenerCAE(Factura f)
+La clase 'Factura' es una clase sin comportamiento que maneja los campos de la factura para mandar al web service.
+El método ObtenerCAE(...) recibe la Factura, ejecuta todos los métodos necesarios y devuelve la respuesta, conteniendo el CAE o los errores, dependiendo del caso.

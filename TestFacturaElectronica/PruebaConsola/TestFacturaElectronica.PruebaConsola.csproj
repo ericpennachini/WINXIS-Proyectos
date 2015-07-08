@@ -77,9 +77,6 @@
     <None Include="Service References\localhost\TestFacturaElectronica.PruebaConsola.localhost.FECAEResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\localhost\TestFacturaElectronica.PruebaConsola.localhost.ServFactElect.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\localhost\WebService1.wsdl" />
   </ItemGroup>
   <ItemGroup>
