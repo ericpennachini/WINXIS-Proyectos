@@ -22,14 +22,14 @@ namespace TestFacturaElectronica.PruebaConsola.localhost {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<TestFacturaElectronica.PruebaConsola.localhost.Detalle> DetalleFacturaField;
-        
         private int CantRegistrosField;
         
         private int PuntoVentaField;
         
         private int TipoComprobanteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TestFacturaElectronica.PruebaConsola.localhost.Detalle> DetalleFacturaField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -41,20 +41,7 @@ namespace TestFacturaElectronica.PruebaConsola.localhost {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Collections.Generic.List<TestFacturaElectronica.PruebaConsola.localhost.Detalle> DetalleFactura {
-            get {
-                return this.DetalleFacturaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DetalleFacturaField, value) != true)) {
-                    this.DetalleFacturaField = value;
-                    this.RaisePropertyChanged("DetalleFactura");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int CantRegistros {
             get {
                 return this.CantRegistrosField;
@@ -67,7 +54,7 @@ namespace TestFacturaElectronica.PruebaConsola.localhost {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int PuntoVenta {
             get {
                 return this.PuntoVentaField;
@@ -80,7 +67,7 @@ namespace TestFacturaElectronica.PruebaConsola.localhost {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int TipoComprobante {
             get {
                 return this.TipoComprobanteField;
@@ -89,6 +76,19 @@ namespace TestFacturaElectronica.PruebaConsola.localhost {
                 if ((this.TipoComprobanteField.Equals(value) != true)) {
                     this.TipoComprobanteField = value;
                     this.RaisePropertyChanged("TipoComprobante");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public System.Collections.Generic.List<TestFacturaElectronica.PruebaConsola.localhost.Detalle> DetalleFactura {
+            get {
+                return this.DetalleFacturaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetalleFacturaField, value) != true)) {
+                    this.DetalleFacturaField = value;
+                    this.RaisePropertyChanged("DetalleFactura");
                 }
             }
         }

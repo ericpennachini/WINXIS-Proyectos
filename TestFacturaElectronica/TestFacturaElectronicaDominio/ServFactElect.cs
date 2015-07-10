@@ -194,9 +194,17 @@ namespace TestFacturaElectronica.Dominio
         public static string ConvertirFechaAString(DateTime fecha)
         {
             string _fechaADevolver;
-            _fechaADevolver = fecha.Year.ToString();
-            _fechaADevolver += (fecha.Month < 10) ? "0" + fecha.Month.ToString() : fecha.Month.ToString(); //si es menor a 10 le agrego un 0 adelante para que sea de dos cifras, sino queda como está.
-            _fechaADevolver += (fecha.Day < 10) ? "0" + fecha.Day.ToString() : fecha.Day.ToString(); //idem a anterior
+
+            if ((fecha.Year == 1)&&(fecha.Month == 1)&&(fecha.Day == 1))
+            {
+                _fechaADevolver = "";
+            }
+            else
+            {
+                _fechaADevolver = fecha.Year.ToString();
+                _fechaADevolver += (fecha.Month < 10) ? "0" + fecha.Month.ToString() : fecha.Month.ToString(); //si es menor a 10 le agrego un 0 adelante para que sea de dos cifras, sino queda como está.
+                _fechaADevolver += (fecha.Day < 10) ? "0" + fecha.Day.ToString() : fecha.Day.ToString(); //idem a anterior
+            }
 
             return _fechaADevolver;
         }

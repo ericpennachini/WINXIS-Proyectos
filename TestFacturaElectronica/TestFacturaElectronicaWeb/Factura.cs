@@ -13,12 +13,12 @@ namespace TestFacturaElectronica.WebService
         public int CantRegistros { get; set; }
         public int PuntoVenta { get; set; }
         public int TipoComprobante { get; set; }
-        public List<Detalle> DetalleFactura;
+        public List<Detalle> DetalleFactura { get; set; }
 
-        public Factura()
-        {
-            DetalleFactura = new List<Detalle>();
-        }
+        //public Factura()
+        //{
+        //    this.DetalleFactura = new List<Detalle>();
+        //}
     }
 
     [System.Serializable()]
@@ -44,12 +44,12 @@ namespace TestFacturaElectronica.WebService
         public List<AlicIva> Iva { get; set; }
         public List<Opcional> Opcionales { get; set; }
 
-        public Detalle()
-        {
-            CbtesAsoc = new List<CbteAsoc>();
-            Tributos = new List<Tributo>();
-            Iva = new List<AlicIva>();
-            Opcionales = new List<Opcional>();
-        }
+        //public Detalle()
+        //{
+        //    this.CbtesAsoc = new List<CbteAsoc>();
+        //    this.Tributos = new List<Tributo>();
+        //    this.Iva = new List<AlicIva>();
+        //    this.Opcionales = new List<Opcional>();
+        //}
     }
 }

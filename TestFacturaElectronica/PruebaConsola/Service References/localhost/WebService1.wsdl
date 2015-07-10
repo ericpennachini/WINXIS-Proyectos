@@ -22,10 +22,10 @@
       </s:element>
       <s:complexType name="Factura">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="DetalleFactura" type="tns:ArrayOfDetalle" />
           <s:element minOccurs="1" maxOccurs="1" name="CantRegistros" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="PuntoVenta" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="TipoComprobante" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetalleFactura" type="tns:ArrayOfDetalle" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfDetalle">
