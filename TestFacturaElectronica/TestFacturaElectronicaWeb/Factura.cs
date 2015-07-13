@@ -7,21 +7,16 @@ using TestFacturaElectronica.Dominio.FacturaElectronicaWS;
 
 namespace TestFacturaElectronica.WebService
 {
-    [System.Serializable()]
+    [Serializable]
     public class Factura
     {
         public int CantRegistros { get; set; }
         public int PuntoVenta { get; set; }
         public int TipoComprobante { get; set; }
         public List<Detalle> DetalleFactura { get; set; }
-
-        //public Factura()
-        //{
-        //    this.DetalleFactura = new List<Detalle>();
-        //}
     }
 
-    [System.Serializable()]
+    [Serializable]
     public class Detalle
     {
         public int Concepto { get; set; }
@@ -43,13 +38,5 @@ namespace TestFacturaElectronica.WebService
         public List<Tributo> Tributos { get; set; }
         public List<AlicIva> Iva { get; set; }
         public List<Opcional> Opcionales { get; set; }
-
-        //public Detalle()
-        //{
-        //    this.CbtesAsoc = new List<CbteAsoc>();
-        //    this.Tributos = new List<Tributo>();
-        //    this.Iva = new List<AlicIva>();
-        //    this.Opcionales = new List<Opcional>();
-        //}
     }
 }

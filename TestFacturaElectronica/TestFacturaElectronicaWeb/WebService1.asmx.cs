@@ -12,7 +12,7 @@ namespace TestFacturaElectronica.WebService
     /// <summary>
     /// Descripción breve de WebService1
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
+    [WebService(Namespace = "http://tempuri.org/TestFacturaElectronica/WebService/WebService1", Description = "Descripcion")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // Para permitir que se llame a este servicio Web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
@@ -20,12 +20,6 @@ namespace TestFacturaElectronica.WebService
     public class WebService1 : System.Web.Services.WebService
     {
         public WebService1() { }
-
-        [WebMethod]
-        public string HelloWorld()
-        {
-            return "Hello World";
-        }
 
         [WebMethod]
         public FECAEResponse ObtenerCAE(Factura factura, long cuit)
@@ -38,7 +32,7 @@ namespace TestFacturaElectronica.WebService
                 _servicioFacturacion.SetDetalle(d.Concepto, d.DocTipo, d.DocNro, d.FechaComp,
                     d.ImporteTotal, d.ImporteTotalConc, d.ImporteNeto, d.ImporteIVA, d.ImporteOpExento, d.ImporteTrib,
                     d.FechaServDesde, d.FechaServHasta, d.FechaVtoPago, d.MonedaId, d.MonedaCotiz,
-                    d.CbtesAsoc.ToArray(), d.Tributos.ToArray(), d.Iva.ToArray(), d.Opcionales.ToArray());
+                    d.CbtesAsoc, d.Tributos, d.Iva, d.Opcionales);
             }
             _servicioFacturacion.SetRequest();
             _servicioFacturacion.Solicitar();

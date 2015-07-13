@@ -1539,74 +1539,9 @@ namespace TestFacturaElectronica.PruebaConsola.localhost {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1", ConfigurationName="localhost.WebService1Soap")]
     public interface WebService1Soap {
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento HelloWorldResult del espacio de nombres http://tempuri.org/TestFacturaElectronica/WebService/WebService1 no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/HelloWorld", ReplyAction="*")]
-        TestFacturaElectronica.PruebaConsola.localhost.HelloWorldResponse HelloWorld(TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequest request);
-        
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento factura del espacio de nombres http://tempuri.org/TestFacturaElectronica/WebService/WebService1 no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestFacturaElectronica/WebService/WebService1/ObtenerCAE", ReplyAction="*")]
         TestFacturaElectronica.PruebaConsola.localhost.ObtenerCAEResponse ObtenerCAE(TestFacturaElectronica.PruebaConsola.localhost.ObtenerCAERequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorld", Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1", Order=0)]
-        public TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequestBody Body;
-        
-        public HelloWorldRequest() {
-        }
-        
-        public HelloWorldRequest(TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class HelloWorldRequestBody {
-        
-        public HelloWorldRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorldResponse", Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1", Order=0)]
-        public TestFacturaElectronica.PruebaConsola.localhost.HelloWorldResponseBody Body;
-        
-        public HelloWorldResponse() {
-        }
-        
-        public HelloWorldResponse(TestFacturaElectronica.PruebaConsola.localhost.HelloWorldResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/TestFacturaElectronica/WebService/WebService1")]
-    public partial class HelloWorldResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string HelloWorldResult;
-        
-        public HelloWorldResponseBody() {
-        }
-        
-        public HelloWorldResponseBody(string HelloWorldResult) {
-            this.HelloWorldResult = HelloWorldResult;
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1706,18 +1641,6 @@ namespace TestFacturaElectronica.PruebaConsola.localhost {
         
         public WebService1SoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        TestFacturaElectronica.PruebaConsola.localhost.HelloWorldResponse TestFacturaElectronica.PruebaConsola.localhost.WebService1Soap.HelloWorld(TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequest request) {
-            return base.Channel.HelloWorld(request);
-        }
-        
-        public string HelloWorld() {
-            TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequest inValue = new TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequest();
-            inValue.Body = new TestFacturaElectronica.PruebaConsola.localhost.HelloWorldRequestBody();
-            TestFacturaElectronica.PruebaConsola.localhost.HelloWorldResponse retVal = ((TestFacturaElectronica.PruebaConsola.localhost.WebService1Soap)(this)).HelloWorld(inValue);
-            return retVal.Body.HelloWorldResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

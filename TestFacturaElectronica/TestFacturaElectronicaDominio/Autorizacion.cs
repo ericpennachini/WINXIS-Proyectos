@@ -11,7 +11,7 @@ using System.Runtime.Serialization;
 
 namespace TestFacturaElectronica.Dominio
 {
-    [System.SerializableAttribute()]
+    [Serializable]
     public class Autorizacion
     {
 

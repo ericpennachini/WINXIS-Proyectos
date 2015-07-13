@@ -16,17 +16,17 @@ namespace TestFacturaElectronica.Dominio
     ///     2) Autoriza usando la clase Autorización, encargada de manejar la autorización con el web service WSAA
     ///     3) Solicita la autorización de la factura en espera del CAE (o errores en su defecto) al web service WSFE
     /// </summary>
-    [System.SerializableAttribute()]
+    [Serializable]
     public class ServFactElect
     {
         #region Propiedades
         public ServiceSoapClient FServ { get; set; }
-        //public Service FServ { get; set; }
         public FEAuthRequest Autorizacion { get; set; }
         public FECAERequest Request { get; set; }
         public FECAEResponse Response { get; set; }
         public FECAECabRequest CabeceraFactura { get; set; }
-        public FECAEDetRequest[] DetalleFactura { get; set; }
+        //public FECAEDetRequest[] DetalleFactura { get; set; }
+        public List<FECAEDetRequest> DetalleFactura { get; set; }
         public Autorizacion ObjAutorizacion { get; set; }
         public int UltimoElementoArrayDetalle { get; set; }
         #endregion
@@ -42,6 +42,7 @@ namespace TestFacturaElectronica.Dominio
             Request = new FECAERequest();
             Response = new FECAEResponse();
             CabeceraFactura = new FECAECabRequest();
+            DetalleFactura = new List<FECAEDetRequest>();
             ObjAutorizacion = new Autorizacion();
             ////Instancio algunos campos del response que son compuestos, y tambien sus subcampos (solo uno para prueba)
             //Response.FeDetResp = new FECAEDetResponse[1];
@@ -90,7 +91,7 @@ namespace TestFacturaElectronica.Dominio
             CabeceraFactura.CantReg = _cantReg;
             CabeceraFactura.PtoVta = _ptoVta;
             CabeceraFactura.CbteTipo = _cbteTipo;
-            DetalleFactura = new FECAEDetRequest[_cantReg];
+            //DetalleFactura = new FECAEDetRequest[_cantReg];
         }
 
         /// <summary>
@@ -100,7 +101,8 @@ namespace TestFacturaElectronica.Dominio
         public void SetDetalle(int _concepto, int _docTipo, long _docNro,
             DateTime _cbteFch, double _impTotal, double _impTotConc, double _impNeto, double _impIVA, double _impOpEx, double _impTrib,
             DateTime _fchServDesde, DateTime _fchServHasta, DateTime _fchVtoPago, string _monId, double _monCotiz,
-            CbteAsoc[] _cbtesAsoc, Tributo[] _tributo, AlicIva[] _iva, Opcional[] _opcionales)
+            //CbteAsoc[] _cbtesAsoc, Tributo[] _tributo, AlicIva[] _iva, Opcional[] _opcionales)
+            List<CbteAsoc> _cbtesAsoc, List<Tributo> _tributo, List<AlicIva> _iva, List<Opcional> _opcionales)
         {
             FECAEDetRequest _detalle = new FECAEDetRequest();
 
@@ -133,7 +135,8 @@ namespace TestFacturaElectronica.Dominio
             _detalle.Iva = _iva; //  N - si no lo asignas no anda
             _detalle.Opcionales = _opcionales; //  N
 
-            DetalleFactura[UltimoElementoArrayDetalle] = _detalle;
+            //DetalleFactura[UltimoElementoArrayDetalle] = _detalle;
+            DetalleFactura.Add(_detalle);
             UltimoElementoArrayDetalle++;
         }
 

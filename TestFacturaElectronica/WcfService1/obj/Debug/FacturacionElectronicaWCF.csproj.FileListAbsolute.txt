@@ -1,7 +1,0 @@
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\WcfService1\obj\Debug\FacturacionElectronicaWCF.csprojResolveAssemblyReference.cache
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\WcfService1\bin\FacturacionElectronicaWCF.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\WcfService1\bin\FacturacionElectronicaWCF.pdb
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\WcfService1\bin\TestFacturaElectronicaDominio.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\WcfService1\bin\TestFacturaElectronicaDominio.pdb
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\WcfService1\obj\Debug\FacturacionElectronicaWCF.dll
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\WcfService1\obj\Debug\FacturacionElectronicaWCF.pdb
