@@ -6,9 +6,6 @@ using TestFacturaElectronica.PruebaConsola.localhost;
 
 namespace TestFacturaElectronica.PruebaConsola
 {
-    /// <summary>
-    /// Programa en consola para pruebas
-    /// </summary>
     public class Program
     {
         public static void Main(string[] args)
@@ -29,7 +26,7 @@ namespace TestFacturaElectronica.PruebaConsola
                 detalle.Concepto = 1;
                 detalle.DocTipo = 80;
                 detalle.DocNro = 20377033251;
-                detalle.FechaComp = new DateTime(2015, 7, 13);
+                detalle.FechaComp = new DateTime(2015, 7, 14);
                 detalle.ImporteTotal = 121;
                 detalle.ImporteTotalConc = 0;
                 detalle.ImporteNeto = 100;
@@ -42,11 +39,11 @@ namespace TestFacturaElectronica.PruebaConsola
                 detalle.MonedaId = "PES";
                 detalle.MonedaCotiz = 1;
                 //detalle.CbtesAsoc --> no agregamos nada
-                detalle.CbtesAsoc = new List<CbteAsoc>();
+                detalle.CbtesAsoc = null;
                 //detalle.Tributos --> no agregamos nada
-                detalle.Tributos = new List<Tributo>();
+                detalle.Tributos = null;
                 //detalle.Opcionales --> no agregamos nada
-                detalle.Opcionales = new List<Opcional>();
+                detalle.Opcionales = null;
                 //detalle.Iva --> agregamos uno
                 AlicIva iva = new AlicIva { Id = 5, Importe = 21, BaseImp = 100 };
                 detalle.Iva = new List<AlicIva>();
@@ -68,11 +65,11 @@ namespace TestFacturaElectronica.PruebaConsola
                         break;
                     case "P":
                         Console.WriteLine("Resultado: " + response.FeCabResp.Resultado + " (Parcial)");
-                        if (response.Events != null)
+                        if (response.FeDetResp != null)
                         {
-                            for (int i = 0; i < response.Events.Count; i++)
+                            foreach (Evt evt in response.Events)
                             {
-                                Console.WriteLine("Observación: " + response.Events[i].Code + " -> " + response.Events[i].Msg);
+                                Console.WriteLine("Observación: " + evt.Code + " -> " + evt.Msg);
                                 Console.WriteLine("-------------");
                             }
                         }
@@ -80,12 +77,15 @@ namespace TestFacturaElectronica.PruebaConsola
                         break;
                     case "R":
                         Console.WriteLine("Resultado: " + response.FeCabResp.Resultado + " (Rechazado)");
-                        if (response.Errors != null)
+                        if (response.FeDetResp != null)
                         {
-                            for (int i = 0; i < response.Errors.Count; i++)
+                            foreach (FECAEDetResponse r in response.FeDetResp)
                             {
-                                Console.WriteLine("Error: " + response.Errors[i].Code + " -> " + response.Errors[i].Msg);
-                                Console.WriteLine("-------------");
+                                foreach (Obs o in r.Observaciones)
+                                {
+                                    Console.WriteLine("Error: " + o.Code + " -> " + o.Msg);
+                                    Console.WriteLine("-------------");
+                                }
                             }
                         }
                         Console.ReadKey();

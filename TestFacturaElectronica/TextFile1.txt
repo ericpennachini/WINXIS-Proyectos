@@ -23,4 +23,22 @@ PARA REFACTORIZAR EL PROYECTO DE FACT. ELECT. DE FORMA QUE INTERACTÚE CON EL USU
 08/07/2015 09:46 hs.
 REFACTORIZAR EL WEB SERVICE, DE FORMA QUE TENGA UN SOLO MÉTODO: ObtenerCAE(Factura f)
 La clase 'Factura' es una clase sin comportamiento que maneja los campos de la factura para mandar al web service.
-El método ObtenerCAE(...) recibe la Factura, ejecuta todos los métodos necesarios y devuelve la respuesta, conteniendo el CAE o los errores, dependiendo del caso.
+El método ObtenerCAE(...) recibe la Factura, ejecuta todos los métodos necesarios y devuelve la respuesta, conteniendo el CAE 
+o los errores, dependiendo del caso.
+
+--------------------------------------------------------------------------------
+14/07/2015 09:08 hs.
+REVISIÓN
+- Con respecto a la factura, el campo CantReg de la cabecera indica la cantidad de registros del detalle de la factura, 
+no la cantidad de 'detalles'. Por lo tanto, en base al total de la factura se discriminan los IVA (por ej., si tengo una factura
+con un total de $121 podría ser un IVA {Id = 5, BaseImp = 100, Importe = 21} sobre un un item con monto de $100, y tendría
+un solo registro).
+- No me queda bien en claro que son los 'detalles' (por qué se menciona un lote de detalles)
+
+Para que funcione (dado que sigue devolviendo el CAE vacío y sin errores) habria que probar de que la colección por defecto de los
+w. s. sea Array en vez de List<>
+
+>> PROBLEMA SOLUCIONADO: Parece que manejar listas y arrays para los ws es lo mismo. El problema era que el wsfe recibía los arreglos
+   de cbtesAsoc, Tributos, etc. sin elementos, no en null... Se corrigió eso y ahora funciona.
+   Además, se estaba mostrando mal los resultados del error. Hay que mostrar las observaciones en el objeto FeDetResp, y hacer
+   un foreach anidado.

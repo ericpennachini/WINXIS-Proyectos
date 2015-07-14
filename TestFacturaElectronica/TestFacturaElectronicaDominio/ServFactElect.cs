@@ -12,9 +12,9 @@ namespace TestFacturaElectronica.Dominio
 {
     /// <summary>
     /// Clase encargada de manejar la facturación:
-    ///     1) Setea los campos
-    ///     2) Autoriza usando la clase Autorización, encargada de manejar la autorización con el web service WSAA
-    ///     3) Solicita la autorización de la factura en espera del CAE (o errores en su defecto) al web service WSFE
+    ///     1) Setea los campos, 
+    ///     2) autoriza usando la clase Autorización (encargada de manejar la autorización con el web service WSAA), 
+    ///     3) solicita la autorización de la factura en espera del CAE (o errores en su defecto) al web service WSFE. 
     /// </summary>
     [Serializable]
     public class ServFactElect
@@ -25,7 +25,6 @@ namespace TestFacturaElectronica.Dominio
         public FECAERequest Request { get; set; }
         public FECAEResponse Response { get; set; }
         public FECAECabRequest CabeceraFactura { get; set; }
-        //public FECAEDetRequest[] DetalleFactura { get; set; }
         public List<FECAEDetRequest> DetalleFactura { get; set; }
         public Autorizacion ObjAutorizacion { get; set; }
         public int UltimoElementoArrayDetalle { get; set; }
@@ -44,26 +43,10 @@ namespace TestFacturaElectronica.Dominio
             CabeceraFactura = new FECAECabRequest();
             DetalleFactura = new List<FECAEDetRequest>();
             ObjAutorizacion = new Autorizacion();
-            ////Instancio algunos campos del response que son compuestos, y tambien sus subcampos (solo uno para prueba)
-            //Response.FeDetResp = new FECAEDetResponse[1];
-            //Response.FeDetResp[0] = new FECAEDetResponse();
-            ////Observaciones
-            //Response.FeDetResp[0].Observaciones = new Obs[1];
-            //Response.FeDetResp[0].Observaciones[0] = new Obs();
-            ////Errores
-            //Response.Errors = new Err[5];
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    Response.Errors[i] = new Err();
-            //}
-
-            UltimoElementoArrayDetalle = 0;
         }
         #endregion
 
         #region Metodos
-
-        #region Autorización
 
         /// <summary>
         ///     Obtiene el token y sign devuelto por el WSAA, y lo asigna al campo _autorizacion.
@@ -76,7 +59,6 @@ namespace TestFacturaElectronica.Dominio
             Autorizacion.Sign = ObjAutorizacion.Sign;
             Autorizacion.Cuit = cuit;
         }
-        #endregion
 
         /// <summary>
         /// Configura la cabecera de la factura
@@ -91,7 +73,6 @@ namespace TestFacturaElectronica.Dominio
             CabeceraFactura.CantReg = _cantReg;
             CabeceraFactura.PtoVta = _ptoVta;
             CabeceraFactura.CbteTipo = _cbteTipo;
-            //DetalleFactura = new FECAEDetRequest[_cantReg];
         }
 
         /// <summary>
@@ -101,7 +82,6 @@ namespace TestFacturaElectronica.Dominio
         public void SetDetalle(int _concepto, int _docTipo, long _docNro,
             DateTime _cbteFch, double _impTotal, double _impTotConc, double _impNeto, double _impIVA, double _impOpEx, double _impTrib,
             DateTime _fchServDesde, DateTime _fchServHasta, DateTime _fchVtoPago, string _monId, double _monCotiz,
-            //CbteAsoc[] _cbtesAsoc, Tributo[] _tributo, AlicIva[] _iva, Opcional[] _opcionales)
             List<CbteAsoc> _cbtesAsoc, List<Tributo> _tributo, List<AlicIva> _iva, List<Opcional> _opcionales)
         {
             FECAEDetRequest _detalle = new FECAEDetRequest();
@@ -130,14 +110,12 @@ namespace TestFacturaElectronica.Dominio
             _detalle.FchVtoPago = ConvertirFechaAString(_fchVtoPago); //  N
             _detalle.MonId = _monId;
             _detalle.MonCotiz = _monCotiz;
-            _detalle.CbtesAsoc = _cbtesAsoc; //  N
-            _detalle.Tributos = _tributo; //  N
-            _detalle.Iva = _iva; //  N - si no lo asignas no anda
-            _detalle.Opcionales = _opcionales; //  N
+            _detalle.CbtesAsoc = (_cbtesAsoc.Count == 0) ? null : _cbtesAsoc; //  N
+            _detalle.Tributos = (_tributo.Count == 0) ? null : _tributo; //  N
+            _detalle.Iva = (_iva.Count == 0) ? null : _iva; //  N
+            _detalle.Opcionales = (_opcionales.Count == 0) ? null : _opcionales; //  N
 
-            //DetalleFactura[UltimoElementoArrayDetalle] = _detalle;
             DetalleFactura.Add(_detalle);
-            UltimoElementoArrayDetalle++;
         }
 
         /// <summary>
@@ -198,7 +176,7 @@ namespace TestFacturaElectronica.Dominio
         {
             string _fechaADevolver;
 
-            if ((fecha.Year == 1)&&(fecha.Month == 1)&&(fecha.Day == 1))
+            if ((fecha.Year == 1) && (fecha.Month == 1) && (fecha.Day == 1))
             {
                 _fechaADevolver = "";
             }

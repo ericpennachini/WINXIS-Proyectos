@@ -16,7 +16,7 @@ namespace TestFacturaElectronica.WebService
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // Para permitir que se llame a este servicio Web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
-    // [System.Web.Script.Services.ScriptService]
+    //[System.Web.Script.Services.ScriptService]
     public class WebService1 : System.Web.Services.WebService
     {
         public WebService1() { }

@@ -2059,10 +2059,10 @@ namespace TestFacturaElectronica.Dominio.FacturaElectronicaWS {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TestFacturaElectronica.Dominio.FacturaElectronicaWS.FECompConsResponse ResultGetField;
+        private System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Err> ErrorsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Err> ErrorsField;
+        private TestFacturaElectronica.Dominio.FacturaElectronicaWS.FECompConsResponse ResultGetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Evt> EventsField;
@@ -2078,19 +2078,6 @@ namespace TestFacturaElectronica.Dominio.FacturaElectronicaWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public TestFacturaElectronica.Dominio.FacturaElectronicaWS.FECompConsResponse ResultGet {
-            get {
-                return this.ResultGetField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ResultGetField, value) != true)) {
-                    this.ResultGetField = value;
-                    this.RaisePropertyChanged("ResultGet");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Err> Errors {
             get {
                 return this.ErrorsField;
@@ -2099,6 +2086,19 @@ namespace TestFacturaElectronica.Dominio.FacturaElectronicaWS {
                 if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
                     this.ErrorsField = value;
                     this.RaisePropertyChanged("Errors");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public TestFacturaElectronica.Dominio.FacturaElectronicaWS.FECompConsResponse ResultGet {
+            get {
+                return this.ResultGetField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultGetField, value) != true)) {
+                    this.ResultGetField = value;
+                    this.RaisePropertyChanged("ResultGet");
                 }
             }
         }
@@ -2197,6 +2197,9 @@ namespace TestFacturaElectronica.Dominio.FacturaElectronicaWS {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Err> ErrorsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TestFacturaElectronica.Dominio.FacturaElectronicaWS.FECAEACabResponse FeCabRespField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -2205,9 +2208,6 @@ namespace TestFacturaElectronica.Dominio.FacturaElectronicaWS {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Evt> EventsField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Err> ErrorsField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -2215,6 +2215,19 @@ namespace TestFacturaElectronica.Dominio.FacturaElectronicaWS {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Err> Errors {
+            get {
+                return this.ErrorsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
+                    this.ErrorsField = value;
+                    this.RaisePropertyChanged("Errors");
+                }
             }
         }
         
@@ -2244,7 +2257,7 @@ namespace TestFacturaElectronica.Dominio.FacturaElectronicaWS {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Evt> Events {
             get {
                 return this.EventsField;
@@ -2253,19 +2266,6 @@ namespace TestFacturaElectronica.Dominio.FacturaElectronicaWS {
                 if ((object.ReferenceEquals(this.EventsField, value) != true)) {
                     this.EventsField = value;
                     this.RaisePropertyChanged("Events");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Err> Errors {
-            get {
-                return this.ErrorsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
-                    this.ErrorsField = value;
-                    this.RaisePropertyChanged("Errors");
                 }
             }
         }
@@ -2290,10 +2290,10 @@ namespace TestFacturaElectronica.Dominio.FacturaElectronicaWS {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Err> ErrorsField;
+        private TestFacturaElectronica.Dominio.FacturaElectronicaWS.FECAEAGet ResultGetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TestFacturaElectronica.Dominio.FacturaElectronicaWS.FECAEAGet ResultGetField;
+        private System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Err> ErrorsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Evt> EventsField;
@@ -2309,19 +2309,6 @@ namespace TestFacturaElectronica.Dominio.FacturaElectronicaWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Err> Errors {
-            get {
-                return this.ErrorsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
-                    this.ErrorsField = value;
-                    this.RaisePropertyChanged("Errors");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public TestFacturaElectronica.Dominio.FacturaElectronicaWS.FECAEAGet ResultGet {
             get {
                 return this.ResultGetField;
@@ -2330,6 +2317,19 @@ namespace TestFacturaElectronica.Dominio.FacturaElectronicaWS {
                 if ((object.ReferenceEquals(this.ResultGetField, value) != true)) {
                     this.ResultGetField = value;
                     this.RaisePropertyChanged("ResultGet");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public System.Collections.Generic.List<TestFacturaElectronica.Dominio.FacturaElectronicaWS.Err> Errors {
+            get {
+                return this.ErrorsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorsField, value) != true)) {
+                    this.ErrorsField = value;
+                    this.RaisePropertyChanged("Errors");
                 }
             }
         }
