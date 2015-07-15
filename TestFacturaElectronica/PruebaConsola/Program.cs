@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TestFacturaElectronica.PruebaConsola.localhost;
+using TestFacturaElectronica.PruebaConsola.localhost;
 
 namespace TestFacturaElectronica.PruebaConsola
 {
@@ -18,11 +19,14 @@ namespace TestFacturaElectronica.PruebaConsola
                 WebService1SoapClient ws = new WebService1SoapClient();
                 Factura factura = new Factura();
                 Detalle detalle = new Detalle();
+                Detalle detalle2 = new Detalle();
 
-                #region Completando la factura (para probar)...
-                factura.CantRegistros = 1;
+                #region Completando la factura (para probar, 1 solo detalle)...
+                factura.CantRegistros = 2;
                 factura.PuntoVenta = 1;
                 factura.TipoComprobante = 1;
+
+                #region Completando detalle 1...
                 detalle.Concepto = 1;
                 detalle.DocTipo = 80;
                 detalle.DocNro = 20377033251;
@@ -47,49 +51,99 @@ namespace TestFacturaElectronica.PruebaConsola
                 //detalle.Iva --> agregamos uno
                 AlicIva iva = new AlicIva { Id = 5, Importe = 21, BaseImp = 100 };
                 detalle.Iva = new List<AlicIva>();
-                detalle.Iva.Add(iva);
+                detalle.Iva.Add(iva); 
+                #endregion
+
+                #region Completando detalle 2...
+                detalle2.Concepto = 1;
+                detalle2.DocTipo = 80;
+                detalle2.DocNro = 20377033251;
+                detalle2.FechaComp = new DateTime(2015, 7, 14);
+                detalle2.ImporteTotal = 121;
+                detalle2.ImporteTotalConc = 0;
+                detalle2.ImporteNeto = 100;
+                detalle2.ImporteIVA = 21;
+                detalle2.ImporteOpExento = 0;
+                detalle2.ImporteTrib = 0;
+                detalle2.FechaServDesde = new DateTime();
+                detalle2.FechaServHasta = new DateTime();
+                detalle2.FechaVtoPago = new DateTime();
+                detalle2.MonedaId = "PES";
+                detalle2.MonedaCotiz = 1;
+                //detalle.CbtesAsoc --> no agregamos nada
+                detalle2.CbtesAsoc = null;
+                //detalle.Tributos --> no agregamos nada
+                detalle2.Tributos = null;
+                //detalle.Opcionales --> no agregamos nada
+                detalle2.Opcionales = null;
+                //detalle.Iva --> agregamos uno
+                AlicIva iva2 = new AlicIva { Id = 5, Importe = 21, BaseImp = 100 };
+                detalle2.Iva = new List<AlicIva>();
+                detalle2.Iva.Add(iva2);
+                #endregion
 
                 factura.DetalleFactura = new List<Detalle>();
                 factura.DetalleFactura.Add(detalle);
+                factura.DetalleFactura.Add(detalle2);
                 #endregion
+
+                Console.WriteLine("\n>\n>\n>\n>\n");
 
                 FECAEResponse response = ws.ObtenerCAE(factura, cuit);
 
                 #region Muestro resultados
-                switch (response.FeCabResp.Resultado)
+                if ((response.FeCabResp != null) && (response.FeDetResp != null))
                 {
-                    case "A":
-                        Console.WriteLine("Resultado: " + response.FeCabResp.Resultado + " (Aprobado)");
-                        Console.WriteLine("CAE: " + response.FeDetResp[0].CAE + ", con fecha de vto.: " + response.FeDetResp[0].CAEFchVto);
-                        Console.ReadKey();
-                        break;
-                    case "P":
-                        Console.WriteLine("Resultado: " + response.FeCabResp.Resultado + " (Parcial)");
-                        if (response.FeDetResp != null)
-                        {
-                            foreach (Evt evt in response.Events)
+                    switch (response.FeCabResp.Resultado)
+                    {
+                        case "A":
+                            Console.WriteLine("Resultado general: " + response.FeCabResp.Resultado + " (Aprobado)");
+                            foreach (FECAEDetResponse det in response.FeDetResp)
                             {
-                                Console.WriteLine("Observación: " + evt.Code + " -> " + evt.Msg);
-                                Console.WriteLine("-------------");
+                                Console.WriteLine("- Nro. de comprobante: " + det.CbteDesde);
+                                Console.WriteLine("- CUIT: " + det.DocNro);
+                                Console.WriteLine("- CAE: " + det.CAE + ", con fecha de vto.: " + det.CAEFchVto);
                             }
-                        }
-                        Console.ReadKey();
-                        break;
-                    case "R":
-                        Console.WriteLine("Resultado: " + response.FeCabResp.Resultado + " (Rechazado)");
-                        if (response.FeDetResp != null)
-                        {
-                            foreach (FECAEDetResponse r in response.FeDetResp)
+                            break;
+                        case "P":
+                            Console.WriteLine("Resultado general: " + response.FeCabResp.Resultado + " (Parcial)");
+                            foreach (FECAEDetResponse det in response.FeDetResp)
                             {
-                                foreach (Obs o in r.Observaciones)
+                                Console.WriteLine("- Resultado: " + det.Resultado);
+                                Console.WriteLine("- Nro. de comprobante: " + det.CbteDesde);
+                                Console.WriteLine("- CUIT: " + det.DocNro);
+                                if (det.Resultado == "A")
                                 {
-                                    Console.WriteLine("Error: " + o.Code + " -> " + o.Msg);
-                                    Console.WriteLine("-------------");
+                                    Console.WriteLine("- CAE: " + det.CAE + ", con fecha de vto.: " + det.CAEFchVto);
                                 }
+                                else
+                                {
+                                    foreach (Obs obs in det.Observaciones)
+                                    {
+                                        Console.WriteLine("- - Error: " + obs.Code + " -> " + obs.Msg);
+                                        Console.WriteLine("--------------------");
+                                    }
+                                }
+                                Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>");
                             }
-                        }
-                        Console.ReadKey();
-                        break;
+                            break;
+                        case "R":
+                            Console.WriteLine("Resultado general: " + response.FeCabResp.Resultado + " (Rechazado)");
+                            foreach (Err err in response.Errors)
+                            {
+                                Console.WriteLine("Error: " + err.Code + " -> " + err.Msg);
+                                Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>");
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    foreach (Err err in response.Errors)
+                    {
+                        Console.WriteLine("Error: " + err.Code + " -> " + err.Msg);
+                        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>");
+                    }
                 }
                 //Console.Beep();
                 #endregion
@@ -100,8 +154,10 @@ namespace TestFacturaElectronica.PruebaConsola
                 Console.WriteLine("--------------------------------------------");
                 Console.WriteLine(ex.Message);
                 Console.WriteLine("--------------------------------------------");
-                Console.ReadKey();
             }
+
+            Console.ReadKey();
+
         }
     }
 }

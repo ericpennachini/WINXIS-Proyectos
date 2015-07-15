@@ -42,3 +42,18 @@ w. s. sea Array en vez de List<>
    de cbtesAsoc, Tributos, etc. sin elementos, no en null... Se corrigió eso y ahora funciona.
    Además, se estaba mostrando mal los resultados del error. Hay que mostrar las observaciones en el objeto FeDetResp, y hacer
    un foreach anidado.
+
+--------------------------------------------------------------------------------
+15/07/2015 11:00 hs.
+REVISIÓN
+- El campo CantReg de la cabecera de la factura hace referencia a la cantidad de facturas que se van a enviar, o 'detalles'. 
+La entrada anterior estaba equivocada.
+- Los resultados se muestran correctamente. La forma anterior no contemplaba todos los casos, solo el caso de un error general como
+un CUIT que factura erróneo, etc.. errores a nivel general por eso entraba el cabreq y detreq en null.
+- Se comprobó que funciona con varios detalles o facturas. Se hicieron modificaciones en la clase ServFactElect para que tome bien
+el último comprobante autorizado y use a partir del siguiente.
+
+>> TAREA PENDIENTE: a partir del CUIT ingresado y el base a una estructura de directorio armada en base a CUITs de los que facturan, 
+   modificar la clase Autorización para que lea el certificado correspondiente a dicho CUIT ingresado.
+   La estructura seria la siguiente:
+   ../Certificados/[nro_de_cuit]/[certificado.p12] 

@@ -14,6 +14,29 @@ namespace TestFacturaElectronica.WebService
         public int PuntoVenta { get; set; }
         public int TipoComprobante { get; set; }
         public List<Detalle> DetalleFactura { get; set; }
+
+        /// <summary>
+        /// Convierte una fecha con formato manejado por FECAEDetRequest a un System.DateTime
+        /// </summary>
+        /// <param name="fechaComprobante">String con la fecha, pero en el formato que maneja el FECAEDetRequest.</param>
+        /// <returns>Fecha en formato System.DateTime</returns>
+        public static DateTime ConvertirAFormatoFecha(string fechaComprobante)
+        {
+            try
+            {
+                string _dia, _mes, _anio;
+                _anio = fechaComprobante.Substring(0, 4);
+                _mes = fechaComprobante.Substring(4, 2);
+                _dia = fechaComprobante.Substring(6, 2);
+                DateTime _fechaADevolver = new DateTime(Convert.ToInt32(_anio), Convert.ToInt32(_mes), Convert.ToInt32(_dia));
+
+                return _fechaADevolver;
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException(ex.Message);
+            }
+        }
     }
 
     [Serializable]

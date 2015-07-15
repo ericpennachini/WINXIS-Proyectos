@@ -16,7 +16,7 @@ namespace TestFacturaElectronica.WCF
     public interface IService1
     {
         [OperationContract]
-        FECAEResponse ObtenerCAE(Factura factura);
+        FECAEResponse ObtenerCAE(Factura factura, long cuit);
     }
 
 

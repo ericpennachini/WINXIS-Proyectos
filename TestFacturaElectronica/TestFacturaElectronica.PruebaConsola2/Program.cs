@@ -10,7 +10,11 @@ namespace TestFacturaElectronica.PruebaConsola2
     {
         public static void Main(string[] args)
         {
-            
+            Console.Write("Ingrese CUIT: ");
+            long cuit = Convert.ToInt64(Console.ReadLine());
+
+            Service1Client ws = new Service1Client();
+
 
         }
     }

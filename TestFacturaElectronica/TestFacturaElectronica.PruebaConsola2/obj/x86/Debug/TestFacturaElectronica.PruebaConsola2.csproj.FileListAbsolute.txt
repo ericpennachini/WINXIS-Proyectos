@@ -1,5 +1,0 @@
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronica.PruebaConsola2\bin\Debug\TestFacturaElectronica.PruebaConsola2.exe.config
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronica.PruebaConsola2\bin\Debug\TestFacturaElectronica.PruebaConsola2.exe
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronica.PruebaConsola2\bin\Debug\TestFacturaElectronica.PruebaConsola2.pdb
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronica.PruebaConsola2\obj\x86\Debug\TestFacturaElectronica.PruebaConsola2.exe
-C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\TestFacturaElectronica.PruebaConsola2\obj\x86\Debug\TestFacturaElectronica.PruebaConsola2.pdb

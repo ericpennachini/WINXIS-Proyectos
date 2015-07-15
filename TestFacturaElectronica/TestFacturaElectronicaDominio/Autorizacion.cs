@@ -11,10 +11,12 @@ using System.Runtime.Serialization;
 
 namespace TestFacturaElectronica.Dominio
 {
+    /// <summary>
+    /// Clase encargada de la autorización contra el WSAA
+    /// </summary>
     [Serializable]
     public class Autorizacion
     {
-
         #region Campos y propiedades
         public LoginCMSClient servicioWsaa { get; set; }
 
@@ -42,6 +44,7 @@ namespace TestFacturaElectronica.Dominio
         public static Int32 _globalUniqueID = 1;
         #endregion
 
+        #region Constructor
         /// <summary>
         /// Constructor de Autorizacion
         /// </summary>
@@ -52,9 +55,12 @@ namespace TestFacturaElectronica.Dominio
             RutaCertificado = "C:\\Users\\Eric\\Desktop\\certificado_clave\\pennachini_prueba_wsass.p12";
             servicioWsaa = new LoginCMSClient();
         }
+        #endregion
 
+        #region Métodos
         /// <summary>
-        /// Obtiene el TA (Ticket de Acceso) generando el XML y codificandolo para mandarlo al WSAA, e interpreta la respuesta recibida para extraer el Token y Sign
+        /// Obtiene el TA (Ticket de Acceso) generando el XML y codificandolo para mandarlo al WSAA, 
+        /// e interpreta la respuesta recibida para extraer el Token y Sign
         /// </summary>
         public void ObtenerTicketAcceso()
         {
@@ -111,7 +117,6 @@ namespace TestFacturaElectronica.Dominio
             #region PASO 3: invoco al WSAA
             try
             {
-                //servicioWsaa.Url = UrlServicio;
                 ticketAccesoResponse = servicioWsaa.loginCms(CmsFirmadoBase64);
             }
             catch (Exception ex)
@@ -177,5 +182,6 @@ namespace TestFacturaElectronica.Dominio
         }
         #endregion
 
+        #endregion
     }
 }

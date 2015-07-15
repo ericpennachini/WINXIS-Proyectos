@@ -27,7 +27,7 @@ namespace TestFacturaElectronica.Dominio
         public FECAECabRequest CabeceraFactura { get; set; }
         public List<FECAEDetRequest> DetalleFactura { get; set; }
         public Autorizacion ObjAutorizacion { get; set; }
-        public int UltimoElementoArrayDetalle { get; set; }
+        public long UltimoCompAut { get; set; }
         #endregion
 
         #region Constructor
@@ -73,6 +73,8 @@ namespace TestFacturaElectronica.Dominio
             CabeceraFactura.CantReg = _cantReg;
             CabeceraFactura.PtoVta = _ptoVta;
             CabeceraFactura.CbteTipo = _cbteTipo;
+            UltimoCompAut = UltimoCompAutorizado(_ptoVta, _cbteTipo); // Acá se comprueba el ultimo comp. autorizado
+            
         }
 
         /// <summary>
@@ -86,9 +88,7 @@ namespace TestFacturaElectronica.Dominio
         {
             FECAEDetRequest _detalle = new FECAEDetRequest();
 
-            #region Comprobación del ultimo comp. autorizado, se suma +1 al ultimo autorizado
-            long nroComp = UltimoCompAutorizado() + 1;
-            #endregion
+            long nroComp = ++UltimoCompAut; // incrementa y asigna
 
             //Detalle - NO OBLIGATORIO = N
             _detalle.Concepto = _concepto;
@@ -143,36 +143,12 @@ namespace TestFacturaElectronica.Dominio
         }
 
         #region Métodos extra
-
-        /// <summary>
-        /// Convierte una fecha con formato manejado por FECAEDetRequest a un System.DateTime
-        /// </summary>
-        /// <param name="fechaComprobante">String con la fecha, pero en el formato que maneja el FECAEDetRequest.</param>
-        /// <returns>Fecha en formato System.DateTime</returns>
-        public static DateTime ConvertirAFormatoFecha(string fechaComprobante)
-        {
-            try
-            {
-                string _dia, _mes, _anio;
-                _anio = fechaComprobante.Substring(0, 4);
-                _mes = fechaComprobante.Substring(4, 2);
-                _dia = fechaComprobante.Substring(6, 2);
-                DateTime _fechaADevolver = new DateTime(Convert.ToInt32(_anio), Convert.ToInt32(_mes), Convert.ToInt32(_dia));
-
-                return _fechaADevolver;
-            }
-            catch (FormatException ex)
-            {
-                throw new FormatException(ex.Message);
-            }
-        }
-
         /// <summary>
         /// Convierte un objeto de tipo System.DateTime en un System.String, para que el comprobante de la factura lo pueda manejar
         /// </summary>
         /// <param name="fecha">Fecha de tipo System.DateTime</param>
         /// <returns>Conversion de la fecha DateTime recibida a string para el comprobante</returns>
-        public static string ConvertirFechaAString(DateTime fecha)
+        public string ConvertirFechaAString(DateTime fecha)
         {
             string _fechaADevolver;
 
@@ -194,16 +170,15 @@ namespace TestFacturaElectronica.Dominio
         /// Obtiene el ultimo comprobante autorizado por el WSFE
         /// </summary>
         /// <returns>Nro. del último comprobante autorizado</returns>
-        public long UltimoCompAutorizado()
+        public long UltimoCompAutorizado(int _ptoVta, int _cbteTipo)
         {
             FERecuperaLastCbteResponse ultimoComp = new FERecuperaLastCbteResponse();
-            ultimoComp = FServ.FECompUltimoAutorizado(Autorizacion, 1, 1);
+            ultimoComp = FServ.FECompUltimoAutorizado(Autorizacion, _ptoVta, _cbteTipo);
             return ultimoComp.CbteNro;
         }
 
         #endregion
 
         #endregion
-
     }
 }
