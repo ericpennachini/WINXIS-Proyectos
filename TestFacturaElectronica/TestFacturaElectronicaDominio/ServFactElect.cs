@@ -54,10 +54,17 @@ namespace TestFacturaElectronica.Dominio
         /// <param name="cuit">CUIT del contribuyente</param>
         public void Autorizar(long cuit)
         {
-            ObjAutorizacion.ObtenerTicketAcceso(cuit);
-            Autorizacion.Token = ObjAutorizacion.Token;
-            Autorizacion.Sign = ObjAutorizacion.Sign;
-            Autorizacion.Cuit = cuit;
+            try
+            {
+                ObjAutorizacion.ObtenerTicketAcceso(cuit);
+                Autorizacion.Token = ObjAutorizacion.Token;
+                Autorizacion.Sign = ObjAutorizacion.Sign;
+                Autorizacion.Cuit = cuit;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -74,7 +81,6 @@ namespace TestFacturaElectronica.Dominio
             CabeceraFactura.PtoVta = _ptoVta;
             CabeceraFactura.CbteTipo = _cbteTipo;
             UltimoCompAut = UltimoCompAutorizado(_ptoVta, _cbteTipo); // Acá se comprueba el ultimo comp. autorizado
-            
         }
 
         /// <summary>

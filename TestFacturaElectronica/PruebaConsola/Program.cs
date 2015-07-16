@@ -20,7 +20,7 @@ namespace TestFacturaElectronica.PruebaConsola
                 Detalle detalle = new Detalle();
                 Detalle detalle2 = new Detalle();
 
-                #region Completando la factura (para probar, 1 solo detalle)...
+                #region Completando la factura (para probar, 2 detalles)...
                 factura.CantRegistros = 2;
                 factura.PuntoVenta = 1;
                 factura.TipoComprobante = 1;
@@ -96,7 +96,7 @@ namespace TestFacturaElectronica.PruebaConsola
                     switch (response.FeCabResp.Resultado)
                     {
                         case "A":
-                            Console.WriteLine("Resultado general: " + response.FeCabResp.Resultado + " (Aprobado)");
+                            Console.WriteLine("Resultado general: " + response.FeCabResp.Resultado + " (Aprobado)\n");
                             foreach (FECAEDetResponse det in response.FeDetResp)
                             {
                                 Console.WriteLine("- Nro. de comprobante: " + det.CbteDesde);
@@ -106,7 +106,7 @@ namespace TestFacturaElectronica.PruebaConsola
                             }
                             break;
                         case "P":
-                            Console.WriteLine("Resultado general: " + response.FeCabResp.Resultado + " (Parcial)");
+                            Console.WriteLine("Resultado general: " + response.FeCabResp.Resultado + " (Parcial)\n");
                             foreach (FECAEDetResponse det in response.FeDetResp)
                             {
                                 Console.WriteLine("- Resultado: " + det.Resultado);
@@ -128,7 +128,7 @@ namespace TestFacturaElectronica.PruebaConsola
                             }
                             break;
                         case "R":
-                            Console.WriteLine("Resultado general: " + response.FeCabResp.Resultado + " (Rechazado)");
+                            Console.WriteLine("Resultado general: " + response.FeCabResp.Resultado + " (Rechazado)\n");
                             foreach (Err err in response.Errors)
                             {
                                 Console.WriteLine("Error: " + err.Code + " -> " + err.Msg);

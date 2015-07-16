@@ -6,6 +6,7 @@ using System.Web.Services;
 using System.Runtime.Serialization;
 using TestFacturaElectronica.Dominio;
 using TestFacturaElectronica.Dominio.FacturaElectronicaWS;
+using System.Web.Services.Protocols;
 
 namespace TestFacturaElectronica.WebService
 {
@@ -24,19 +25,27 @@ namespace TestFacturaElectronica.WebService
         [WebMethod]
         public FECAEResponse ObtenerCAE(Factura factura, long cuit)
         {
-            ServFactElect _servicioFacturacion = new ServFactElect();
-            _servicioFacturacion.Autorizar(cuit);
-            _servicioFacturacion.SetCabecera(factura.CantRegistros, factura.PuntoVenta, factura.TipoComprobante);
-            foreach (Detalle d in factura.DetalleFactura)
+            try
             {
-                _servicioFacturacion.SetDetalle(d.Concepto, d.DocTipo, d.DocNro, d.FechaComp,
-                    d.ImporteTotal, d.ImporteTotalConc, d.ImporteNeto, d.ImporteIVA, d.ImporteOpExento, d.ImporteTrib,
-                    d.FechaServDesde, d.FechaServHasta, d.FechaVtoPago, d.MonedaId, d.MonedaCotiz,
-                    d.CbtesAsoc, d.Tributos, d.Iva, d.Opcionales);
+                ServFactElect _servicioFacturacion = new ServFactElect();
+                _servicioFacturacion.Autorizar(cuit);
+                _servicioFacturacion.SetCabecera(factura.CantRegistros, factura.PuntoVenta, factura.TipoComprobante);
+                foreach (Detalle d in factura.DetalleFactura)
+                {
+                    _servicioFacturacion.SetDetalle(d.Concepto, d.DocTipo, d.DocNro, d.FechaComp,
+                        d.ImporteTotal, d.ImporteTotalConc, d.ImporteNeto, d.ImporteIVA, d.ImporteOpExento, d.ImporteTrib,
+                        d.FechaServDesde, d.FechaServHasta, d.FechaVtoPago, d.MonedaId, d.MonedaCotiz,
+                        d.CbtesAsoc, d.Tributos, d.Iva, d.Opcionales);
+                }
+                _servicioFacturacion.SetRequest();
+                _servicioFacturacion.Solicitar();
+                return _servicioFacturacion.Response;
             }
-            _servicioFacturacion.SetRequest();
-            _servicioFacturacion.Solicitar();
-            return _servicioFacturacion.Response;
+            catch (SoapException ex)
+            {
+                //throw new Exception("ERROR: \n" + ex.Message);
+                throw new SoapException("ERROR :\n" + ex.Message, SoapException.ClientFaultCode, "",ex);
+            } 
         }
         
     }

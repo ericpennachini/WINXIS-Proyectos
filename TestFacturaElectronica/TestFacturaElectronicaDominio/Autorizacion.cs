@@ -48,8 +48,7 @@ namespace TestFacturaElectronica.Dominio
         /// </summary>
         public Autorizacion()
         {
-            UrlServicio = "https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl";
-            RutaCertificadoPredef = @"C:\Certificados\";
+            RutaCertificadoPredef = @"C:\WSFE - Certificados\";
             servicioWsaa = new LoginCMSClient();
         }
         #endregion
@@ -61,7 +60,6 @@ namespace TestFacturaElectronica.Dominio
         /// </summary>
         public void ObtenerTicketAcceso(long cuit)
         {
-
             XmlNode nodoUniqueId;
             XmlNode nodoGenerationTime;
             XmlNode nodoExpirationTime;
@@ -88,7 +86,7 @@ namespace TestFacturaElectronica.Dominio
             }
             catch (Exception ex)
             {
-                throw new Exception("ERROR AL GENERAR EL TICKET REQUEST: " + ex.Message);
+                throw new Exception("ERROR AL GENERAR EL TICKET REQUEST: \n" + ex.Message);
             }
             #endregion
 
@@ -105,9 +103,9 @@ namespace TestFacturaElectronica.Dominio
 
                 CmsFirmadoBase64 = Convert.ToBase64String(mensajeCodificado);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception("ERROR AL FIRMAR EL CERTIFICADO: " + ex.Message);
+                throw;
             }
             #endregion
 
@@ -118,7 +116,7 @@ namespace TestFacturaElectronica.Dominio
             }
             catch (Exception ex)
             {
-                throw new Exception("ERROR AL INVOCAR AL WSAA: " + ex.Message);
+                throw new Exception("ERROR AL INVOCAR AL WSAA: \n" + ex.Message);
             }
             #endregion
 
@@ -135,7 +133,7 @@ namespace TestFacturaElectronica.Dominio
             }
             catch (Exception ex)
             {
-                throw new Exception("ERROR AL LEER EL XML RESPONSE: " + ex.Message);
+                throw new Exception("ERROR AL LEER EL XML RESPONSE: \n" + ex.Message);
             }
             #endregion
 
@@ -148,7 +146,7 @@ namespace TestFacturaElectronica.Dominio
         /// </summary>
         /// <param name="ruta">Ruta del certificado p12 en disco</param>
         /// <returns>Certificado X509</returns>
-        public X509Certificate2 LeerCertificadoDeDisco(string ruta)
+        private X509Certificate2 LeerCertificadoDeDisco(string ruta)
         {
             X509Certificate2 certificado = new X509Certificate2();
             try
@@ -156,42 +154,51 @@ namespace TestFacturaElectronica.Dominio
                 certificado.Import(File.ReadAllBytes(ruta));
                 return certificado;
             }
-            catch (Exception ex)
+            catch (System.Security.SecurityException secEx)
             {
-                throw new Exception("ERROR AL LEER EL ARCHIVO DEL DISCO: " + ex.Message);
+                throw new System.Security.SecurityException("ERROR AL LEER EL CERTIFICADO EN BASE A LA RUTA ESPECIFICADA: \n"
+                    + secEx.Message + "Permiso actual: " + secEx.PermissionType);
+            }
+            catch (FileNotFoundException fnfEx)
+            {
+                throw new FileNotFoundException("ERROR AL LEER EL CERTIFICADO EN BASE A LA RUTA ESPECIFICADA: \n"
+                    + fnfEx.Message
+                    + "\n >> Se ha creado las carpetas necesarias pero se requiere un certificado p12");
+            }
+            catch (DirectoryNotFoundException dnfEx)
+            {
+                throw new DirectoryNotFoundException("ERROR AL LEER EL CERTIFICADO EN BASE A LA RUTA ESPECIFICADA: \n"
+                    + dnfEx.Message
+                    + "\n >> Se ha creado las carpetas necesarias pero se requiere un certificado p12");
             }
         }
 
-        public string DevolverRuta(long cuit)
+        /// <summary>
+        /// Recibe un nro de CUIT para concatenarlo a la ruta predefinida, comprueba si existe la carpeta
+        /// (si no existe la crea) y lee el nombre del archivo (certificado p12) para devolver luego la ruta
+        /// completa.
+        /// </summary>
+        /// <param name="cuit">Nro de CUIT</param>
+        /// <returns>Ruta completa del archivo (certificado p12)</returns>
+        private string DevolverRuta(long cuit)
         {
             string rutaDevolver;
-            try
+
+            string rutaBase = RutaCertificadoPredef + cuit.ToString() + @"\";
+            if (!Directory.Exists(rutaBase))
             {
-                DirectoryInfo infoCarpeta = new DirectoryInfo(RutaCertificadoPredef + cuit.ToString() + @"\");
-                FileInfo[] infoArchivo = infoCarpeta.GetFiles("*.p12");
-                if (infoArchivo.Length > 0)
-                {
-                    rutaDevolver = infoArchivo[0].FullName;
-                }
-                else
-                {
-                    rutaDevolver = "";
-                }
+                Directory.CreateDirectory(rutaBase);
             }
-            catch (Exception ex)
+            DirectoryInfo infoCarpeta = new DirectoryInfo(rutaBase);
+            FileInfo[] infoArchivo = infoCarpeta.GetFiles("*.p12");
+            if (infoArchivo.Length > 0)
             {
-                throw new Exception(ex.Message);
+                return rutaDevolver = infoArchivo[0].FullName;
             }
-
-            return rutaDevolver;
-
-            //string[] files = Directory.GetFiles(RutaCertificadoPredef + cuit.ToString(), "*.*");
-
-            //if (files.Length > 0)
-            //{
-            //    string file = files[0];
-            //}
-            //return files[0].FullName;
+            else
+            {
+                return rutaBase;
+            }
         }
 
         /// <summary>
@@ -200,7 +207,7 @@ namespace TestFacturaElectronica.Dominio
         /// <param name="msjeBytes">XML codificado en bytes</param>
         /// <param name="certFirmante">Certificado X509 obtenido en 'private X509Certificate2 LeerCertificadoDeDisco(string ruta)'</param>
         /// <returns>Mensaje firmado</returns>
-        public byte[] FirmarMensaje(byte[] msjeBytes, X509Certificate2 certFirmante)
+        private byte[] FirmarMensaje(byte[] msjeBytes, X509Certificate2 certFirmante)
         {
             ContentInfo contenidoMsje = new ContentInfo(msjeBytes);
             SignedCms cmsFirmado = new SignedCms(contenidoMsje);
