@@ -1,1 +1,8 @@
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\PruebaConsola\bin\Debug\TestFacturaElectronica.PruebaConsola.exe.config
 C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\PruebaConsola\bin\Debug\TestFacturaElectronica.PruebaConsola.exe
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\PruebaConsola\bin\Debug\TestFacturaElectronica.PruebaConsola.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\PruebaConsola\bin\Debug\TestFacturaElectronica.Dominio.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\PruebaConsola\bin\Debug\TestFacturaElectronica.Dominio.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\PruebaConsola\obj\x86\Debug\TestFacturaElectronica.PruebaConsola.exe
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\PruebaConsola\obj\x86\Debug\TestFacturaElectronica.PruebaConsola.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\TestFacturaElectronica\PruebaConsola\obj\x86\Debug\TestFacturaElectronica.PruebaConsola.csprojResolveAssemblyReference.cache

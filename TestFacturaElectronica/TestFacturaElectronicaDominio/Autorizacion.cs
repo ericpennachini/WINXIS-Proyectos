@@ -19,8 +19,6 @@ namespace TestFacturaElectronica.Dominio
     {
         #region Campos y propiedades
         public LoginCMSClient servicioWsaa { get; set; }
-
-        //public LoginCMSService;
         public string TicketAccesoTemplateXml = "<loginTicketRequest>" +
                                                     "<header>" +
                                                         "<uniqueId></uniqueId>" +
@@ -37,7 +35,7 @@ namespace TestFacturaElectronica.Dominio
         public string Sign { get; set; }
         public XmlDocument XmlTicketAccesoRequest { get; set; }
         public XmlDocument XmlTicketAccesoResponse { get; set; }
-        public string RutaCertificado { get; set; }
+        public string RutaCertificadoPredef { get; set; }
         public string CmsFirmadoBase64 { get; set; }
         public string UrlServicio { get; set; }
 
@@ -51,8 +49,7 @@ namespace TestFacturaElectronica.Dominio
         public Autorizacion()
         {
             UrlServicio = "https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl";
-            //servicioWsaa = new LoginCMSService();
-            RutaCertificado = "C:\\Users\\Eric\\Desktop\\certificado_clave\\pennachini_prueba_wsass.p12";
+            RutaCertificadoPredef = @"C:\Certificados\";
             servicioWsaa = new LoginCMSClient();
         }
         #endregion
@@ -62,7 +59,7 @@ namespace TestFacturaElectronica.Dominio
         /// Obtiene el TA (Ticket de Acceso) generando el XML y codificandolo para mandarlo al WSAA, 
         /// e interpreta la respuesta recibida para extraer el Token y Sign
         /// </summary>
-        public void ObtenerTicketAcceso()
+        public void ObtenerTicketAcceso(long cuit)
         {
 
             XmlNode nodoUniqueId;
@@ -99,7 +96,7 @@ namespace TestFacturaElectronica.Dominio
             try
             {
                 X509Certificate2 certificadoEnDisco = new X509Certificate2();
-                certificadoEnDisco = LeerCertificadoDeDisco(RutaCertificado);
+                certificadoEnDisco = LeerCertificadoDeDisco(DevolverRuta(cuit));
 
                 //--- codifico el msje
                 Encoding encodeMsg = Encoding.UTF8;
@@ -163,6 +160,38 @@ namespace TestFacturaElectronica.Dominio
             {
                 throw new Exception("ERROR AL LEER EL ARCHIVO DEL DISCO: " + ex.Message);
             }
+        }
+
+        public string DevolverRuta(long cuit)
+        {
+            string rutaDevolver;
+            try
+            {
+                DirectoryInfo infoCarpeta = new DirectoryInfo(RutaCertificadoPredef + cuit.ToString() + @"\");
+                FileInfo[] infoArchivo = infoCarpeta.GetFiles("*.p12");
+                if (infoArchivo.Length > 0)
+                {
+                    rutaDevolver = infoArchivo[0].FullName;
+                }
+                else
+                {
+                    rutaDevolver = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return rutaDevolver;
+
+            //string[] files = Directory.GetFiles(RutaCertificadoPredef + cuit.ToString(), "*.*");
+
+            //if (files.Length > 0)
+            //{
+            //    string file = files[0];
+            //}
+            //return files[0].FullName;
         }
 
         /// <summary>

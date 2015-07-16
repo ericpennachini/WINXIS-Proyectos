@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TestFacturaElectronica.PruebaConsola.localhost;
-using TestFacturaElectronica.PruebaConsola.localhost;
 
 namespace TestFacturaElectronica.PruebaConsola
 {
@@ -103,6 +102,7 @@ namespace TestFacturaElectronica.PruebaConsola
                                 Console.WriteLine("- Nro. de comprobante: " + det.CbteDesde);
                                 Console.WriteLine("- CUIT: " + det.DocNro);
                                 Console.WriteLine("- CAE: " + det.CAE + ", con fecha de vto.: " + det.CAEFchVto);
+                                Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>");
                             }
                             break;
                         case "P":

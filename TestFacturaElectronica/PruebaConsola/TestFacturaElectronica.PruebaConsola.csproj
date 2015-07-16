@@ -77,13 +77,10 @@
     <None Include="Service References\localhost\TestFacturaElectronica.PruebaConsola.localhost.FECAEResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\localhost\WebService1.wsdl" />
+    <None Include="Service References\localhost\WebService11.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\localhost\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\localhost\WebService1.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\localhost\configuration91.svcinfo" />
@@ -96,6 +93,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\localhost\WebService11.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

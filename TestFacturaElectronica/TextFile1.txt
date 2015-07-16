@@ -53,7 +53,11 @@ un CUIT que factura erróneo, etc.. errores a nivel general por eso entraba el ca
 - Se comprobó que funciona con varios detalles o facturas. Se hicieron modificaciones en la clase ServFactElect para que tome bien
 el último comprobante autorizado y use a partir del siguiente.
 
->> TAREA PENDIENTE: a partir del CUIT ingresado y el base a una estructura de directorio armada en base a CUITs de los que facturan, 
-   modificar la clase Autorización para que lea el certificado correspondiente a dicho CUIT ingresado.
+>> TAREA PENDIENTE: a partir del CUIT ingresado y el base a una estructura de directorio armada en base a CUITs de usuarios que 
+   facturan, modificar la clase Autorización para que lea el certificado correspondiente a dicho CUIT ingresado.
    La estructura seria la siguiente:
    ../Certificados/[nro_de_cuit]/[certificado.p12] 
+
+--------------------------------------------------------------------------------
+16/07/2015 10:16 hs.
+- Lee perfecto el certificado del disco con el cuit pasado, buscando en la carpeta definida

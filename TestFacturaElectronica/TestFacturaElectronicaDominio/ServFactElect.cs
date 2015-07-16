@@ -54,7 +54,7 @@ namespace TestFacturaElectronica.Dominio
         /// <param name="cuit">CUIT del contribuyente</param>
         public void Autorizar(long cuit)
         {
-            ObjAutorizacion.ObtenerTicketAcceso();
+            ObjAutorizacion.ObtenerTicketAcceso(cuit);
             Autorizacion.Token = ObjAutorizacion.Token;
             Autorizacion.Sign = ObjAutorizacion.Sign;
             Autorizacion.Cuit = cuit;
