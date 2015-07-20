@@ -1,0 +1,12 @@
+C:\Users\Eric\Documents\Visual Studio 2010\Projects\PruebaMP\PruebaMP\bin\Debug\PruebaMP.exe
+C:\Users\Eric\Documents\Visual Studio 2010\Projects\PruebaMP\PruebaMP\bin\Debug\PruebaMP.pdb
+C:\Users\Eric\Documents\Visual Studio 2010\Projects\PruebaMP\PruebaMP\bin\Debug\mercadopago.dll
+C:\Users\Eric\Documents\Visual Studio 2010\Projects\PruebaMP\PruebaMP\obj\x86\Debug\PruebaMP.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\Visual Studio 2010\Projects\PruebaMP\PruebaMP\obj\x86\Debug\PruebaMP.exe
+C:\Users\Eric\Documents\Visual Studio 2010\Projects\PruebaMP\PruebaMP\obj\x86\Debug\PruebaMP.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\PruebaMP\PruebaMP\obj\x86\Debug\PruebaMP.exe
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\PruebaMP\PruebaMP\obj\x86\Debug\PruebaMP.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\PruebaMP\PruebaMP\bin\Debug\PruebaMP.exe
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\PruebaMP\PruebaMP\bin\Debug\PruebaMP.pdb
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\PruebaMP\PruebaMP\bin\Debug\mercadopago.dll
+C:\Users\Eric\Documents\GitHub\WINXIS-Proyectos\PruebaMP\PruebaMP\obj\x86\Debug\PruebaMP.csprojResolveAssemblyReference.cache

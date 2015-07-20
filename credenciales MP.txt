@@ -1,0 +1,2 @@
+Client_id:	1381942109699869
+Client_secret:	wldQTAJ6PZxdshBAKc0Mc5cGI8D2X7ZD
