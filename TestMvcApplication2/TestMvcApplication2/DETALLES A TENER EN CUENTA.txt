@@ -1,4 +1,5 @@
-﻿| APLICAR LOCALIZACIÓN A UNA SITIO en ASP MVC3 .NET (usando Razor): |
+﻿ ____________________________________________________________________
+| APLICAR LOCALIZACIÓN A UNA SITIO en ASP MVC3 .NET (usando Razor): |
 | [En base al idioma del navegador]                                 |
 |___________________________________________________________________|
 
