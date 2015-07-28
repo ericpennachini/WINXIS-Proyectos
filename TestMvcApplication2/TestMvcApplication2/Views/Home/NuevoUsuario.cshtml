@@ -1,65 +1,81 @@
 ﻿<div id="NuevoUsuario">
-    
     <form name="formAltaUsuario" action="/Abm/AgregarUsuario" method="post" onsubmit="return validarCampos()">
-        
-        @*<div class="indicaciones">   
+    @*<div class="indicaciones">   
             <span>@Idiomas.Resource.NuevoInfo1</span>  
         </div>*@
-
-        <div id="tabs">
-        
+    <div id="tabs">
         <ul>
-            <li> <a href="#tab-1"> @Idiomas.Resource.NuevoInfo1 </a> </li>
-            <li> <a href="#tab-2"> @Idiomas.Resource.NuevoInfo2 </a> </li>
+            <li><a href="#tab-1">@Idiomas.Resource.NuevoInfo1 </a></li>
+            <li><a href="#tab-2">@Idiomas.Resource.NuevoInfo2 </a></li>
         </ul>
-        
         <div id="tab-1">
             <table class="tabla">
                 <thead>
                     <tr>
-                        <td>@Idiomas.Resource.TDNI</td>
-                        <td>@Idiomas.Resource.TNombre</td>
-                        <td>@Idiomas.Resource.TApellido</td>
-                        <td>@Idiomas.Resource.TFechaNac</td>
-                        <td>@Idiomas.Resource.TDomicilio</td>
-                        <td>@Idiomas.Resource.TLocalidad</td>
+                        <td>@Idiomas.Resource.TDNI
+                        </td>
+                        <td>@Idiomas.Resource.TNombre
+                        </td>
+                        <td>@Idiomas.Resource.TApellido
+                        </td>
+                        <td>@Idiomas.Resource.TFechaNac
+                        </td>
+                        <td>@Idiomas.Resource.TDomicilio
+                        </td>
+                        <td>@Idiomas.Resource.TLocalidad
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td> <input type="text" name="dni"/> </td>
-                        <td> <input type="text" name="nombre"/> </td>
-                        <td> <input type="text" name="apellido"/> </td>
-                        <td> <input type="text" name="fecha_nacimiento"/> </td>
-                        <td> <input type="text" name="domicilio"/> </td>
-                        <td> <input type="text" name="localidad"/> </td>
+                        <td>
+                            <input type="text" name="dni" />
+                        </td>
+                        <td>
+                            <input type="text" name="nombre" />
+                        </td>
+                        <td>
+                            <input type="text" name="apellido" />
+                        </td>
+                        <td>
+                            <input type="text" name="fecha_nacimiento" />
+                        </td>
+                        <td>
+                            <input type="text" name="domicilio" />
+                        </td>
+                        <td>
+                            <input type="text" name="localidad" />
+                        </td>
                     </tr>
                 </tbody>
-            </table>    
+            </table>
         </div>
-
         @*<div class="indicaciones">   
             <span>@Idiomas.Resource.NuevoInfo2</span>  
         </div>*@
-
         <div id="tab-2">
             <table class="tabla">
                 <thead>
                     <tr>
                         <!-- <td></td> -->
-                        <td>@Idiomas.Resource.TTelefono</td>
-                        <td>@Idiomas.Resource.TTipoTel</td>
-                        <td>@Idiomas.Resource.TMail</td>
-                        <td>@Idiomas.Resource.TTipoMail</td>
+                        <td>@Idiomas.Resource.TTelefono
+                        </td>
+                        <td>@Idiomas.Resource.TTipoTel
+                        </td>
+                        <td>@Idiomas.Resource.TMail
+                        </td>
+                        <td>@Idiomas.Resource.TTipoMail
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <!-- <td> <input type="checkbox" name="check1" id="check1"/> </td> -->
-                        <td> <input type="text" name="telefono1" id="telefono1"/> </td>
-                        <!-- <td> <input type="text" name="tipoTel1" id="tipoTel1"/> </td> -->
+                        <td>
+                            <input type="text" name="telefono1" id="telefono1" />
+                        </td>
+                        @*<td> <input type="text" name="tipoTel1" id="tipoTel1"/> </td>*@
                         <!-- SELECT2 -->
-
                         <td>
                             <select id="tipoTel1" name="tipoTel1" data-placeholder="seleccione...">
                                 <option value=""></option>
@@ -69,41 +85,87 @@
                                 <option value="Trabajo">Trabajo</option>
                             </select>
                         </td>
-
-                        <td> <input type="text" name="mail1" id="mail1"/> </td>
-                        <td> <input type="text" name="tipoMail1" id="tipoMail1"/> </td>
+                        <td>
+                            <input type="text" name="mail1" id="mail1" />
+                        </td>
+                        <td>
+                            <select id="tipoMail1" name="tipoMail1" data-placeholder="seleccione...">
+                                <option value=""></option>
+                                <option value="Personal">Personal</option>
+                                <option value="Fijo">Trabajo</option>
+                                <option value="Academico">Academico</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <!-- <td> <input type="checkbox" name="check2" id="check2"/> </td> -->
-                        <td> <input type="text" name="telefono2" id="telefono2"/> </td>
-                        <td> <input type="text" name="tipoTel2" id="tipoTel2"/> </td>
-                        <td> <input type="text" name="mail2" id="mail2"/> </td>
-                        <td> <input type="text" name="tipoMail2" id="tipoMail2"/> </td>
+                        <td>
+                            <input type="text" name="telefono2" id="telefono2" />
+                        </td>
+                        <td>
+                            <select id="tipoTel2" name="tipoTel2" data-placeholder="seleccione...">
+                                <option value=""></option>
+                                <option value="Personal">Personal</option>
+                                <option value="Fijo">Fijo</option>
+                                <option value="Celular">Celular</option>
+                                <option value="Trabajo">Trabajo</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" name="mail2" id="mail2" />
+                        </td>
+                        <td>
+                            <select id="tipoMail2" name="tipoMail2" data-placeholder="seleccione...">
+                                <option value=""></option>
+                                <option value="Personal">Personal</option>
+                                <option value="Fijo">Trabajo</option>
+                                <option value="Academico">Academico</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <!-- <td> <input type="checkbox" name="check3" id="check3"/> </td> -->
-                        <td> <input type="text" name="telefono3" id="telefono3"/> </td>
-                        <td> <input type="text" name="tipoTel3" id="tipoTel3"/> </td>
-                        <td> <input type="text" name="mail3" id="mail3"/> </td>
-                        <td> <input type="text" name="tipoMail3" id="tipoMail3"/> </td>
+                        <td>
+                            <input type="text" name="telefono3" id="telefono3" />
+                        </td>
+                        <td>
+                            <select id="tipoTel3" name="tipoTel3" data-placeholder="seleccione...">
+                                <option value=""></option>
+                                <option value="Personal">Personal</option>
+                                <option value="Fijo">Fijo</option>
+                                <option value="Celular">Celular</option>
+                                <option value="Trabajo">Trabajo</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" name="mail3" id="mail3" />
+                        </td>
+                        <td>
+                            <select id="tipoMail3" name="tipoMail3" data-placeholder="seleccione...">
+                                <option value=""></option>
+                                <option value="Personal">Personal</option>
+                                <option value="Fijo">Trabajo</option>
+                                <option value="Academico">Academico</option>
+                            </select>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
-        </div>
-   
-        <div class="boton-submit">
-            <input id="boton_submit" type="submit" value="@Idiomas.Resource.Submit"/>
-        </div>
-
+    </div>
+    <div class="boton-submit">
+        <input id="boton_submit" type="submit" value="@Idiomas.Resource.Submit"/>
+    </div>
     </form>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#tipoTel1").select2();
+            $("#tipoMail1").select2();
+            $("#tipoTel2").select2();
+            $("#tipoMail2").select2();
+            $("#tipoTel3").select2();
+            $("#tipoMail3").select2();
             $("#tabs").tabs();
         });
     </script>
-
-
 </div>
